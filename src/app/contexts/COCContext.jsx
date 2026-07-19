@@ -155,8 +155,56 @@ export function COCProvider({ children }) {
       localStorage.setItem("lims_coc_details", JSON.stringify(cocDetails));
   }, [cocDetails]);
 
+  const addCOC = (coc, details) => {
+    setCocs((prev) => [coc, ...prev]);
+    setCocDetails((prev) => ({
+      ...prev,
+      [coc.cocNumber]: details,
+    }));
+  };
+
+  const updateCOC = (cocNumber, updates) => {
+    setCocs((prev) =>
+      prev.map((coc) =>
+        coc.cocNumber === cocNumber ? { ...coc, ...updates } : coc,
+      ),
+    );
+  };
+
+  const updateCOCDetails = (cocNumber, updates) => {
+    setCocDetails((prev) => ({
+      ...prev,
+      [cocNumber]: {
+        ...prev[cocNumber],
+        ...updates,
+      },
+    }));
+  };
+
+  const getCOCDetails = (cocNumber) => {
+    return cocDetails[cocNumber] || null;
+  };
+
+  const deleteCOC = (cocNumber) => {
+    setCocs((prev) => prev.filter((coc) => coc.cocNumber !== cocNumber));
+    setCocDetails((prev) => {
+      const { [cocNumber]: _, ...rest } = prev;
+      return rest;
+    });
+  };
+
   return (
-    <COCContext.Provider value={{ cocs, cocDetails }}>
+    <COCContext.Provider
+      value={{
+        cocs,
+        cocDetails,
+        addCOC,
+        updateCOC,
+        updateCOCDetails,
+        getCOCDetails,
+        deleteCOC,
+      }}
+    >
       {children}
     </COCContext.Provider>
   );
