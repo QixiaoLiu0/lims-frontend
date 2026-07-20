@@ -71,9 +71,41 @@ export function UserProvider({ children }) {
     }
   }, [user, isInitialized]);
 
+const setUserRole = (role) => {
+    setUser((prev) => prev ? { ...prev, role } : null);
+  };
+
+  const login = (username, password) => {
+    // Validate credentials
+    const role = Object.entries(DEMO_CREDENTIALS).find(
+      ([_, creds]) => creds.username === username && creds.password === password
+    )?.[0];
+
+    if (!role) {
+      return false; // Invalid credentials
+    }
+
+    // Set the authenticated user
+    setUser({
+      id: 'demo-user',
+      name: role === 'staff' ? 'Staff User' : role === 'admin' ? 'Admin User' : 'Super Admin',
+      email: `${role}@lab.com`,
+      role
+    });
+
+    return true; // Successful login
+  };
+
+  const logout = () => {
+    setUser(null);
+  };
+
   return (
     <UserContext.Provider value={{
       user,
+      setUserRole,
+      login,
+      logout,
       isAuthenticated: !!user,
       allUsers
     }}>
