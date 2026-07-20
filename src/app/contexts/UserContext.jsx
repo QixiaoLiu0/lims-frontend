@@ -100,6 +100,25 @@ const setUserRole = (role) => {
     setUser(null);
   };
 
+  const addUser = (newUser) => {
+    const user = {
+      ...newUser,
+      id: `user-${Date.now()}`,
+      createdAt: new Date().toISOString().split('T')[0]
+    };
+    setAllUsers((prev) => [...prev, user]);
+  };
+
+  const deleteUser = (userId) => {
+    setAllUsers((prev) => prev.filter((u) => u.id !== userId));
+  };
+
+  const updateUserRole = (userId, newRole) => {
+    setAllUsers((prev) => prev.map((u) =>
+    u.id === userId ? { ...u, role: newRole } : u
+    ));
+  };
+
   return (
     <UserContext.Provider value={{
       user,
@@ -107,11 +126,13 @@ const setUserRole = (role) => {
       login,
       logout,
       isAuthenticated: !!user,
-      allUsers
+      allUsers,
+      addUser,
+      deleteUser,
+      updateUserRole
     }}>
       {children}
-    </UserContext.Provider>
-  );
+    </UserContext.Provider>);
 }
 
 export function useUser() {
