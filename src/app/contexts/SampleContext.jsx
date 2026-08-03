@@ -1,26 +1,19 @@
-import {
-  createContext,
-  useContext,
-  useState,
-  ReactNode,
-  useEffect,
-} from "react";
-import { mockSamples } from "@/app/data/mockData";
+import { createContext, useContext, useState, ReactNode, useEffect } from 'react';
+import { mockSamples } from '@/app/data/mockData';
+
+
 
 const SampleContext = createContext(undefined);
 
 export function SampleProvider({ children }) {
   const [samples, setSamples] = useState(() => {
-    const stored =
-      typeof window !== "undefined"
-        ? localStorage.getItem("lims_samples")
-        : null;
+    const stored = typeof window !== 'undefined' ? localStorage.getItem('lims_samples') : null;
     return stored ? JSON.parse(stored) : mockSamples;
   });
 
+  // Save to localStorage whenever samples change
   useEffect(() => {
-    if (typeof window !== "undefined")
-      localStorage.setItem("lims_samples", JSON.stringify(samples));
+    if (typeof window !== 'undefined') localStorage.setItem('lims_samples', JSON.stringify(samples));
   }, [samples]);
 
   const addSample = (sample) => {
@@ -29,9 +22,9 @@ export function SampleProvider({ children }) {
 
   const updateSample = (sampleId, updates) => {
     setSamples((prev) =>
-      prev.map((sample) =>
-        sample.id === sampleId ? { ...sample, ...updates } : sample,
-      ),
+    prev.map((sample) =>
+    sample.id === sampleId ? { ...sample, ...updates } : sample
+    )
     );
   };
 
@@ -45,11 +38,9 @@ export function SampleProvider({ children }) {
 
   const updateSampleVolume = (sampleId, newVolume) => {
     setSamples((prev) =>
-      prev.map((sample) =>
-        sample.id === sampleId
-          ? { ...sample, remainingVolume: newVolume }
-          : sample,
-      ),
+    prev.map((sample) =>
+    sample.id === sampleId ? { ...sample, remainingVolume: newVolume } : sample
+    )
     );
   };
 
@@ -58,26 +49,24 @@ export function SampleProvider({ children }) {
   };
 
   return (
-    <SampleContext.Provider
-      value={{
-        samples,
-        addSample,
-        updateSample,
-        getSamplesByCOC,
-        getSample,
-        updateSampleVolume,
-        deleteSample,
-      }}
-    >
+    <SampleContext.Provider value={{
+      samples,
+      addSample,
+      updateSample,
+      getSamplesByCOC,
+      getSample,
+      updateSampleVolume,
+      deleteSample
+    }}>
       {children}
-    </SampleContext.Provider>
-  );
+    </SampleContext.Provider>);
+
 }
 
 export function useSample() {
   const context = useContext(SampleContext);
   if (context === undefined) {
-    throw new Error("useSample must be used within a SampleProvider");
+    throw new Error('useSample must be used within a SampleProvider');
   }
   return context;
 }
