@@ -1,4 +1,4 @@
-import { Settings, LogOut } from "lucide-react";
+import { Settings, LogOut, Bot } from "lucide-react";
 import { useUser } from "@/app/contexts/UserContext";
 import { useRouter } from "next/navigation";
 
@@ -14,6 +14,9 @@ export default function Header({
   const handleLogout = () => {
     logout();
     router.push("/");
+  };
+  const pushChatBox = () => {
+    router.push("/chat-box");
   };
 
   return (
@@ -44,10 +47,19 @@ export default function Header({
                         : "Super Admin"}
                   </p>
                 </div>
+
+                {/* chat box entrance */}
+                <button
+                  onClick={pushChatBox}
+                  className="p-1 text-white hover:bg-slate-600 rounded-lg transition"
+                >
+                  <Bot className="w-5 h-5" />
+                </button>
+
                 {onSettingsClick && (
                   <button
                     onClick={onSettingsClick}
-                    className="p-2 text-white hover:bg-slate-600 rounded-lg transition"
+                    className="p-1 text-white hover:bg-slate-600 rounded-lg transition"
                     title="Settings"
                   >
                     <Settings className="w-5 h-5" />
@@ -55,7 +67,7 @@ export default function Header({
                 )}
                 <button
                   onClick={handleLogout}
-                  className="p-2 text-white hover:bg-slate-600 rounded-lg transition"
+                  className="p-1 text-white hover:bg-slate-600 rounded-lg transition"
                   title="Logout"
                 >
                   <LogOut className="w-5 h-5" />
