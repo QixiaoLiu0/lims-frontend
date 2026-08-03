@@ -1,7 +1,6 @@
-export default function Home() {
-  return (
-    <main>
-      {/* Root landing page */}
-    </main>
-  );
+import { redirect } from "next/navigation";
+
+export default function LandingPage() {
+  redirect("/login");
+  return null;
 }
