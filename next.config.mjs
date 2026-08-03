@@ -4,11 +4,11 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: '/api/:path*',
-        destination: 'http://localhost:8080/api/:path*',
+        source: "/lims-backend-local/api/:path*",
+        destination: "http://java-backend:8080/lims-backend-local/api/:path*",
       },
-    ]
+    ];
   },
-}
+};
 
-export default nextConfig
+export default nextConfig;
