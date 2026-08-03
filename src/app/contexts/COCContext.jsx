@@ -11,9 +11,9 @@ const COCContext = createContext(undefined);
 // Initial mock COCs
 const initialCOCs = [
   {
-    cocNumber: "COC-2026-001",
+    cocNumber: "COC-2024-001",
     clientName: "City Water Department",
-    dateReceived: "2026-01-15",
+    dateReceived: "2024-01-15",
     sampleCount: 5,
     status: "Completed",
     samples: [
@@ -23,13 +23,14 @@ const initialCOCs = [
       { id: "S_WW_01", type: "Wastewater" },
       { id: "S_SW_01", type: "Surface Water" },
     ],
+
     testsCompleted: 40,
     totalTests: 40,
   },
   {
-    cocNumber: "COC-2026-002",
+    cocNumber: "COC-2024-002",
     clientName: "ABC Manufacturing",
-    dateReceived: "2026-01-18",
+    dateReceived: "2024-01-18",
     sampleCount: 3,
     status: "In Progress",
     samples: [
@@ -37,13 +38,14 @@ const initialCOCs = [
       { id: "S_IE_02", type: "Industrial Effluent" },
       { id: "S_PW_01", type: "Process Water" },
     ],
+
     testsCompleted: 15,
     totalTests: 24,
   },
   {
-    cocNumber: "COC-2026-003",
+    cocNumber: "COC-2024-003",
     clientName: "Green Valley Community",
-    dateReceived: "2026-01-20",
+    dateReceived: "2024-01-20",
     sampleCount: 4,
     status: "Completed",
     samples: [
@@ -52,13 +54,14 @@ const initialCOCs = [
       { id: "S_DW_06", type: "Drinking Water" },
       { id: "S_DW_07", type: "Drinking Water" },
     ],
+
     testsCompleted: 32,
     totalTests: 32,
   },
   {
-    cocNumber: "COC-2026-004",
+    cocNumber: "COC-2024-004",
     clientName: "River Basin Authority",
-    dateReceived: "2026-01-22",
+    dateReceived: "2024-01-22",
     sampleCount: 6,
     status: "In Progress",
     samples: [
@@ -69,64 +72,65 @@ const initialCOCs = [
       { id: "S_SW_04", type: "Surface Water" },
       { id: "S_GW_03", type: "Groundwater" },
     ],
+
     testsCompleted: 30,
     totalTests: 48,
   },
 ];
 
 const initialCOCDetails = {
-  "COC-2026-001": {
+  "COC-2024-001": {
     clientName: "City Water Department",
-    dateReceived: "2026-01-15",
+    dateReceived: "2024-01-15",
     location: "Downtown Treatment Plant",
     status: "Completed",
-    projectName: "Water Quality Assessment 2026",
+    projectName: "Water Quality Assessment 2024",
     receivedBy: "Sarah Johnson",
     relinquishedBy: "Mike Chen",
     receivedTime: "09:30 AM",
-    dateRequired: "2026-01-22",
+    dateRequired: "2024-01-22",
     isRush: false,
-    createdAt: "2026-01-15 09:30:00",
+    createdAt: "2024-01-15 09:30:00",
   },
-  "COC-2026-002": {
+  "COC-2024-002": {
     clientName: "ABC Manufacturing",
-    dateReceived: "2026-01-18",
+    dateReceived: "2024-01-18",
     location: "Industrial District",
     status: "In Progress",
     projectName: "Industrial Wastewater Monitoring",
     receivedBy: "John Smith",
     relinquishedBy: "Emily Davis",
     receivedTime: "02:15 PM",
-    dateRequired: "2026-01-25",
+    dateRequired: "2024-01-25",
     isRush: true,
-    dateForRush: "2026-01-20",
-    createdAt: "2026-01-18 14:15:00",
+    dateForRush: "2024-01-20",
+    createdAt: "2024-01-18 14:15:00",
   },
-  "COC-2026-003": {
+  "COC-2024-003": {
     clientName: "Green Valley Community",
-    dateReceived: "2026-01-20",
+    dateReceived: "2024-01-20",
     location: "Residential Area",
     status: "Completed",
     projectName: "Community Water Safety Check",
     receivedBy: "Sarah Johnson",
     relinquishedBy: "Robert Lee",
     receivedTime: "10:00 AM",
-    dateRequired: "2026-01-27",
+    dateRequired: "2024-01-27",
     isRush: false,
-    createdAt: "2026-01-20 10:00:00",
+    createdAt: "2024-01-20 10:00:00",
   },
-  "COC-2026-004": {
+  "COC-2024-004": {
     clientName: "River Basin Authority",
-    dateReceived: "2026-01-22",
+    dateReceived: "2024-01-22",
     location: "Basin Monitoring Site",
     status: "In Progress",
     projectName: "Environmental Impact Study",
     receivedBy: "John Smith",
     relinquishedBy: "Amanda White",
     receivedTime: "11:45 AM",
-    dateRequired: "2026-01-29",
+    dateRequired: "2024-01-29",
     isRush: false,
-    createdAt: "2026-01-22 11:45:00",
+    createdAt: "2024-01-22 11:45:00",
   },
 };
 
@@ -145,6 +149,7 @@ export function COCProvider({ children }) {
     return stored ? JSON.parse(stored) : initialCOCDetails;
   });
 
+  // Save to localStorage whenever cocs or cocDetails change
   useEffect(() => {
     if (typeof window !== "undefined")
       localStorage.setItem("lims_cocs", JSON.stringify(cocs));
@@ -185,14 +190,6 @@ export function COCProvider({ children }) {
     return cocDetails[cocNumber] || null;
   };
 
-  const deleteCOC = (cocNumber) => {
-    setCocs((prev) => prev.filter((coc) => coc.cocNumber !== cocNumber));
-    setCocDetails((prev) => {
-      const { [cocNumber]: _, ...rest } = prev;
-      return rest;
-    });
-  };
-
   return (
     <COCContext.Provider
       value={{
@@ -202,7 +199,6 @@ export function COCProvider({ children }) {
         updateCOC,
         updateCOCDetails,
         getCOCDetails,
-        deleteCOC,
       }}
     >
       {children}
