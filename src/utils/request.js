@@ -1,5 +1,9 @@
-// http://localhost:8080/api
-const BASE_URL = process.env.NEXT_PUBLIC_API_URL;
+const BASE_URL =
+  process.env.NODE_ENV === "development"
+    ? "http://localhost:8080/lims-backend-local/api"
+    : "/lims-backend-local/api";
+
+console.log("current environment:", process.env.NODE_ENV, "URL is:", BASE_URL);
 
 export async function http(url, options = {}) {
   const token =
