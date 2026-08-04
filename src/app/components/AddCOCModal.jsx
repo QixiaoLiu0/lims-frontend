@@ -87,7 +87,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                   <input
                     type="text"
                     value={cocNumberInput}
-                    onChange={e => setCocNumberInput(e.target.value)}
+                    onChange={(e) => setCocNumberInput(e.target.value)}
                     className="w-full px-4 py-3 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 placeholder-slate-500 font-mono"
                     placeholder="Enter coc number"
                     required
@@ -103,7 +103,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                   <input
                     type="text"
                     value={clientName}
-                    onChange={e => setClientName(e.target.value)}
+                    onChange={(e) => setClientName(e.target.value)}
                     className="w-full px-4 py-3 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 placeholder-slate-500"
                     placeholder="Enter client name"
                     required
@@ -119,7 +119,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                   <input
                     type="text"
                     value={projectName}
-                    onChange={e => setProjectName(e.target.value)}
+                    onChange={(e) => setProjectName(e.target.value)}
                     className="w-full px-4 py-3 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 placeholder-slate-500"
                     placeholder="Enter project name"
                   />
@@ -134,7 +134,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                   <input
                     type="text"
                     value={receiver}
-                    onChange={e => setReceiver(e.target.value)}
+                    onChange={(e) => setReceiver(e.target.value)}
                     className="w-full px-4 py-3 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100"
                     required
                     placeholder="Enter receiver name"
@@ -150,7 +150,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                   <input
                     type="datetime-local"
                     value={receivedTime}
-                    onChange={e => setReceivedTime(e.target.value)}
+                    onChange={(e) => setReceivedTime(e.target.value)}
                     className="w-full px-4 py-3 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100"
                   />
                 </div>
@@ -164,7 +164,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                   <input
                     type="text"
                     value={reportName}
-                    onChange={e => setReportName(e.target.value)}
+                    onChange={(e) => setReportName(e.target.value)}
                     className="w-full px-4 py-3 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 placeholder-slate-500"
                     placeholder="Name for report recipient"
                   />
@@ -179,7 +179,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                   <input
                     type="email"
                     value={reportEmail}
-                    onChange={e => setReportEmail(e.target.value)}
+                    onChange={(e) => setReportEmail(e.target.value)}
                     className="w-full px-4 py-3 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 placeholder-slate-500"
                     placeholder="email@example.com"
                   />
@@ -236,7 +236,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                     <input
                       type="date"
                       value={rushRequestDate}
-                      onChange={e => setRushRequestDate(e.target.value)}
+                      onChange={(e) => setRushRequestDate(e.target.value)}
                       className="w-full px-4 py-3 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100"
                       required={rushRequest}
                     />
@@ -254,8 +254,9 @@ export default function AddCOCModal({ onAdd, onClose }) {
                   <input
                     type="datetime-local"
                     value={relinquishedTime}
-                    onChange={e => setRelinquishedTime(e.target.value)}
+                    onChange={(e) => setRelinquishedTime(e.target.value)}
                     className="w-full px-4 py-3 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100"
+                    required
                   />
                 </div>
 
@@ -268,7 +269,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                   <input
                     type="date"
                     value={dateRequired}
-                    onChange={e => setDateRequired(e.target.value)}
+                    onChange={(e) => setDateRequired(e.target.value)}
                     className="w-full px-4 py-3 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100"
                     required
                   />
@@ -283,7 +284,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                   <input
                     type="text"
                     value={relinquisher}
-                    onChange={e => setRelinquisher(e.target.value)}
+                    onChange={(e) => setRelinquisher(e.target.value)}
                     className="w-full px-4 py-3 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100"
                     required
                     placeholder="Enter relinquisher name"
@@ -300,7 +301,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                     type="number"
                     min={0}
                     value={totalContainers}
-                    onChange={e =>
+                    onChange={(e) =>
                       setTotalBottles(
                         e.target.value === "" ? "" : Number(e.target.value),
                       )
@@ -371,7 +372,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                           <input
                             type="text"
                             value={sample.sampleClientId}
-                            onChange={e =>
+                            onChange={(e) =>
                               updateSample(
                                 sample.id,
                                 "sampleClientId",
@@ -389,7 +390,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                           </label>
                           <select
                             value={sample.sampleType}
-                            onChange={e =>
+                            onChange={(e) =>
                               updateSample(
                                 sample.id,
                                 "sampleType",
@@ -410,13 +411,13 @@ export default function AddCOCModal({ onAdd, onClose }) {
                           </label>
                           <select
                             value={sample.matrix}
-                            onChange={e =>
+                            onChange={(e) =>
                               updateSample(sample.id, "matrix", e.target.value)
                             }
                             className="w-full px-3 py-2 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 text-base"
                             required
                           >
-                            {matrixs.map(type => (
+                            {matrixs.map((type) => (
                               <option key={type} value={type}>
                                 {type}
                               </option>
@@ -431,7 +432,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                           </label>
                           <select
                             value={sample.samplingPoint}
-                            onChange={e =>
+                            onChange={(e) =>
                               updateSample(
                                 sample.id,
                                 "samplingPoint",
@@ -449,7 +450,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                             <input
                               type="text"
                               value={sample.customSamplingPoint}
-                              onChange={e =>
+                              onChange={(e) =>
                                 updateSample(
                                   sample.id,
                                   "customSamplingPoint",
@@ -472,7 +473,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                           <input
                             type="date"
                             value={sample.collectionDate}
-                            onChange={e =>
+                            onChange={(e) =>
                               updateSample(
                                 sample.id,
                                 "collectionDate",
@@ -493,7 +494,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                           <input
                             type="time"
                             value={sample.collectionTime}
-                            onChange={e =>
+                            onChange={(e) =>
                               updateSample(
                                 sample.id,
                                 "collectionTime",
@@ -513,7 +514,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                           <input
                             type="number"
                             value={sample.initialVolume}
-                            onChange={e =>
+                            onChange={(e) =>
                               updateSample(
                                 sample.id,
                                 "initialVolume",
@@ -533,7 +534,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                           <input
                             type="number"
                             value={sample.numberOfContainers}
-                            onChange={e =>
+                            onChange={(e) =>
                               updateSample(
                                 sample.id,
                                 "numberOfContainers",
@@ -634,7 +635,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                           Tests can be added later from the sample details page
                         </p>
                         <div className="flex flex-wrap gap-2">
-                          {testTypesForCocCreation.map(test => (
+                          {testTypesForCocCreation.map((test) => (
                             <button
                               key={test.testTypeId}
                               type="button"
