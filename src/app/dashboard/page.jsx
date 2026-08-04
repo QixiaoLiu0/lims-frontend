@@ -59,7 +59,7 @@ export default function Dashboard() {
       />
 
       {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 py-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         {/* Breadcrumbs */}
         <Breadcrumbs items={[]} />
 
@@ -67,26 +67,26 @@ export default function Dashboard() {
         <div className="mb-4">
           {/* Search — full width */}
           <div className="relative mb-4">
-            <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-blue-500" />
+            <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-blue-500" />
             <input
+              className="w-full pl-11 sm:pl-12 pr-4 py-3 bg-white dark:bg-slate-800 border-2 border-slate-300 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-400 outline-none shadow-lg text-gray-900 dark:text-slate-100 placeholder-gray-600 dark:placeholder-slate-400"
               type="text"
               placeholder="Search by COC Number or Client Name..."
               value={searchQuery}
-              onChange={e => setSearchQuery(e.target.value)}
-              className="w-full pl-12 pr-4 py-3 bg-white dark:bg-slate-800 border-2 border-slate-300 dark:border-slate-600 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-blue-400 outline-none shadow-lg text-gray-900 dark:text-slate-100 placeholder-gray-600 dark:placeholder-slate-400"
+              onChange={(e) => setSearchQuery(e.target.value)}
             />
           </div>
 
           {/* Filter bar — date left, status right */}
-          <div className="flex items-center justify-between gap-4 bg-white dark:bg-slate-800 rounded-xl p-4 shadow-lg border-2 border-slate-300 dark:border-slate-600">
+          <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-5 bg-white dark:bg-slate-800 rounded-xl p-4 shadow-lg border-2 border-slate-300 dark:border-slate-600">
             {/* Date filters */}
-            <div className="flex items-center gap-4">
+            <div className="flex flex-col lg:flex-row lg:items-center gap-4 w-full">
               <div className="flex items-center gap-2 text-base text-gray-900 dark:text-slate-100">
                 <Calendar className="w-4 h-4 text-gray-900 dark:text-slate-100" />
                 <span className="font-medium">Filter by Date:</span>
               </div>
-              <div className="flex items-center gap-3">
-                <div className="flex items-center gap-2">
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2">
                   <label className="text-base text-gray-800 dark:text-slate-200">
                     From:
                   </label>
@@ -94,18 +94,18 @@ export default function Dashboard() {
                   <input
                     type="date"
                     value={startDate}
-                    onChange={e => setStartDate(e.target.value)}
+                    onChange={(e) => setStartDate(e.target.value)}
                     className="px-3 py-2 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-base text-slate-900 dark:text-slate-100 [color-scheme:light] dark:[color-scheme:dark]"
                   />
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="flex flex-col sm:flex-row sm:items-center gap-2">
                   <label className="text-base text-gray-800 dark:text-slate-200">
                     To:
                   </label>
                   <input
                     type="date"
                     value={endDate}
-                    onChange={e => setEndDate(e.target.value)}
+                    onChange={(e) => setEndDate(e.target.value)}
                     className="px-3 py-2 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-base text-slate-900 dark:text-slate-100 [color-scheme:light] dark:[color-scheme:dark]"
                   />
                 </div>
@@ -121,10 +121,10 @@ export default function Dashboard() {
             </div>
 
             {/* Status filter — far right */}
-            <div className="relative flex-shrink-0">
+            <div className="relative w-full sm:w-auto">
               <button
                 onClick={() => setShowStatusDropdown(!showStatusDropdown)}
-                className="px-4 py-2 bg-white dark:bg-slate-700 border-2 border-slate-300 dark:border-slate-600 rounded-xl shadow hover:shadow-md transition flex items-center gap-2 min-w-[160px] justify-between"
+                className="w-full sm:min-w-[170px] sm:w-auto px-4  py-2 bg-white dark:bg-slate-700 border-2 border-slate-300 dark:border-slate-600 rounded-xl shadow hover:shadow-md transition flex items-center justify-between"
               >
                 <span className="text-gray-900 dark:text-slate-100 font-medium">
                   {selectedStatuses.length === 0
@@ -135,8 +135,11 @@ export default function Dashboard() {
               </button>
 
               {showStatusDropdown && (
-                <div className="absolute top-full mt-2 right-0 bg-white dark:bg-slate-800 rounded-xl shadow-2xl border-2 border-slate-300 dark:border-slate-600 py-2 min-w-[200px] z-50">
-                  {["Completed", "In Progress"].map(status => (
+                <div
+                  className="absolute top-full left-0 mt-2 w-full sm:w-56 bg-white dark:bg-slate-800 
+                            rounded-xl shadow-2xl border-2 border-slate-300 dark:border-slate-600 py-2 z-50"
+                >
+                  {["Completed", "In Progress"].map((status) => (
                     <label
                       key={status}
                       className="flex items-center gap-3 px-4 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 cursor-pointer"
@@ -145,9 +148,9 @@ export default function Dashboard() {
                         type="checkbox"
                         checked={selectedStatuses.includes(status)}
                         onChange={() => {
-                          setSelectedStatuses(prev =>
+                          setSelectedStatuses((prev) =>
                             prev.includes(status)
-                              ? prev.filter(s => s !== status)
+                              ? prev.filter((s) => s !== status)
                               : [...prev, status],
                           );
                         }}
@@ -176,13 +179,14 @@ export default function Dashboard() {
         </div>
 
         {/* Recent COCs Section */}
-        <div className="flex items-center justify-between mb-2">
-          <h2 className="text-3xl font-bold text-slate-900 dark:text-slate-100 drop-shadow-sm">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
+          <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-slate-100">
             Recent COCs
           </h2>
           <AnimatedButton
             onClick={() => setShowAddCOCModal(true)}
-            className="flex items-center gap-2 px-5 py-2.5 bg-slate-200 text-slate-700 dark:bg-slate-700 dark:text-slate-300 rounded-lg hover:bg-[#ffb800] hover:text-slate-900 dark:hover:bg-[#ffb800] dark:hover:text-slate-900 transition shadow-md font-bold"
+            className="w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-3 bg-yellow-400 hover:bg-yellow-500 text-slate-900
+                       font-semibold rounded-xl shadow-md hover:shadow-lg border border-yellow-500 transition-all duration-200"
           >
             <Plus className="w-5 h-5" />
             Add New COC
@@ -190,14 +194,14 @@ export default function Dashboard() {
         </div>
 
         {/* COC List */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
-          {filteredCOCs.map(coc => (
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-4">
+          {filteredCOCs.map((coc) => (
             <COCCard
               key={coc.cocId}
               coc={coc}
               onNavigate={handleNavigate}
               activeMenuCOC={activeMenuCOC}
-              onMenuClick={id =>
+              onMenuClick={(id) =>
                 setActiveMenuCOC(activeMenuCOC === id ? null : id)
               }
               onMenuAction={(action, id) => {
@@ -208,7 +212,7 @@ export default function Dashboard() {
                 }
               }}
               expandedSamplesCOC={expandedSamplesCOC === coc.cocId}
-              onToggleSamples={id =>
+              onToggleSamples={(id) =>
                 setExpandedSamplesCOC(expandedSamplesCOC === id ? null : id)
               }
               canDelete={true}
