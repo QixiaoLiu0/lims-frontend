@@ -110,16 +110,20 @@ export default function SampleDetailPage() {
               </span>
             </div>
 
-            <button
-              onClick={() => {
-                setEditedSample({ ...sample });
-                setIsEditingSample(true);
-              }}
-              className="flex items-center gap-2 px-3 py-1.5 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-lg hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white transition-colors text-sm font-medium leading-tight"
-            >
-              <Edit2 className="w-4 h-4" />
-              Edit
-            </button>
+            {isEditingSample ? (
+              <></>
+            ) : (
+              <button
+                onClick={() => {
+                  setEditedSample({ ...sample });
+                  setIsEditingSample(true);
+                }}
+                className="flex items-center gap-2 px-3 py-1.5 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-lg hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white transition-colors text-sm font-medium leading-tight"
+              >
+                <Edit2 className="w-4 h-4" />
+                Edit
+              </button>
+            )}
 
             {isEditingSample && (
               <div className="flex gap-2">
@@ -157,7 +161,7 @@ export default function SampleDetailPage() {
                 <input
                   type="text"
                   value={editedSample.sampleClientId || ""}
-                  onChange={e =>
+                  onChange={(e) =>
                     setEditedSample({
                       ...editedSample,
                       sampleClientId: e.target.value,
@@ -179,7 +183,7 @@ export default function SampleDetailPage() {
                 <input
                   type="text"
                   value={editedSample.matrix || ""}
-                  onChange={e =>
+                  onChange={(e) =>
                     setEditedSample({ ...editedSample, matrix: e.target.value })
                   }
                   className="w-full px-3 py-1.5 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
@@ -198,7 +202,7 @@ export default function SampleDetailPage() {
                 <input
                   type="datetime-local"
                   value={editedSample.sampledTime?.replace(" ", "T") || ""}
-                  onChange={e =>
+                  onChange={(e) =>
                     setEditedSample({
                       ...editedSample,
                       sampledTime: e.target.value.replace("T", " "),
@@ -219,7 +223,7 @@ export default function SampleDetailPage() {
               {isEditingSample && editedSample ? (
                 <select
                   value={editedSample.status || "Pending"}
-                  onChange={e =>
+                  onChange={(e) =>
                     setEditedSample({ ...editedSample, status: e.target.value })
                   }
                   className="w-full px-3 py-1.5 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
@@ -250,7 +254,7 @@ export default function SampleDetailPage() {
           <div className="flex items-center justify-between mb-6">
             <h2 className="text-2xl font-bold leading-tight text-slate-900 dark:text-slate-100">
               Tests (
-              {testCardData?.filter(t => t.runNumber === 1).length ||
+              {testCardData?.filter((t) => t.runNumber === 1).length ||
                 testCardData?.length ||
                 0}
               )
@@ -295,7 +299,7 @@ export default function SampleDetailPage() {
                             </p>
                           </div>
                         ) : (
-                          testTypes.map(testType => (
+                          testTypes.map((testType) => (
                             <button
                               key={testType.testTypeId}
                               onClick={() =>
