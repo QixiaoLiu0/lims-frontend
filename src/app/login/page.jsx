@@ -52,20 +52,20 @@ export default function Login() {
   return (
     <PageTransition>
       <div className="min-h-screen flex items-center justify-center p-4 bg-grid-pattern">
-        <div className="w-full max-w-6xl bg-white dark:bg-slate-700/10 backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden border-8 border-gray-400">
+        <div className="w-full max-w-6xl bg-white dark:bg-slate-800 backdrop-blur-xl rounded-2xl shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-700">
           <div className="grid grid-cols-1 md:grid-cols-2 min-h-[680px]">
             {/* Left Side */}
-            <div className="bg-[#c0d0df] dark:bg-slate-800 p-6 flex flex-col relative">
+            <div className="bg-slate-200 dark:bg-slate-900 p-8 flex flex-col relative">
               {/* Header */}
-              <div className="flex items-center gap-3 mb-16">
-                <div className="bg-blue-600 p-4 rounded-full">
-                  <Droplet className="w-10 h-10 text-white" />
+              <div className="flex items-center gap-4 mb-16">
+                <div className="bg-blue-600 p-4 rounded-full shadow-md">
+                  <Droplet className="w-8 h-8 text-white" />
                 </div>
                 <div>
-                  <h1 className="text-3xl font-bold text-slate-900 dark:text-slate-100">
-                    WATER SAMPLING LAB111
+                  <h1 className="text-2xl font-bold leading-tight text-slate-900 dark:text-slate-100">
+                    WATER SAMPLING LAB
                   </h1>
-                  <p className="text-slate-700 dark:text-slate-200 text-base mt-1">
+                  <p className="text-sm font-medium text-slate-600 dark:text-slate-400 mt-1 leading-normal">
                     Laboratory access portal.
                   </p>
                 </div>
@@ -77,10 +77,9 @@ export default function Login() {
                   <img
                     src={logo.src}
                     alt="SAIT Logo"
-                    className="w-72 h-auto mx-auto mb-2 mix-blend-multiply dark:mix-blend-normal"
+                    className="w-72 h-auto mx-auto mb-4 mix-blend-multiply dark:mix-blend-normal opacity-90"
                   />
-
-                  <h2 className="text-7xl font-bold text-slate-900 dark:text-slate-100 tracking-wide">
+                  <h2 className="text-6xl font-bold tracking-tight text-slate-900 dark:text-slate-100 leading-none">
                     ARIS
                   </h2>
                 </div>
@@ -88,13 +87,13 @@ export default function Login() {
             </div>
 
             {/* Right Side */}
-            <div className="bg-[#262835] p-6 flex flex-col justify-center">
+            <div className="bg-white dark:bg-slate-800 p-8 flex flex-col justify-center">
               <div className="w-full max-w-md mx-auto">
-                <div className="text-center mb-8">
-                  <h2 className="text-3xl font-bold text-slate-100 mb-2">
+                <div className="text-center mb-10">
+                  <h2 className="text-3xl font-bold leading-tight text-slate-900 dark:text-slate-100 mb-2">
                     Welcome Back
                   </h2>
-                  <p className="text-slate-400">
+                  <p className="text-sm font-medium text-slate-500 dark:text-slate-400 leading-normal">
                     Enter your credentials to login
                   </p>
                 </div>
@@ -104,19 +103,21 @@ export default function Login() {
                   <motion.div
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
-                    className="bg-red-900/50 border-2 border-red-500 rounded-xl p-4 flex items-start gap-3 mb-6"
+                    className="bg-red-50 dark:bg-red-500/10 border border-red-200 dark:border-red-500/30 rounded-xl p-4 flex items-start gap-3 mb-6"
                   >
-                    <AlertCircle className="w-5 h-5 text-red-400 mt-0.5 flex-shrink-0" />
-                    <p className="text-red-200 text-sm">{error}</p>
+                    <AlertCircle className="w-5 h-5 text-red-600 dark:text-red-400 mt-0.5 flex-shrink-0" />
+                    <p className="text-sm font-medium text-red-800 dark:text-red-300 leading-normal">
+                      {error}
+                    </p>
                   </motion.div>
                 )}
 
                 {/* Login Form */}
-                <form onSubmit={handleSubmit} className="space-y-5 mb-8">
+                <form onSubmit={handleSubmit} className="space-y-6 mb-8">
                   <div>
                     <label
                       htmlFor="email"
-                      className="block font-semibold text-slate-200 mb-2"
+                      className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 leading-tight"
                     >
                       Email
                     </label>
@@ -130,11 +131,11 @@ export default function Login() {
                           setError("");
                         }}
                         placeholder="Enter your email"
-                        className="w-full px-4 py-3 bg-slate-800 border-2 border-gray-600 rounded-xl text-slate-100 placeholder-slate-500 focus:ring-0 focus:border-yellow-500 outline-none transition"
+                        className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors text-base"
                       />
 
                       {email && (
-                        <Check className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-green-400" />
+                        <Check className="absolute right-4 top-1/2 transform -translate-y-1/2 w-5 h-5 text-emerald-500" />
                       )}
                     </div>
                   </div>
@@ -142,7 +143,7 @@ export default function Login() {
                   <div>
                     <label
                       htmlFor="password"
-                      className="block font-semibold text-slate-200 mb-2"
+                      className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 leading-tight"
                     >
                       Password
                     </label>
@@ -156,13 +157,13 @@ export default function Login() {
                           setError("");
                         }}
                         placeholder="Enter password"
-                        className="w-full px-4 py-3 bg-slate-800 border-2 border-gray-600 rounded-xl text-slate-100 placeholder-slate-500 focus:ring-0 focus:border-yellow-500 outline-none transition pr-12"
+                        className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors pr-12 text-base"
                       />
 
                       <button
                         type="button"
                         onClick={() => setShowPassword(!showPassword)}
-                        className="absolute right-4 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-slate-200"
+                        className="absolute right-4 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
                       >
                         {showPassword ? (
                           <EyeOff className="w-5 h-5" />
@@ -178,10 +179,10 @@ export default function Login() {
                     disabled={!isFormValid || isLoading}
                     whileHover={{ scale: isFormValid && !isLoading ? 1.02 : 1 }}
                     whileTap={{ scale: isFormValid && !isLoading ? 0.98 : 1 }}
-                    className={`w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-slate-900 font-bold py-4 rounded-xl transition shadow-lg hover:shadow-xl flex items-center justify-center gap-2 ${
+                    className={`w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-slate-900 font-bold py-3.5 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 text-base leading-normal ${
                       !isFormValid || isLoading
                         ? "opacity-50 cursor-not-allowed"
-                        : "hover:from-yellow-400 hover:to-yellow-500"
+                        : "hover:from-yellow-400 hover:to-yellow-500 hover:shadow-lg"
                     }`}
                   >
                     Sign In

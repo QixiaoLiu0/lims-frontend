@@ -73,15 +73,15 @@ export default function AddSampleModal({ onClose, onAdd }) {
 
   return (
     <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 z-50">
-      <div className="bg-white dark:bg-slate-800 rounded-xl max-w-2xl w-full shadow-2xl border border-slate-300 dark:border-slate-600 overflow-hidden flex flex-col max-h-[90vh]">
+      <div className="bg-white dark:bg-slate-800 rounded-2xl max-w-2xl w-full shadow-2xl border border-slate-200 dark:border-slate-700 overflow-hidden flex flex-col max-h-[90vh]">
         {/* Header */}
-        <div className="bg-[#1c1f26] border-b border-slate-600 p-6 flex items-center justify-between shrink-0">
-          <h2 className="text-xl font-bold text-white tracking-tight">
+        <div className="bg-slate-900 dark:bg-slate-950 border-b border-slate-800 p-6 flex items-center justify-between shrink-0">
+          <h2 className="text-lg font-bold text-white tracking-tight leading-tight">
             Add New Sample
           </h2>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-slate-600 rounded-lg transition text-white"
+            className="p-2 hover:bg-slate-800 dark:hover:bg-slate-800 rounded-lg transition-colors text-slate-400 hover:text-white"
           >
             <X className="w-5 h-5" />
           </button>
@@ -92,18 +92,18 @@ export default function AddSampleModal({ onClose, onAdd }) {
           <form
             id="add-sample-form"
             onSubmit={handleSubmit}
-            className="space-y-4"
+            className="space-y-5"
           >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {/* Sample Type (Fixed) */}
               <div>
-                <label className="block text-sm font-medium text-slate-700 dark:text-slate-200 mb-2">
+                <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 leading-tight">
                   Sample Type *
                 </label>
                 <select
                   value={sampleTypeId}
                   disabled
-                  className="w-full px-4 py-2 bg-gray-100 dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg text-slate-500 dark:text-slate-400 cursor-not-allowed"
+                  className="w-full px-3 py-2.5 bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-500 dark:text-slate-500 cursor-not-allowed text-sm font-medium transition-colors"
                 >
                   <option value={1}>Water</option>
                 </select>
@@ -111,7 +111,7 @@ export default function AddSampleModal({ onClose, onAdd }) {
 
               {/* Sample Client ID */}
               <div>
-                <label className="block text-sm font-medium text-slate-700 dark:text-slate-200 mb-2">
+                <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 leading-tight">
                   Sample Client ID *
                 </label>
                 <input
@@ -119,42 +119,42 @@ export default function AddSampleModal({ onClose, onAdd }) {
                   value={sampleClientId}
                   onChange={e => setSampleClientId(e.target.value)}
                   placeholder="e.g. S_DW_03"
-                  className="w-full px-4 py-2 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100"
+                  className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 text-sm font-mono transition-colors"
                   required
                 />
               </div>
 
               {/* Sampled Date */}
               <div>
-                <label className="block text-sm font-medium text-slate-700 dark:text-slate-200 mb-2">
+                <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 leading-tight">
                   Sampled Date *
                 </label>
                 <input
                   type="date"
                   value={sampledDate}
                   onChange={e => setSampledDate(e.target.value)}
-                  className="w-full px-4 py-2 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 [color-scheme:light] dark:[color-scheme:dark]"
+                  className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 text-sm transition-colors [color-scheme:light] dark:[color-scheme:dark]"
                   required
                 />
               </div>
 
               {/* Sampled Time */}
               <div>
-                <label className="block text-sm font-medium text-slate-700 dark:text-slate-200 mb-2">
+                <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 leading-tight">
                   Sampled Time *
                 </label>
                 <input
                   type="time"
                   value={sampledTime}
                   onChange={e => setSampledTime(e.target.value)}
-                  className="w-full px-4 py-2 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 [color-scheme:light] dark:[color-scheme:dark]"
+                  className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 text-sm transition-colors [color-scheme:light] dark:[color-scheme:dark]"
                   required
                 />
               </div>
 
               {/* Sampling Point */}
               <div className="flex flex-col">
-                <label className="block text-sm font-medium text-slate-700 dark:text-slate-200 mb-2">
+                <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 leading-tight">
                   Sampling Point *
                 </label>
                 <select
@@ -165,7 +165,7 @@ export default function AddSampleModal({ onClose, onAdd }) {
                       setSamplingPointCustom("");
                     }
                   }}
-                  className="w-full px-4 py-2 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100"
+                  className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 text-sm transition-colors"
                   required
                 >
                   <option value="Inlet">Inlet</option>
@@ -180,7 +180,7 @@ export default function AddSampleModal({ onClose, onAdd }) {
                     value={samplingPointCustom}
                     onChange={e => setSamplingPointCustom(e.target.value)}
                     placeholder="Enter custom sampling point"
-                    className="w-full mt-2 px-4 py-2 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 animate-in fade-in slide-in-from-top-2"
+                    className="w-full mt-3 px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 text-sm placeholder-slate-400 dark:placeholder-slate-500 animate-in fade-in slide-in-from-top-2 transition-colors"
                     required
                     autoFocus
                   />
@@ -189,13 +189,13 @@ export default function AddSampleModal({ onClose, onAdd }) {
 
               {/* Matrix */}
               <div>
-                <label className="block text-sm font-medium text-slate-700 dark:text-slate-200 mb-2">
+                <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 leading-tight">
                   Matrix *
                 </label>
                 <select
                   value={matrix}
                   onChange={e => setMatrix(e.target.value)}
-                  className="w-full px-4 py-2 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100"
+                  className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 text-sm transition-colors"
                   required
                 >
                   {matrixOptions.map(opt => (
@@ -208,7 +208,7 @@ export default function AddSampleModal({ onClose, onAdd }) {
 
               {/* Number of Containers */}
               <div>
-                <label className="block text-sm font-medium text-slate-700 dark:text-slate-200 mb-2">
+                <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 leading-tight">
                   Number of Containers *
                 </label>
                 <input
@@ -217,14 +217,14 @@ export default function AddSampleModal({ onClose, onAdd }) {
                   step="1"
                   value={numberOfContainers}
                   onChange={e => setNumberOfContainers(e.target.value)}
-                  className="w-full px-4 py-2 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100"
+                  className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 text-sm font-mono transition-colors"
                   required
                 />
               </div>
 
               {/* Initial Volume */}
               <div>
-                <label className="block text-sm font-medium text-slate-700 dark:text-slate-200 mb-2">
+                <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 leading-tight">
                   Initial Volume (mL) *
                 </label>
                 <input
@@ -233,38 +233,38 @@ export default function AddSampleModal({ onClose, onAdd }) {
                   step="0.01"
                   value={initialVolume}
                   onChange={e => setInitialVolume(e.target.value)}
-                  className="w-full px-4 py-2 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100"
+                  className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 text-sm font-mono transition-colors"
                   required
                 />
               </div>
 
               {/* Is Filtered */}
-              <div className="bg-slate-50 dark:bg-slate-700/50 p-3 rounded-lg border border-slate-200 dark:border-slate-600">
-                <label className="block text-sm font-medium text-slate-700 dark:text-slate-200 mb-2">
+              <div className="bg-slate-50 dark:bg-slate-900/50 p-4 rounded-xl border border-slate-200 dark:border-slate-700 transition-colors">
+                <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3 leading-tight">
                   Is Filtered?
                 </label>
-                <div className="flex items-center gap-6">
-                  <label className="flex items-center gap-2 cursor-pointer">
+                <div className="flex items-center gap-8">
+                  <label className="flex items-center gap-2 cursor-pointer group">
                     <input
                       type="radio"
                       name="isFiltered"
                       checked={isFiltered === 1}
                       onChange={() => setIsFiltered(1)}
-                      className="w-4 h-4 accent-blue-600 cursor-pointer"
+                      className="w-4 h-4 text-blue-600 border-slate-300 focus:ring-blue-500 cursor-pointer"
                     />
-                    <span className="text-slate-900 dark:text-slate-100">
+                    <span className="text-sm font-medium text-slate-900 dark:text-slate-100 group-hover:text-blue-600 transition-colors">
                       Yes
                     </span>
                   </label>
-                  <label className="flex items-center gap-2 cursor-pointer">
+                  <label className="flex items-center gap-2 cursor-pointer group">
                     <input
                       type="radio"
                       name="isFiltered"
                       checked={isFiltered === 0}
                       onChange={() => setIsFiltered(0)}
-                      className="w-4 h-4 accent-blue-600 cursor-pointer"
+                      className="w-4 h-4 text-blue-600 border-slate-300 focus:ring-blue-500 cursor-pointer"
                     />
-                    <span className="text-slate-900 dark:text-slate-100">
+                    <span className="text-sm font-medium text-slate-900 dark:text-slate-100 group-hover:text-blue-600 transition-colors">
                       No
                     </span>
                   </label>
@@ -272,32 +272,32 @@ export default function AddSampleModal({ onClose, onAdd }) {
               </div>
 
               {/* Is Preserved */}
-              <div className="bg-slate-50 dark:bg-slate-700/50 p-3 rounded-lg border border-slate-200 dark:border-slate-600">
-                <label className="block text-sm font-medium text-slate-700 dark:text-slate-200 mb-2">
+              <div className="bg-slate-50 dark:bg-slate-900/50 p-4 rounded-xl border border-slate-200 dark:border-slate-700 transition-colors">
+                <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3 leading-tight">
                   Is Preserved?
                 </label>
-                <div className="flex items-center gap-6">
-                  <label className="flex items-center gap-2 cursor-pointer">
+                <div className="flex items-center gap-8">
+                  <label className="flex items-center gap-2 cursor-pointer group">
                     <input
                       type="radio"
                       name="isPreserved"
                       checked={isPreserved === 1}
                       onChange={() => setIsPreserved(1)}
-                      className="w-4 h-4 accent-blue-600 cursor-pointer"
+                      className="w-4 h-4 text-blue-600 border-slate-300 focus:ring-blue-500 cursor-pointer"
                     />
-                    <span className="text-slate-900 dark:text-slate-100">
+                    <span className="text-sm font-medium text-slate-900 dark:text-slate-100 group-hover:text-blue-600 transition-colors">
                       Yes
                     </span>
                   </label>
-                  <label className="flex items-center gap-2 cursor-pointer">
+                  <label className="flex items-center gap-2 cursor-pointer group">
                     <input
                       type="radio"
                       name="isPreserved"
                       checked={isPreserved === 0}
                       onChange={() => setIsPreserved(0)}
-                      className="w-4 h-4 accent-blue-600 cursor-pointer"
+                      className="w-4 h-4 text-blue-600 border-slate-300 focus:ring-blue-500 cursor-pointer"
                     />
-                    <span className="text-slate-900 dark:text-slate-100">
+                    <span className="text-sm font-medium text-slate-900 dark:text-slate-100 group-hover:text-blue-600 transition-colors">
                       No
                     </span>
                   </label>
@@ -308,18 +308,18 @@ export default function AddSampleModal({ onClose, onAdd }) {
         </div>
 
         {/* Actions (Footer) */}
-        <div className="p-6 border-t border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-800 shrink-0 flex gap-3">
+        <div className="p-6 border-t border-slate-200 dark:border-slate-700 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md shrink-0 flex gap-4 z-10">
           <button
             type="button"
             onClick={onClose}
-            className="flex-1 px-4 py-2.5 border-2 border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-200 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition font-medium bg-white dark:bg-slate-800"
+            className="flex-1 px-5 py-2.5 border border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-300 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors text-sm font-semibold leading-tight shadow-sm bg-white dark:bg-slate-800"
           >
             Cancel
           </button>
           <button
             type="submit"
             form="add-sample-form"
-            className="flex-1 px-4 py-2.5 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-lg hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white transition font-bold shadow-md"
+            className="flex-1 px-5 py-2.5 bg-slate-800 dark:bg-slate-200 text-white dark:text-slate-900 rounded-lg hover:bg-blue-600 dark:hover:bg-blue-500 hover:text-white transition-colors text-sm font-bold leading-tight shadow-sm border border-transparent"
           >
             Add Sample
           </button>

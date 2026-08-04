@@ -20,26 +20,30 @@ export default function Header({
   };
 
   return (
-    <div className="bg-[#1c1f26] border-b border-slate-600 shadow-lg">
+    <div className="bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-sm transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 py-4">
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="bg-[#ffb800] p-3 rounded-lg">
+          <div className="flex items-center gap-4">
+            <div className="bg-yellow-500 p-2.5 rounded-lg shadow-sm border border-yellow-600/20">
               <Icon className="w-6 h-6 text-slate-900" />
             </div>
             <div>
-              <h1 className="text-3xl font-bold text-white tracking-tight">
+              <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100 tracking-tight leading-tight">
                 {title}
               </h1>
-              <p className="text-sm text-gray-300 font-medium">{subtitle}</p>
+              <p className="text-sm font-medium text-slate-500 dark:text-slate-400 mt-0.5 leading-tight">
+                {subtitle}
+              </p>
             </div>
           </div>
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-4">
             {user && (
               <>
-                <div className="text-right">
-                  <p className="text-sm text-white">Welcome, {user.email}</p>
-                  <p className="text-base font-medium text-white">
+                <div className="text-right hidden sm:block mr-2">
+                  <p className="text-xs font-medium text-slate-500 dark:text-slate-400 leading-tight mb-0.5">
+                    Welcome, {user.email}
+                  </p>
+                  <p className="text-sm font-semibold text-slate-900 dark:text-slate-100 leading-tight">
                     {user.role === "STAFF"
                       ? "Staff"
                       : user.role === "ADMIN"
@@ -51,7 +55,8 @@ export default function Header({
                 {/* chat box entrance */}
                 <button
                   onClick={pushChatBox}
-                  className="p-1 text-white hover:bg-slate-600 rounded-lg transition"
+                  className="p-2 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors"
+                  title="AI Assistant"
                 >
                   <Bot className="w-5 h-5" />
                 </button>
@@ -59,7 +64,7 @@ export default function Header({
                 {onSettingsClick && (
                   <button
                     onClick={onSettingsClick}
-                    className="p-1 text-white hover:bg-slate-600 rounded-lg transition"
+                    className="p-2 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition-colors"
                     title="Settings"
                   >
                     <Settings className="w-5 h-5" />
@@ -67,7 +72,7 @@ export default function Header({
                 )}
                 <button
                   onClick={handleLogout}
-                  className="p-1 text-white hover:bg-slate-600 rounded-lg transition"
+                  className="p-2 text-slate-500 dark:text-slate-400 hover:text-red-600 dark:hover:text-red-400 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-lg transition-colors ml-1"
                   title="Logout"
                 >
                   <LogOut className="w-5 h-5" />
