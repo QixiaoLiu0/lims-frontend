@@ -34,7 +34,7 @@ export default function AddSampleModal({ onClose, onAdd }) {
   const [isFiltered, setIsFiltered] = useState(0);
   const [isPreserved, setIsPreserved] = useState(0);
 
-  const handleSubmit = e => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     // deal with Sampling Point
@@ -81,7 +81,7 @@ export default function AddSampleModal({ onClose, onAdd }) {
           </h2>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-slate-800 dark:hover:bg-slate-800 rounded-lg transition-colors text-slate-400 hover:text-white"
+            className="p-2 hover:bg-slate-800 dark:hover:bg-slate-800 rounded-lg transition-colors text-gray-500 hover:text-white"
           >
             <X className="w-5 h-5" />
           </button>
@@ -97,13 +97,13 @@ export default function AddSampleModal({ onClose, onAdd }) {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               {/* Sample Type (Fixed) */}
               <div>
-                <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 leading-tight">
+                <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 leading-tight">
                   Sample Type *
                 </label>
                 <select
                   value={sampleTypeId}
                   disabled
-                  className="w-full px-3 py-2.5 bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-lg text-slate-500 dark:text-slate-500 cursor-not-allowed text-sm font-medium transition-colors"
+                  className="w-full px-3 py-2.5 bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-lg text-gray-500 dark:text-gray-200 cursor-not-allowed text-sm font-medium transition-colors"
                 >
                   <option value={1}>Water</option>
                 </select>
@@ -111,61 +111,61 @@ export default function AddSampleModal({ onClose, onAdd }) {
 
               {/* Sample Client ID */}
               <div>
-                <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 leading-tight">
+                <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 leading-tight">
                   Sample Client ID *
                 </label>
                 <input
                   type="text"
                   value={sampleClientId}
-                  onChange={e => setSampleClientId(e.target.value)}
+                  onChange={(e) => setSampleClientId(e.target.value)}
                   placeholder="e.g. S_DW_03"
-                  className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 text-sm font-mono transition-colors"
+                  className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 placeholder-slate-400 dark:placeholder-slate-500 text-sm font-mono transition-colors"
                   required
                 />
               </div>
 
               {/* Sampled Date */}
               <div>
-                <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 leading-tight">
+                <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 leading-tight">
                   Sampled Date *
                 </label>
                 <input
                   type="date"
                   value={sampledDate}
-                  onChange={e => setSampledDate(e.target.value)}
-                  className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 text-sm transition-colors [color-scheme:light] dark:[color-scheme:dark]"
+                  onChange={(e) => setSampledDate(e.target.value)}
+                  className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 text-sm transition-colors [color-scheme:light] dark:[color-scheme:dark]"
                   required
                 />
               </div>
 
               {/* Sampled Time */}
               <div>
-                <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 leading-tight">
+                <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 leading-tight">
                   Sampled Time *
                 </label>
                 <input
                   type="time"
                   value={sampledTime}
-                  onChange={e => setSampledTime(e.target.value)}
-                  className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 text-sm transition-colors [color-scheme:light] dark:[color-scheme:dark]"
+                  onChange={(e) => setSampledTime(e.target.value)}
+                  className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 text-sm transition-colors [color-scheme:light] dark:[color-scheme:dark]"
                   required
                 />
               </div>
 
               {/* Sampling Point */}
               <div className="flex flex-col">
-                <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 leading-tight">
+                <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 leading-tight">
                   Sampling Point *
                 </label>
                 <select
                   value={samplingPointSelect}
-                  onChange={e => {
+                  onChange={(e) => {
                     setSamplingPointSelect(e.target.value);
                     if (e.target.value !== "Custom...") {
                       setSamplingPointCustom("");
                     }
                   }}
-                  className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 text-sm transition-colors"
+                  className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 text-sm transition-colors"
                   required
                 >
                   <option value="Inlet">Inlet</option>
@@ -178,9 +178,9 @@ export default function AddSampleModal({ onClose, onAdd }) {
                   <input
                     type="text"
                     value={samplingPointCustom}
-                    onChange={e => setSamplingPointCustom(e.target.value)}
+                    onChange={(e) => setSamplingPointCustom(e.target.value)}
                     placeholder="Enter custom sampling point"
-                    className="w-full mt-3 px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 text-sm placeholder-slate-400 dark:placeholder-slate-500 animate-in fade-in slide-in-from-top-2 transition-colors"
+                    className="w-full mt-3 px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 text-sm placeholder-slate-400 dark:placeholder-slate-500 animate-in fade-in slide-in-from-top-2 transition-colors"
                     required
                     autoFocus
                   />
@@ -189,16 +189,16 @@ export default function AddSampleModal({ onClose, onAdd }) {
 
               {/* Matrix */}
               <div>
-                <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 leading-tight">
+                <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 leading-tight">
                   Matrix *
                 </label>
                 <select
                   value={matrix}
-                  onChange={e => setMatrix(e.target.value)}
-                  className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 text-sm transition-colors"
+                  onChange={(e) => setMatrix(e.target.value)}
+                  className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 text-sm transition-colors"
                   required
                 >
-                  {matrixOptions.map(opt => (
+                  {matrixOptions.map((opt) => (
                     <option key={opt} value={opt}>
                       {opt}
                     </option>
@@ -208,7 +208,7 @@ export default function AddSampleModal({ onClose, onAdd }) {
 
               {/* Number of Containers */}
               <div>
-                <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 leading-tight">
+                <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 leading-tight">
                   Number of Containers *
                 </label>
                 <input
@@ -216,15 +216,15 @@ export default function AddSampleModal({ onClose, onAdd }) {
                   min="1"
                   step="1"
                   value={numberOfContainers}
-                  onChange={e => setNumberOfContainers(e.target.value)}
-                  className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 text-sm font-mono transition-colors"
+                  onChange={(e) => setNumberOfContainers(e.target.value)}
+                  className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 text-sm font-mono transition-colors"
                   required
                 />
               </div>
 
               {/* Initial Volume */}
               <div>
-                <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 leading-tight">
+                <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 leading-tight">
                   Initial Volume (mL) *
                 </label>
                 <input
@@ -232,15 +232,15 @@ export default function AddSampleModal({ onClose, onAdd }) {
                   min="0"
                   step="0.01"
                   value={initialVolume}
-                  onChange={e => setInitialVolume(e.target.value)}
-                  className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 text-sm font-mono transition-colors"
+                  onChange={(e) => setInitialVolume(e.target.value)}
+                  className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 text-sm font-mono transition-colors"
                   required
                 />
               </div>
 
               {/* Is Filtered */}
               <div className="bg-slate-50 dark:bg-slate-900/50 p-4 rounded-xl border border-slate-200 dark:border-slate-700 transition-colors">
-                <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3 leading-tight">
+                <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-3 leading-tight">
                   Is Filtered?
                 </label>
                 <div className="flex items-center gap-8">
@@ -252,7 +252,7 @@ export default function AddSampleModal({ onClose, onAdd }) {
                       onChange={() => setIsFiltered(1)}
                       className="w-4 h-4 text-blue-600 border-slate-300 focus:ring-blue-500 cursor-pointer"
                     />
-                    <span className="text-sm font-medium text-slate-900 dark:text-slate-100 group-hover:text-blue-600 transition-colors">
+                    <span className="text-sm font-medium text-gray-900 dark:text-gray-200 group-hover:text-blue-600 transition-colors">
                       Yes
                     </span>
                   </label>
@@ -264,7 +264,7 @@ export default function AddSampleModal({ onClose, onAdd }) {
                       onChange={() => setIsFiltered(0)}
                       className="w-4 h-4 text-blue-600 border-slate-300 focus:ring-blue-500 cursor-pointer"
                     />
-                    <span className="text-sm font-medium text-slate-900 dark:text-slate-100 group-hover:text-blue-600 transition-colors">
+                    <span className="text-sm font-medium text-gray-900 dark:text-gray-200 group-hover:text-blue-600 transition-colors">
                       No
                     </span>
                   </label>
@@ -273,7 +273,7 @@ export default function AddSampleModal({ onClose, onAdd }) {
 
               {/* Is Preserved */}
               <div className="bg-slate-50 dark:bg-slate-900/50 p-4 rounded-xl border border-slate-200 dark:border-slate-700 transition-colors">
-                <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-3 leading-tight">
+                <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-3 leading-tight">
                   Is Preserved?
                 </label>
                 <div className="flex items-center gap-8">
@@ -285,7 +285,7 @@ export default function AddSampleModal({ onClose, onAdd }) {
                       onChange={() => setIsPreserved(1)}
                       className="w-4 h-4 text-blue-600 border-slate-300 focus:ring-blue-500 cursor-pointer"
                     />
-                    <span className="text-sm font-medium text-slate-900 dark:text-slate-100 group-hover:text-blue-600 transition-colors">
+                    <span className="text-sm font-medium text-gray-900 dark:text-gray-200 group-hover:text-blue-600 transition-colors">
                       Yes
                     </span>
                   </label>
@@ -297,7 +297,7 @@ export default function AddSampleModal({ onClose, onAdd }) {
                       onChange={() => setIsPreserved(0)}
                       className="w-4 h-4 text-blue-600 border-slate-300 focus:ring-blue-500 cursor-pointer"
                     />
-                    <span className="text-sm font-medium text-slate-900 dark:text-slate-100 group-hover:text-blue-600 transition-colors">
+                    <span className="text-sm font-medium text-gray-900 dark:text-gray-200 group-hover:text-blue-600 transition-colors">
                       No
                     </span>
                   </label>
@@ -312,14 +312,14 @@ export default function AddSampleModal({ onClose, onAdd }) {
           <button
             type="button"
             onClick={onClose}
-            className="flex-1 px-5 py-2.5 border border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-300 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors text-sm font-semibold leading-tight shadow-sm bg-white dark:bg-slate-800"
+            className="flex-1 px-5 py-2.5 border border-slate-200 dark:border-slate-600 text-gray-900 dark:text-gray-200 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors text-sm font-semibold leading-tight shadow-sm bg-white dark:bg-slate-800"
           >
             Cancel
           </button>
           <button
             type="submit"
             form="add-sample-form"
-            className="flex-1 px-5 py-2.5 bg-slate-800 dark:bg-slate-200 text-white dark:text-slate-900 rounded-lg hover:bg-blue-600 dark:hover:bg-blue-500 hover:text-white transition-colors text-sm font-bold leading-tight shadow-sm border border-transparent"
+            className="flex-1 px-5 py-2.5 bg-slate-800 dark:bg-slate-200 text-white dark:text-gray-900 rounded-lg hover:bg-blue-600 dark:hover:bg-blue-500 hover:text-white transition-colors text-sm font-bold leading-tight shadow-sm border border-transparent"
           >
             Add Sample
           </button>

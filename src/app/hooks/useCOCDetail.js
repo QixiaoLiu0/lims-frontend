@@ -55,37 +55,37 @@ export function useCOCDetail() {
   }, [fetchCOCDetail, cocId]);
 
   const samples = cocData?.samples || [];
-  const inletSamples = samples.filter(s =>
+  const inletSamples = samples.filter((s) =>
     s.samplingPoint?.toLowerCase().includes("inlet"),
   );
-  const outletSamples = samples.filter(s =>
+  const outletSamples = samples.filter((s) =>
     s.samplingPoint?.toLowerCase().includes("outlet"),
   );
 
   // color rendering
-  const getStatusColor = status => {
+  const getStatusColor = (status) => {
     switch (status) {
       case "Completed":
         return "bg-green-100 text-green-700";
       case "In-Progress":
-      case "In Progress":
+      case "In-Progress":
         return "bg-blue-100 text-blue-700";
       default:
         return "bg-gray-100 text-gray-700";
     }
   };
 
-  const getSampleTypeColor = sampleType => {
+  const getSampleTypeColor = (sampleType) => {
     return {
       bg: "bg-white dark:bg-slate-800",
       border: "border-[#4A7BA7]",
       hover: "hover:border-[#3A6B8F]",
-      text: "text-[#0a1629] dark:text-slate-100",
+      text: "text-[#0a1629] dark:text-gray-200",
       icon: "bg-[#446A8C]",
     };
   };
 
-  const handleAddSample = async newSample => {
+  const handleAddSample = async (newSample) => {
     try {
       setLoading(true);
       console.log(`[API POST] create Sample:`, newSample);
@@ -106,7 +106,7 @@ export function useCOCDetail() {
     await fetchCOCDetail(); // re request coc detail
   };
 
-  const handleDeleteSample = async sampleId => {
+  const handleDeleteSample = async (sampleId) => {
     try {
       setLoading(true);
       console.log(`[API DELETE] delete Sample, ID: ${sampleId}`);
@@ -144,16 +144,16 @@ export function useCOCDetail() {
     setIsEditingCOC(false);
   };
 
-  const getTestCount = sampleId => {
-    const sample = samples.find(s => s.sampleId === sampleId);
+  const getTestCount = (sampleId) => {
+    const sample = samples.find((s) => s.sampleId === sampleId);
     return sample?.totalTests || 0;
   };
 
-  const getTestBadgeColor = testId => {
+  const getTestBadgeColor = (testId) => {
     return "bg-blue-500/20 text-blue-300 border-blue-500/50";
   };
 
-  const getTestDisplayName = testId => testId;
+  const getTestDisplayName = (testId) => testId;
 
   const handleExportAllResults = () => {
     if (!cocData) return;

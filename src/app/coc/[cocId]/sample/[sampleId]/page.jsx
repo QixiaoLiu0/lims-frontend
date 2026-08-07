@@ -43,10 +43,10 @@ export default function SampleDetailPage() {
   // global Loading
   if (loading) {
     return (
-      <div className="min-h-screen bg-grid-pattern flex items-center justify-center text-slate-600 dark:text-slate-300">
+      <div className="min-h-screen bg-grid-pattern flex items-center justify-center text-gray-900 dark:text-gray-200">
         <div className="bg-white dark:bg-slate-800 px-6 py-4 rounded-2xl shadow-xl flex items-center gap-4 border border-slate-200 dark:border-slate-700">
           <div className="w-6 h-6 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
-          <span className="text-base font-semibold leading-normal text-slate-800 dark:text-slate-100">
+          <span className="text-base font-semibold leading-normal text-gray-900 dark:text-gray-200">
             Loading Sample details...
           </span>
         </div>
@@ -58,12 +58,12 @@ export default function SampleDetailPage() {
     return (
       <div className="min-h-screen bg-grid-pattern flex items-center justify-center">
         <div className="text-center bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-xl border border-slate-200 dark:border-slate-700">
-          <p className="text-slate-900 dark:text-slate-100 text-lg font-medium leading-normal mb-4">
+          <p className="text-gray-900 dark:text-gray-200 text-lg font-medium leading-normal mb-4">
             Sample not found
           </p>
           <button
             onClick={() => router.push(`/coc/${cocId}`)}
-            className="text-blue-600 dark:text-yellow-400 hover:text-blue-700 dark:hover:text-yellow-300 font-medium transition-colors text-sm"
+            className="text-blue-500 dark:text-yellow-400 hover:text-blue-500 dark:hover:text-yellow-300 font-medium transition-colors text-sm"
           >
             Return to COC
           </button>
@@ -94,7 +94,7 @@ export default function SampleDetailPage() {
         <div className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm mb-6 border border-slate-200 dark:border-slate-700">
           <div className="flex items-center justify-between mb-6 border-b border-slate-200 dark:border-slate-700 pb-4">
             <div className="flex items-center gap-3">
-              <h2 className="text-lg font-semibold leading-tight text-slate-900 dark:text-slate-100">
+              <h2 className="text-lg font-semibold leading-tight text-gray-900 dark:text-gray-200">
                 Sample Information
               </h2>
               <span
@@ -103,7 +103,7 @@ export default function SampleDetailPage() {
                     ? "bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400"
                     : sample?.status === "Testing"
                       ? "bg-blue-50 text-blue-700 dark:bg-blue-500/10 dark:text-blue-400"
-                      : "bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-300"
+                      : "bg-slate-100 text-gray-900 dark:bg-slate-700 dark:text-gray-200"
                 }`}
               >
                 {sample?.status || "Pending"}
@@ -118,7 +118,7 @@ export default function SampleDetailPage() {
                   setEditedSample({ ...sample });
                   setIsEditingSample(true);
                 }}
-                className="flex items-center gap-2 px-3 py-1.5 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-lg hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white transition-colors text-sm font-medium leading-tight"
+                className="flex items-center gap-2 px-3 py-1.5 bg-slate-100 dark:bg-slate-700 text-gray-900 dark:text-gray-200 rounded-lg hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white transition-colors text-sm font-medium leading-tight"
               >
                 <Edit2 className="w-4 h-4" />
                 Edit
@@ -154,7 +154,7 @@ export default function SampleDetailPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-2 pb-4 border-b border-slate-200 dark:border-slate-700">
             <div>
-              <p className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1.5 leading-tight">
+              <p className="text-sm font-medium text-gray-500 dark:text-gray-200 mb-1.5 leading-tight">
                 Sample ID
               </p>
               {isEditingSample && editedSample ? (
@@ -167,16 +167,16 @@ export default function SampleDetailPage() {
                       sampleClientId: e.target.value,
                     })
                   }
-                  className="w-full px-3 py-1.5 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg text-slate-900 dark:text-slate-100 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
+                  className="w-full px-3 py-1.5 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg text-gray-900 dark:text-gray-200 text-sm font-mono focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
                 />
               ) : (
-                <p className="text-base font-semibold leading-normal text-slate-900 dark:text-slate-100">
+                <p className="text-base font-semibold leading-normal text-gray-900 dark:text-gray-200">
                   {sample?.sampleClientId || "Unknown"}
                 </p>
               )}
             </div>
             <div>
-              <p className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1.5 leading-tight">
+              <p className="text-sm font-medium text-gray-500 dark:text-gray-400 mb-1.5 leading-tight">
                 Type
               </p>
               {isEditingSample && editedSample ? (
@@ -186,16 +186,16 @@ export default function SampleDetailPage() {
                   onChange={(e) =>
                     setEditedSample({ ...editedSample, matrix: e.target.value })
                   }
-                  className="w-full px-3 py-1.5 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
+                  className="w-full px-3 py-1.5 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg text-gray-900 dark:text-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
                 />
               ) : (
-                <p className="text-base font-semibold leading-normal text-slate-900 dark:text-slate-100">
+                <p className="text-base font-semibold leading-normal text-gray-900 dark:text-gray-200">
                   {sample?.matrix || "Unknown"}
                 </p>
               )}
             </div>
             <div>
-              <p className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1.5 leading-tight">
+              <p className="text-sm font-medium text-gary-500 dark:text-gray-200 mb-1.5 leading-tight">
                 Created At
               </p>
               {isEditingSample && editedSample ? (
@@ -208,16 +208,16 @@ export default function SampleDetailPage() {
                       sampledTime: e.target.value.replace("T", " "),
                     })
                   }
-                  className="w-full px-3 py-1.5 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
+                  className="w-full px-3 py-1.5 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg text-gray-900 dark:text-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
                 />
               ) : (
-                <p className="text-base font-semibold leading-normal text-slate-900 dark:text-slate-100">
+                <p className="text-base font-semibold leading-normal text-gray-900 dark:text-gray-200">
                   {sample?.sampledTime || "—"}
                 </p>
               )}
             </div>
             <div>
-              <p className="text-sm font-medium text-slate-500 dark:text-slate-400 mb-1.5 leading-tight">
+              <p className="text-sm font-medium text-gray-500 dark:text-white mb-1.5 leading-tight">
                 Status
               </p>
               {isEditingSample && editedSample ? (
@@ -226,7 +226,7 @@ export default function SampleDetailPage() {
                   onChange={(e) =>
                     setEditedSample({ ...editedSample, status: e.target.value })
                   }
-                  className="w-full px-3 py-1.5 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg text-slate-900 dark:text-slate-100 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
+                  className="w-full px-3 py-1.5 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg text-gray-900 dark:text-gray-200 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors"
                 >
                   <option value="Pending">Pending</option>
                   <option value="Testing">Testing</option>
@@ -238,8 +238,8 @@ export default function SampleDetailPage() {
                     sample?.status === "Completed"
                       ? "bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400"
                       : sample?.status === "Testing"
-                        ? "bg-blue-50 text-blue-700 dark:bg-blue-500/10 dark:text-blue-400"
-                        : "bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-300"
+                        ? "bg-blue-50 text-blue-500 dark:bg-blue-500/10 dark:text-blue-500"
+                        : "bg-slate-100 text-gray-900 dark:bg-slate-700 dark:text-gray-200"
                   }`}
                 >
                   {sample?.status || "Pending"}
@@ -252,7 +252,7 @@ export default function SampleDetailPage() {
         {/* Tests Conducted */}
         <div>
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold leading-tight text-slate-900 dark:text-slate-100">
+            <h2 className="text-2xl font-bold leading-tight text-gray-900 dark:text-gray-200">
               Tests (
               {testCardData?.filter((t) => t.runNumber === 1).length ||
                 testCardData?.length ||
@@ -260,17 +260,10 @@ export default function SampleDetailPage() {
               )
             </h2>
             <div className="flex gap-3">
-              <button
-                onClick={() => setShowReport(true)}
-                className="flex items-center gap-2 px-4 py-2.5 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 font-medium rounded-lg hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-colors shadow-sm text-sm border border-slate-200 dark:border-transparent leading-tight"
-              >
-                <FileText className="w-4 h-4" />
-                Generate Summary
-              </button>
               <div className="relative">
                 <button
                   onClick={() => setShowAddTestDropdown(!showAddTestDropdown)}
-                  className="flex items-center gap-2 px-5 py-2.5 bg-slate-800 dark:bg-slate-200 text-slate-100 dark:text-slate-900 rounded-lg hover:bg-slate-700 dark:hover:bg-white transition-colors shadow-sm text-sm font-semibold leading-tight"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-yellow-500 to-yellow-600 text-gray-900 font-bold rounded-lg hover:from-yellow-400 hover:to-yellow-500 transition-all shadow-md hover:shadow-lg text-sm leading-tight"
                 >
                   <Plus className="w-4 h-4" />
                   Add Test to Report
@@ -284,17 +277,17 @@ export default function SampleDetailPage() {
                     />
                     <div className="absolute right-0 top-full mt-2 w-80 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 z-50 overflow-hidden">
                       <div className="px-4 py-3 border-b border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50">
-                        <h3 className="text-sm font-semibold text-slate-900 dark:text-slate-100 leading-tight">
+                        <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-200 leading-tight">
                           Select Test Type
                         </h3>
-                        <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-tight">
+                        <p className="text-xs text-gray-500 dark:text-gray-200 mt-1 leading-tight">
                           Choose a test to add
                         </p>
                       </div>
                       <div className="max-h-80 overflow-y-auto py-1">
                         {testTypes.length === 0 ? (
                           <div className="px-4 py-6 text-center">
-                            <p className="text-slate-500 dark:text-slate-400 text-sm font-medium">
+                            <p className="text-gray-500 dark:text-gray-200 text-sm font-medium">
                               No active test types available
                             </p>
                           </div>
@@ -316,11 +309,11 @@ export default function SampleDetailPage() {
                                 }}
                               />
                               <div className="flex-1">
-                                <p className="text-sm font-semibold leading-tight text-slate-900 dark:text-slate-100">
+                                <p className="text-sm font-semibold leading-tight text-gray-900 dark:text-gray-200">
                                   {testType.typeName}
                                 </p>
                                 {testType.description && (
-                                  <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 line-clamp-1 leading-tight">
+                                  <p className="text-xs text-gray-500 dark:text-gray-200 mt-1 line-clamp-1 leading-tight">
                                     {testType.description}
                                   </p>
                                 )}

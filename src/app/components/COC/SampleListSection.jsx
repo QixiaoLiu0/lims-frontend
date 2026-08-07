@@ -24,12 +24,12 @@ export default function SampleListSection({
 
   return (
     <div className="mb-6">
-      <h3 className="text-lg font-semibold leading-tight text-slate-900 dark:text-slate-100 mb-4 flex items-center gap-2 drop-shadow-sm">
+      <h3 className="text-lg font-semibold leading-tight text-gray-900 dark:text-gray-200 mb-4 flex items-center gap-2 drop-shadow-sm">
         <div className={`w-2 h-2 ${colorClass} rounded-full`}></div>
         {title} ({samples.length})
       </h3>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {samples.map(sample => {
+        {samples.map((sample) => {
           const sampleColors = getSampleTypeColor(sample.samplingPoint);
           return (
             <div
@@ -61,7 +61,7 @@ export default function SampleListSection({
 
                   <div className="relative">
                     <button
-                      onClick={e => {
+                      onClick={(e) => {
                         e.stopPropagation();
                         setActiveSampleMenu(
                           activeSampleMenu === sample.sampleId
@@ -79,7 +79,7 @@ export default function SampleListSection({
                     {activeSampleMenu === sample.sampleId && (
                       <div className="absolute right-0 top-full mt-1.5 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 py-1.5 min-w-[180px] z-50 overflow-hidden">
                         <button
-                          onClick={e => {
+                          onClick={(e) => {
                             e.stopPropagation();
                             if (
                               confirm(
@@ -89,7 +89,7 @@ export default function SampleListSection({
                               handleDeleteSample(sample.sampleId);
                             }
                           }}
-                          className="w-full px-4 py-2.5 text-left text-sm font-medium leading-tight hover:bg-red-50 dark:hover:bg-red-500/10 transition-colors flex items-center gap-2 text-red-600 dark:text-red-400"
+                          className="w-full px-4 py-2.5 text-left text-sm font-medium leading-tight hover:bg-red-50 dark:hover:bg-red-500/10 transition-colors flex items-center gap-2 text-gray-900 dark:text-red-500"
                         >
                           <Trash2 className="w-4 h-4" />
                           Delete Sample
@@ -140,13 +140,13 @@ export default function SampleListSection({
 
               {/* Bottle Icon with Remaining Volume */}
               <div
-                onClick={e => e.stopPropagation()}
+                onClick={(e) => e.stopPropagation()}
                 className="pt-2 border-t border-black/5 dark:border-white/5"
               >
                 <BottleIcon
                   remainingVolume={sample.remainingVolume ?? 1000}
                   maxVolume={1000}
-                  onVolumeChange={newVolume =>
+                  onVolumeChange={(newVolume) =>
                     handleVolumeChange(sample.sampleId, newVolume)
                   }
                   editable={true}
