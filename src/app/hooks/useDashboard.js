@@ -46,7 +46,7 @@ export function useDashboard() {
     // 0. 防御机制：确保 cocs 是一个有效数组
     if (!cocs || !Array.isArray(cocs)) return [];
 
-    return cocs.filter(coc => {
+    return cocs.filter((coc) => {
       const safeCocNumber = coc.cocNumber || "";
       const safeProjectName = coc.projectName || "";
       const safeSearchQuery = (searchQuery || "").toLowerCase();
@@ -95,7 +95,7 @@ export function useDashboard() {
 
   // delete COC
   const handleDeleteCOC = useCallback(
-    async cocId => {
+    async (cocId) => {
       try {
         setLoading(true);
         await cocService.delete(cocId);
@@ -110,7 +110,7 @@ export function useDashboard() {
   );
 
   const handleAddCOC = useCallback(
-    newCocId => {
+    (newCocId) => {
       setShowAddCOCModal(false);
 
       if (newCocId) {
@@ -123,7 +123,7 @@ export function useDashboard() {
   );
 
   const handleNavigate = useCallback(
-    cocId => {
+    (cocId) => {
       router.push(`/coc/${cocId}`);
     },
     [router],
