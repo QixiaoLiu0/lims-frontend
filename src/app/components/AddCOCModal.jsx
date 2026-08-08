@@ -151,6 +151,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                     type="datetime-local"
                     value={receivedTime}
                     onChange={(e) => setReceivedTime(e.target.value)}
+                    required
                     className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 text-sm transition-colors"
                   />
                 </div>
