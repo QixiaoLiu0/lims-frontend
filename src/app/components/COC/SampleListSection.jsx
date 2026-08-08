@@ -23,18 +23,18 @@ export default function SampleListSection({
   if (!samples || samples.length === 0) return null;
 
   return (
-    <div className="mb-6 ">
-      <h3 className="text-lg font-semibold leading-tight text-gray-900 dark:text-gray-200 mb-4 flex items-center gap-2 drop-shadow-sm ">
+    <div className="mb-6">
+      <h3 className="text-lg font-semibold leading-tight text-gray-900 dark:text-gray-200 mb-4 flex items-center gap-2 drop-shadow-sm">
         <div className={`w-2 h-2 ${colorClass} rounded-full`}></div>
         {title} ({samples.length})
       </h3>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 ">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {samples.map((sample) => {
           const sampleColors = getSampleTypeColor(sample.samplingPoint);
           return (
             <div
               key={sample.sampleId}
-              className={`${sampleColors.bg}  rounded-xl p-6 border ${sampleColors.border} hover:shadow-md ${sampleColors.hover} transition-all shadow-sm relative`}
+              className={`${sampleColors.bg} rounded-xl p-6 border ${sampleColors.border} hover:shadow-md ${sampleColors.hover} transition-all shadow-sm relative`}
             >
               {/* card header */}
               <div className="flex items-start justify-between mb-4">
