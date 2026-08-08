@@ -92,7 +92,9 @@ export default function COCDetailPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-4 py-6">
         <Breadcrumbs
-          items={[{ label: cocData.cocNumber || "", path: undefined }]}
+          items={[
+            { label: "COC: " + cocData.cocNumber || "", path: undefined },
+          ]}
         />
 
         {/* COC Information */}
