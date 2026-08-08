@@ -83,7 +83,7 @@ export default function Dashboard() {
             <div className="flex flex-col lg:flex-row lg:items-center gap-4 w-full">
               <div className="flex items-center gap-2 text-base text-gray-900 dark:text-gray-200">
                 <Calendar className="w-4 h-4 text-gray-900 dark:text-gray-200" />
-                <span className="font-medium">Filter by Date:</span>
+                <span className="font-medium">Filter by Received Date:</span>
               </div>
               <div className="flex flex-col sm:flex-row flex-wrap gap-3">
                 <div className="flex flex-col sm:flex-row sm:items-center gap-2">
