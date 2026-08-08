@@ -1,4 +1,5 @@
 "use client";
+import React, { useRef, useEffect } from "react";
 import { Search, Plus, Droplet, Calendar, ChevronDown } from "lucide-react";
 import { useDashboard } from "@/app/hooks/useDashboard";
 import SettingsModal from "@/app/components/SettingsModal";
@@ -7,6 +8,7 @@ import AnimatedButton from "@/app/components/AnimatedButton";
 import Breadcrumbs from "@/app/components/Breadcrumbs";
 import Header from "@/app/components/Header";
 import COCCard from "@/app/components/COCCard";
+
 
 export default function Dashboard() {
   const {
@@ -36,6 +38,20 @@ export default function Dashboard() {
     setExpandedSamplesCOC,
     handleDeleteCOC,
   } = useDashboard();
+
+const dropdownRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setShowStatusDropdown(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [setShowStatusDropdown]);
 
   return (
     <div className="min-h-screen bg-grid-pattern">
@@ -123,7 +139,7 @@ export default function Dashboard() {
             </div>
 
             {/* Status filter — far right */}
-            <div className="relative w-full sm:w-auto">
+            <div ref={dropdownRef} className="relative w-full sm:w-auto">
               <button
                 onClick={() => setShowStatusDropdown(!showStatusDropdown)}
                 className="w-full sm:min-w-[170px] sm:w-auto px-4  py-2 bg-white dark:bg-slate-700 border-2 border-slate-300 dark:border-slate-600 rounded-xl shadow hover:shadow-md transition flex items-center justify-between"
