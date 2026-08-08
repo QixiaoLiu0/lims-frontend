@@ -89,9 +89,9 @@ export default function AddCOCModal({ onAdd, onClose }) {
                     inputMode="numeric"
                     pattern="[0-9]*"
                     value={cocNumberInput}
-                    onChange={(e) => setCocNumberInput(e.target.value)}
+                    onChange={(e) => setCocNumberInput(e.target.value.replace(/\D/g, ""))}
                     className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 placeholder-slate-400 dark:placeholder-slate-500 font-mono text-sm transition-colors"
-                    placeholder="Enter coc number"
+                    placeholder="Enter numbers only (e.g. 01234)"
                     required
                   />
                 </div>
@@ -105,7 +105,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                   <input
                     type="text"
                     value={clientName}
-                    onChange={(e) => setClientName(e.target.value)}
+                    onChange={(e) => setClientName(e.target.value.replace(/[^a-zA-Z\s]/g, ""))}
                     className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 placeholder-slate-400 dark:placeholder-slate-500 text-sm transition-colors"
                     placeholder="Enter client name"
                     required
@@ -136,7 +136,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                   <input
                     type="text"
                     value={receiver}
-                    onChange={(e) => setReceiver(e.target.value)}
+                    onChange={(e) => setReceiver(e.target.value.replace(/[^a-zA-Z\s]/g, ""))}
                     className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 placeholder-slate-400 dark:placeholder-slate-500 text-sm transition-colors"
                     required
                     placeholder="Enter receiver name"
@@ -287,7 +287,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                   <input
                     type="text"
                     value={relinquisher}
-                    onChange={(e) => setRelinquisher(e.target.value)}
+                    onChange={(e) => setRelinquisher(e.target.value.replace(/[^a-zA-Z\s]/g, ""))}
                     className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 text-sm transition-colors placeholder-slate-400 dark:placeholder-slate-500"
                     required
                     placeholder="Enter relinquisher name"
