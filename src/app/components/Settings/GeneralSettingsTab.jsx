@@ -29,7 +29,7 @@ export default function GeneralSettingsTab({
             onClick={toggleTheme}
             className={`relative flex items-center gap-2 px-4 py-2 rounded-xl border text-sm font-medium transition-colors ${
               isDark
-                ? "bg-gray-700 border-gray-600 text-gray-500 hover:bg-gray-600"
+                ? "bg-gray-900 border-gray-600 text-white hover:bg-gray-600"
                 : "bg-gray-50 border-gray-200 text-gray-900 hover:bg-gray-100"
             }`}
           >
@@ -221,7 +221,7 @@ export default function GeneralSettingsTab({
       <div className="pt-2">
         <button
           onClick={handleGeneralSettingsSave}
-          className="px-6 py-2.5 bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-200 text-sm font-medium rounded-lg hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-colors shadow-sm border border-gray-200 dark:border-transparent leading-tight"
+          className="px-6 py-2.5 bg-gray-100 dark:bg-gray-900 dark:border-gray-600 text-gray-900 dark:text-white text-sm font-medium rounded-lg hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-colors shadow-sm border border-gray-200 leading-tight"
         >
           Save Changes
         </button>

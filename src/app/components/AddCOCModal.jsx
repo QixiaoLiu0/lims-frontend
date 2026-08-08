@@ -131,7 +131,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                 <div>
                   <label className="flex text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 items-center gap-1.5 leading-tight">
                     <User className="w-3.5 h-3.5" />
-                    Receiver
+                    Receiver *
                   </label>
                   <input
                     type="text"
@@ -147,7 +147,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                 <div>
                   <label className="text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 flex items-center gap-1.5 leading-tight">
                     <Clock className="w-3.5 h-3.5" />
-                    Received Time
+                    Received Time *
                   </label>
                   <input
                     type="datetime-local"
@@ -252,7 +252,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                 <div>
                   <label className="text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 flex items-center gap-1.5 leading-tight">
                     <Clock className="w-3.5 h-3.5" />
-                    Relinquished Time
+                    Relinquished Time *
                   </label>
                   <input
                     type="datetime-local"
@@ -267,7 +267,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                 <div>
                   <label className="text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 flex items-center gap-1.5 leading-tight">
                     <Calendar className="w-3.5 h-3.5" />
-                    Date Required
+                    Date Required *
                   </label>
                   <input
                     type="date"
@@ -282,7 +282,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                 <div>
                   <label className="flex text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 items-center gap-1.5 leading-tight">
                     <User className="w-3.5 h-3.5" />
-                    Relinquisher
+                    Relinquisher *
                   </label>
                   <input
                     type="text"
@@ -681,7 +681,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                     : ""}
                 </span>
               ) : (
-                <span>Add samples to continue</span>
+                <span>Fill all (Required*) fields to  continue</span>
               )}
             </div>
             <div className="flex gap-3">
