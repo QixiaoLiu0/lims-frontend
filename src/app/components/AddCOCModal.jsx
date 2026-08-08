@@ -46,7 +46,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
     <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 z-50">
       <div className="bg-white dark:bg-slate-800 rounded-2xl max-w-6xl w-full max-h-[95vh] overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-700">
         {/* Header */}
-        <div className="sticky top-0 bg-slate-900 dark:bg-slate-950 backdrop-blur-sm border-b border-slate-800 p-6 flex items-center justify-between z-10">
+        <div className="sticky top-0 bg-slate-900 dark:bg-slate-800 backdrop-blur-sm border-b border-slate-800 p-6 flex items-center justify-between z-10">
           <div>
             <h2 className="text-xl font-bold text-white tracking-tight leading-tight">
               Create New COC
