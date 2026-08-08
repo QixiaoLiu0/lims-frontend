@@ -75,8 +75,8 @@ export default function AddSampleModal({ onClose, onAdd }) {
     <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 z-50">
       <div className="bg-white dark:bg-slate-800 rounded-2xl max-w-2xl w-full shadow-2xl border border-slate-200 dark:border-slate-700 overflow-hidden flex flex-col max-h-[90vh]">
         {/* Header */}
-        <div className="bg-slate-900 dark:bg-slate-950 border-b border-slate-800 p-6 flex items-center justify-between shrink-0">
-          <h2 className="text-lg font-bold text-white tracking-tight leading-tight">
+        <div className="bg-white dark:bg-slate-800 border-b border-slate-800 p-6 flex items-center justify-between shrink-0">
+          <h2 className="text-lg font-bold text-black dark:text-white tracking-tight leading-tight">
             Add New Sample
           </h2>
           <button

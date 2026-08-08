@@ -46,7 +46,7 @@ export default function SettingsModal({ isOpen, onClose }) {
     <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 z-50">
       <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-2xl w-full max-w-5xl max-h-[90vh] overflow-hidden flex flex-col border border-slate-200 dark:border-slate-700">
         {/* Header */}
-        <div className="flex items-center justify-between p-6 bg-white dark:bg-slate-950 shrink-0">
+        <div className="flex items-center justify-between p-6 bg-white dark:bg-slate-800 shrink-0">
           <div className="flex items-center gap-3">
             <div className="bg-blue-600 p-2.5 rounded-lg shadow-sm border border-blue-500/30">
               <SettingsIcon className="w-5 h-5 text-white" />
