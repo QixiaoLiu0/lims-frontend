@@ -73,7 +73,7 @@ export default function Header({
               {/* AI Assistant */}
               <button
                 onClick={pushChatBox}
-                className="p-2.5 rounded-lg text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                className="p-2.5 rounded-lg text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-black hover:bg-gray-200 dark:hover:bg-gray-300 transition-colors"
                 title="AI Assistant"
               >
                 <Bot className="w-5 h-5" />
@@ -83,7 +83,7 @@ export default function Header({
               {onSettingsClick && (
                 <button
                   onClick={onSettingsClick}
-                  className="p-2.5 rounded-lg text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-gray-500 hover:bg-gray-500 dark:hover:bg-slate-800 transition-colors"
+                  className="p-2.5 rounded-lg text-gray-500 dark:text-gray-200 hover:text-gray-900 dark:hover:text-black hover:bg-gray-200 dark:hover:bg-gray-300 transition-colors"
                   title="Settings"
                 >
                   <Settings className="w-5 h-5" />
@@ -93,7 +93,7 @@ export default function Header({
               {/* Logout */}
               <button
                 onClick={handleLogout}
-                className="p-2.5 rounded-lg text-gray-500 dark:text-gray-200 hover:text-red-500 dark:hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 transition-colors"
+                className="p-2.5 rounded-lg text-gray-500 dark:text-gray-200 hover:text-red-500 dark:hover:text-black hover:bg-red-50 dark:hover:bg-red-400 transition-colors"
                 title="Logout"
               >
                 <LogOut className="w-5 h-5" />
