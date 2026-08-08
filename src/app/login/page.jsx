@@ -27,7 +27,7 @@ export default function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setError("");
 
@@ -62,10 +62,10 @@ export default function Login() {
                   <Droplet className="w-8 h-8 text-white" />
                 </div>
                 <div>
-                  <h1 className="text-2xl font-bold leading-tight text-slate-900 dark:text-slate-100">
+                  <h1 className="text-2xl font-bold leading-tight text-gray-900 dark:text-gray-200">
                     WATER SAMPLING LAB
                   </h1>
-                  <p className="text-sm font-medium text-slate-600 dark:text-slate-400 mt-1 leading-normal">
+                  <p className="text-sm font-medium text-gray-500 dark:text-gray-200 mt-1 leading-normal">
                     Laboratory access portal.
                   </p>
                 </div>
@@ -79,7 +79,7 @@ export default function Login() {
                     alt="SAIT Logo"
                     className="w-72 h-auto mx-auto mb-4 mix-blend-multiply dark:mix-blend-normal opacity-90"
                   />
-                  <h2 className="text-6xl font-bold tracking-tight text-slate-900 dark:text-slate-100 leading-none">
+                  <h2 className="text-6xl font-bold tracking-tight text-gray-900 dark:text-gray-200 leading-none">
                     ARIS
                   </h2>
                 </div>
@@ -90,10 +90,10 @@ export default function Login() {
             <div className="bg-white dark:bg-slate-800 p-8 flex flex-col justify-center">
               <div className="w-full max-w-md mx-auto">
                 <div className="text-center mb-10">
-                  <h2 className="text-3xl font-bold leading-tight text-slate-900 dark:text-slate-100 mb-2">
+                  <h2 className="text-3xl font-bold leading-tight text-gray-900 dark:text-gray-200 mb-2">
                     Welcome Back
                   </h2>
-                  <p className="text-sm font-medium text-slate-500 dark:text-slate-400 leading-normal">
+                  <p className="text-sm font-medium text-gray-500 dark:text-gray-200 leading-normal">
                     Enter your credentials to login
                   </p>
                 </div>
@@ -117,7 +117,7 @@ export default function Login() {
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 leading-tight"
+                      className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 leading-tight"
                     >
                       Email
                     </label>
@@ -126,12 +126,12 @@ export default function Login() {
                         type="email"
                         id="email"
                         value={email}
-                        onChange={e => {
+                        onChange={(e) => {
                           setEmail(e.target.value);
                           setError("");
                         }}
                         placeholder="Enter your email"
-                        className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors text-base"
+                        className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-xl text-gray-900 dark:text-gray-200 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors text-base"
                       />
 
                       {email && (
@@ -143,7 +143,7 @@ export default function Login() {
                   <div>
                     <label
                       htmlFor="password"
-                      className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 leading-tight"
+                      className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 leading-tight"
                     >
                       Password
                     </label>
@@ -152,18 +152,18 @@ export default function Login() {
                         type={showPassword ? "text" : "password"}
                         id="password"
                         value={password}
-                        onChange={e => {
+                        onChange={(e) => {
                           setPassword(e.target.value);
                           setError("");
                         }}
                         placeholder="Enter password"
-                        className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-xl text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors pr-12 text-base"
+                        className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-xl text-gray-900 dark:text-gray-200 placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:border-transparent transition-colors pr-12 text-base"
                       />
 
                       <button
                         type="button"
                         onClick={() => setShowPassword(!showPassword)}
-                        className="absolute right-4 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors"
+                        className="absolute right-4 top-1/2 transform -translate-y-1/2 text-gray-500 hover:text-gray-500 dark:hover:text-gray-500 transition-colors"
                       >
                         {showPassword ? (
                           <EyeOff className="w-5 h-5" />
@@ -179,7 +179,7 @@ export default function Login() {
                     disabled={!isFormValid || isLoading}
                     whileHover={{ scale: isFormValid && !isLoading ? 1.02 : 1 }}
                     whileTap={{ scale: isFormValid && !isLoading ? 0.98 : 1 }}
-                    className={`w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-slate-900 font-bold py-3.5 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 text-base leading-normal ${
+                    className={`w-full bg-gradient-to-r from-yellow-500 to-yellow-600 text-gray-900 font-bold py-3.5 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 text-base leading-normal ${
                       !isFormValid || isLoading
                         ? "opacity-50 cursor-not-allowed"
                         : "hover:from-yellow-400 hover:to-yellow-500 hover:shadow-lg"

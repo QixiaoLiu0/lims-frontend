@@ -51,14 +51,14 @@ export default function AddCOCModal({ onAdd, onClose }) {
             <h2 className="text-xl font-bold text-white tracking-tight leading-tight">
               Create New COC
             </h2>
-            <p className="text-sm text-slate-400 font-medium mt-1 leading-tight">
+            <p className="text-sm text-gray-500 font-medium mt-1 leading-tight">
               Enter COC details and add samples. Tests can be assigned now or
               later.
             </p>
           </div>
           <button
             onClick={onClose}
-            className="p-2 hover:bg-slate-800 dark:hover:bg-slate-800 rounded-lg transition-colors text-slate-400 hover:text-white"
+            className="p-2 hover:bg-slate-800 dark:hover:bg-slate-800 rounded-lg transition-colors text-gray-500 hover:text-white"
           >
             <X className="w-5 h-5" />
           </button>
@@ -72,15 +72,15 @@ export default function AddCOCModal({ onAdd, onClose }) {
           <div className="p-6 space-y-6">
             {/* Section 1: COC General Information */}
             <div className="bg-slate-50 dark:bg-slate-800/80 rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm">
-              <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 mb-5 flex items-center gap-2 leading-tight">
-                <FileText className="w-5 h-5 text-slate-500 dark:text-slate-400" />
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-200 mb-5 flex items-center gap-2 leading-tight">
+                <FileText className="w-5 h-5 text-gray-500 dark:text-gray-200" />
                 COC General Information
               </h3>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {/* COC Number */}
                 <div className="md:col-span-2">
-                  <label className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 flex items-center gap-1.5 leading-tight">
+                  <label className="text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 flex items-center gap-1.5 leading-tight">
                     <FileText className="w-3.5 h-3.5" />
                     COC Number *
                   </label>
@@ -88,7 +88,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                     type="text"
                     value={cocNumberInput}
                     onChange={(e) => setCocNumberInput(e.target.value)}
-                    className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 font-mono text-sm transition-colors"
+                    className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 placeholder-slate-400 dark:placeholder-slate-500 font-mono text-sm transition-colors"
                     placeholder="Enter coc number"
                     required
                   />
@@ -96,7 +96,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
 
                 {/* Client Name */}
                 <div>
-                  <label className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 flex items-center gap-1.5 leading-tight">
+                  <label className="text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 flex items-center gap-1.5 leading-tight">
                     <User className="w-3.5 h-3.5" />
                     Client Name *
                   </label>
@@ -104,7 +104,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                     type="text"
                     value={clientName}
                     onChange={(e) => setClientName(e.target.value)}
-                    className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 text-sm transition-colors"
+                    className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 placeholder-slate-400 dark:placeholder-slate-500 text-sm transition-colors"
                     placeholder="Enter client name"
                     required
                   />
@@ -112,7 +112,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
 
                 {/* Project Name */}
                 <div>
-                  <label className="flex text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 items-center gap-1.5 leading-tight">
+                  <label className="flex text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 items-center gap-1.5 leading-tight">
                     <FileText className="w-3.5 h-3.5" />
                     Project Name
                   </label>
@@ -120,14 +120,14 @@ export default function AddCOCModal({ onAdd, onClose }) {
                     type="text"
                     value={projectName}
                     onChange={(e) => setProjectName(e.target.value)}
-                    className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 text-sm transition-colors"
+                    className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 placeholder-slate-400 dark:placeholder-slate-500 text-sm transition-colors"
                     placeholder="Enter project name"
                   />
                 </div>
 
                 {/* Receiver */}
                 <div>
-                  <label className="flex text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 items-center gap-1.5 leading-tight">
+                  <label className="flex text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 items-center gap-1.5 leading-tight">
                     <User className="w-3.5 h-3.5" />
                     Receiver
                   </label>
@@ -135,7 +135,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                     type="text"
                     value={receiver}
                     onChange={(e) => setReceiver(e.target.value)}
-                    className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 text-sm transition-colors"
+                    className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 placeholder-slate-400 dark:placeholder-slate-500 text-sm transition-colors"
                     required
                     placeholder="Enter receiver name"
                   />
@@ -143,7 +143,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
 
                 {/* Received Time */}
                 <div>
-                  <label className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 flex items-center gap-1.5 leading-tight">
+                  <label className="text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 flex items-center gap-1.5 leading-tight">
                     <Clock className="w-3.5 h-3.5" />
                     Received Time
                   </label>
@@ -151,13 +151,13 @@ export default function AddCOCModal({ onAdd, onClose }) {
                     type="datetime-local"
                     value={receivedTime}
                     onChange={(e) => setReceivedTime(e.target.value)}
-                    className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 text-sm transition-colors"
+                    className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 text-sm transition-colors"
                   />
                 </div>
 
                 {/* Report Name */}
                 <div>
-                  <label className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 flex items-center gap-1.5 leading-tight">
+                  <label className="text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 flex items-center gap-1.5 leading-tight">
                     <User className="w-3.5 h-3.5" />
                     Report Name
                   </label>
@@ -165,14 +165,14 @@ export default function AddCOCModal({ onAdd, onClose }) {
                     type="text"
                     value={reportName}
                     onChange={(e) => setReportName(e.target.value)}
-                    className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 text-sm transition-colors"
+                    className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 placeholder-slate-400 dark:placeholder-slate-500 text-sm transition-colors"
                     placeholder="Name for report recipient"
                   />
                 </div>
 
                 {/* Report Email */}
                 <div>
-                  <label className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 flex items-center gap-1.5 leading-tight">
+                  <label className="text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 flex items-center gap-1.5 leading-tight">
                     <FileText className="w-3.5 h-3.5" />
                     Report Email
                   </label>
@@ -180,7 +180,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                     type="email"
                     value={reportEmail}
                     onChange={(e) => setReportEmail(e.target.value)}
-                    className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 text-sm transition-colors"
+                    className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 placeholder-slate-400 dark:placeholder-slate-500 text-sm transition-colors"
                     placeholder="email@example.com"
                   />
                 </div>
@@ -190,7 +190,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-5">
                 {/* Rush Request */}
                 <div>
-                  <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 leading-tight">
+                  <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 leading-tight">
                     Rush Request
                   </label>
                   <div className="flex items-center gap-6 px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg transition-colors">
@@ -201,9 +201,9 @@ export default function AddCOCModal({ onAdd, onClose }) {
                         value="yes"
                         checked={rushRequest === true}
                         onChange={() => setRushRequest(true)}
-                        className="w-4 h-4 text-blue-600 border-slate-300 focus:ring-blue-500"
+                        className="w-4 h-4 text-blue-500 border-slate-300 focus:ring-blue-500"
                       />
-                      <span className="text-sm font-medium text-slate-900 dark:text-slate-100 group-hover:text-blue-600 transition-colors">
+                      <span className="text-sm font-medium text-gray-900 dark:text-gray-200 group-hover:text-blue-500 transition-colors">
                         Yes
                       </span>
                     </label>
@@ -217,9 +217,9 @@ export default function AddCOCModal({ onAdd, onClose }) {
                           setRushRequest(false);
                           setRushRequestDate("");
                         }}
-                        className="w-4 h-4 text-blue-600 border-slate-300 focus:ring-blue-500"
+                        className="w-4 h-4 text-blue-500 border-slate-300 focus:ring-blue-500"
                       />
-                      <span className="text-sm font-medium text-slate-900 dark:text-slate-100 group-hover:text-blue-600 transition-colors">
+                      <span className="text-sm font-medium text-gray-900 dark:text-gray-200 group-hover:text-blue-500 transition-colors">
                         No
                       </span>
                     </label>
@@ -229,7 +229,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                 {/* Rush Request Date */}
                 {rushRequest && (
                   <div>
-                    <label className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 flex items-center gap-1.5 leading-tight">
+                    <label className="text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 flex items-center gap-1.5 leading-tight">
                       <Calendar className="w-3.5 h-3.5" />
                       Rush Request Date *
                     </label>
@@ -237,7 +237,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                       type="date"
                       value={rushRequestDate}
                       onChange={(e) => setRushRequestDate(e.target.value)}
-                      className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 text-sm transition-colors"
+                      className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 text-sm transition-colors"
                       required={rushRequest}
                     />
                   </div>
@@ -247,7 +247,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-5">
                 {/* Relinquished */}
                 <div>
-                  <label className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 flex items-center gap-1.5 leading-tight">
+                  <label className="text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 flex items-center gap-1.5 leading-tight">
                     <Clock className="w-3.5 h-3.5" />
                     Relinquished Time
                   </label>
@@ -255,14 +255,14 @@ export default function AddCOCModal({ onAdd, onClose }) {
                     type="datetime-local"
                     value={relinquishedTime}
                     onChange={(e) => setRelinquishedTime(e.target.value)}
-                    className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 text-sm transition-colors"
+                    className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 text-sm transition-colors"
                     required
                   />
                 </div>
 
                 {/* Date Required */}
                 <div>
-                  <label className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 flex items-center gap-1.5 leading-tight">
+                  <label className="text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 flex items-center gap-1.5 leading-tight">
                     <Calendar className="w-3.5 h-3.5" />
                     Date Required
                   </label>
@@ -270,14 +270,14 @@ export default function AddCOCModal({ onAdd, onClose }) {
                     type="date"
                     value={dateRequired}
                     onChange={(e) => setDateRequired(e.target.value)}
-                    className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 text-sm transition-colors"
+                    className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 text-sm transition-colors"
                     required
                   />
                 </div>
 
                 {/* Relinquisher */}
                 <div>
-                  <label className="flex text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 items-center gap-1.5 leading-tight">
+                  <label className="flex text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 items-center gap-1.5 leading-tight">
                     <User className="w-3.5 h-3.5" />
                     Relinquisher
                   </label>
@@ -285,7 +285,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                     type="text"
                     value={relinquisher}
                     onChange={(e) => setRelinquisher(e.target.value)}
-                    className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 text-sm transition-colors placeholder-slate-400 dark:placeholder-slate-500"
+                    className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 text-sm transition-colors placeholder-slate-400 dark:placeholder-slate-500"
                     required
                     placeholder="Enter relinquisher name"
                   />
@@ -293,7 +293,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
 
                 {/* Total # of Containers */}
                 <div>
-                  <label className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 flex items-center gap-1.5 leading-tight">
+                  <label className="text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 flex items-center gap-1.5 leading-tight">
                     <FileText className="w-3.5 h-3.5" />
                     Total # of Containers
                   </label>
@@ -306,7 +306,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                         e.target.value === "" ? "" : Number(e.target.value),
                       )
                     }
-                    className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 placeholder-slate-400 dark:placeholder-slate-500 text-sm transition-colors"
+                    className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 placeholder-slate-400 dark:placeholder-slate-500 text-sm transition-colors"
                     placeholder="Enter total number of containers"
                   />
                 </div>
@@ -316,14 +316,14 @@ export default function AddCOCModal({ onAdd, onClose }) {
             {/* Section 2: Samples & Tests Matrix */}
             <div className="bg-slate-50 dark:bg-slate-800/80 rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm">
               <div className="flex items-center justify-between mb-5">
-                <h3 className="text-lg font-semibold text-slate-900 dark:text-slate-100 flex items-center gap-2 leading-tight">
-                  <Plus className="w-5 h-5 text-slate-500 dark:text-slate-400" />
+                <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-200 flex items-center gap-2 leading-tight">
+                  <Plus className="w-5 h-5 text-gray-500 dark:text-gray-200" />
                   Samples & Test Assignment
                 </h3>
                 <button
                   type="button"
                   onClick={addSample}
-                  className="px-4 py-2 bg-slate-200 dark:bg-slate-700 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white text-slate-700 dark:text-slate-200 rounded-lg transition-colors flex items-center gap-2 text-sm font-medium shadow-sm border border-slate-300 dark:border-slate-600 hover:border-transparent"
+                  className="px-4 py-2 bg-slate-200 dark:bg-slate-700 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white text-gray-900 dark:text-gray-200 rounded-lg transition-colors flex items-center gap-2 text-sm font-medium shadow-sm border border-slate-300 dark:border-slate-600 hover:border-transparent"
                 >
                   <Plus className="w-4 h-4" />
                   Add Sample
@@ -333,9 +333,9 @@ export default function AddCOCModal({ onAdd, onClose }) {
               {samples.length === 0 ? (
                 <div className="text-center py-12 border-2 border-dashed border-slate-300 dark:border-slate-600 rounded-xl bg-white dark:bg-slate-800/50">
                   <div className="w-12 h-12 bg-slate-100 dark:bg-slate-700 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Plus className="w-6 h-6 text-slate-400 dark:text-slate-500" />
+                    <Plus className="w-6 h-6 text-gray-500 dark:text-gray-200" />
                   </div>
-                  <p className="text-sm font-medium text-slate-500 dark:text-slate-400">
+                  <p className="text-sm font-medium text-gray-500 dark:text-gray-200">
                     No samples added yet
                   </p>
                 </div>
@@ -348,17 +348,17 @@ export default function AddCOCModal({ onAdd, onClose }) {
                     >
                       <div className="flex items-center justify-between mb-5 border-b border-slate-100 dark:border-slate-700 pb-4">
                         <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 bg-blue-50 text-blue-700 dark:bg-blue-500/10 dark:text-blue-400 rounded-lg flex items-center justify-center font-bold text-sm border border-blue-200 dark:border-blue-500/30">
+                          <div className="w-8 h-8 bg-blue-50 text-blue-500 dark:bg-blue-500/10 dark:text-blue-500 rounded-lg flex items-center justify-center font-bold text-sm border border-blue-200 dark:border-blue-500/30">
                             {sampleLetters[index % 26]}
                           </div>
-                          <h4 className="font-semibold text-base text-slate-900 dark:text-slate-100 leading-tight">
+                          <h4 className="font-semibold text-base text-gray-900 dark:text-gray-200 leading-tight">
                             Sample {index + 1}
                           </h4>
                         </div>
                         <button
                           type="button"
                           onClick={() => removeSample(sample.id)}
-                          className="p-1.5 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-lg transition-colors"
+                          className="p-1.5 text-red-600 dark:text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 rounded-lg transition-colors"
                           title="Remove sample"
                         >
                           <Trash2 className="w-4 h-4" />
@@ -368,7 +368,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-5">
                         {/* Sample Client ID — manual entry */}
                         <div>
-                          <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 leading-tight">
+                          <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 leading-tight">
                             Sample Client ID *
                           </label>
                           <input
@@ -382,12 +382,12 @@ export default function AddCOCModal({ onAdd, onClose }) {
                               )
                             }
                             placeholder="Optional custom ID"
-                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 text-sm font-mono placeholder-slate-400 dark:placeholder-slate-500 transition-colors"
+                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 text-sm font-mono placeholder-slate-400 dark:placeholder-slate-500 transition-colors"
                           />
                         </div>
                         {/* Sample Type */}
                         <div>
-                          <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 leading-tight">
+                          <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 leading-tight">
                             Sample Type *
                           </label>
                           <select
@@ -399,7 +399,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                                 e.target.value,
                               )
                             }
-                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 text-sm transition-colors"
+                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 text-sm transition-colors"
                             required
                           >
                             <option value="Water">Water</option>
@@ -408,7 +408,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
 
                         {/* Matrix */}
                         <div>
-                          <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 leading-tight">
+                          <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 leading-tight">
                             Matrix *
                           </label>
                           <select
@@ -416,7 +416,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                             onChange={(e) =>
                               updateSample(sample.id, "matrix", e.target.value)
                             }
-                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 text-sm transition-colors"
+                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 text-sm transition-colors"
                             required
                           >
                             {matrixs.map((type) => (
@@ -429,7 +429,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
 
                         {/* Sampling Point */}
                         <div>
-                          <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 leading-tight">
+                          <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 leading-tight">
                             Sampling Point *
                           </label>
                           <select
@@ -441,7 +441,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                                 e.target.value,
                               )
                             }
-                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 text-sm transition-colors"
+                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 text-sm transition-colors"
                             required
                           >
                             <option value="Inlet">Inlet</option>
@@ -460,7 +460,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                                 )
                               }
                               placeholder="Enter custom point"
-                              className="w-full mt-2 px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 text-sm transition-colors placeholder-slate-400 dark:placeholder-slate-500"
+                              className="w-full mt-2 px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 text-sm transition-colors placeholder-slate-400 dark:placeholder-slate-500"
                               required
                               autoFocus
                             />
@@ -468,7 +468,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                         </div>
                         {/* Collection Date */}
                         <div>
-                          <label className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 flex items-center gap-1.5 leading-tight">
+                          <label className="text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 flex items-center gap-1.5 leading-tight">
                             <Clock className="w-3.5 h-3.5" />
                             Collection Date *
                           </label>
@@ -482,14 +482,14 @@ export default function AddCOCModal({ onAdd, onClose }) {
                                 e.target.value,
                               )
                             }
-                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 text-sm transition-colors"
+                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 text-sm transition-colors"
                             required
                           />
                         </div>
 
                         {/* Collection Time */}
                         <div>
-                          <label className="text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 flex items-center gap-1.5 leading-tight">
+                          <label className="text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 flex items-center gap-1.5 leading-tight">
                             <Clock className="w-3.5 h-3.5" />
                             Collection Time *
                           </label>
@@ -503,14 +503,14 @@ export default function AddCOCModal({ onAdd, onClose }) {
                                 e.target.value,
                               )
                             }
-                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 text-sm transition-colors"
+                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 text-sm transition-colors"
                             required
                           />
                         </div>
 
                         {/* Initial Volume */}
                         <div>
-                          <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 leading-tight">
+                          <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 leading-tight">
                             Initial Volume *
                           </label>
                           <input
@@ -524,13 +524,13 @@ export default function AddCOCModal({ onAdd, onClose }) {
                               )
                             }
                             placeholder="unit: ml"
-                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 text-sm font-mono placeholder-slate-400 dark:placeholder-slate-500 transition-colors"
+                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 text-sm font-mono placeholder-slate-400 dark:placeholder-slate-500 transition-colors"
                           />
                         </div>
 
                         {/* Number of Containers */}
                         <div>
-                          <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 leading-tight">
+                          <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 leading-tight">
                             # of Containers
                           </label>
                           <input
@@ -543,7 +543,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                                 e.target.value,
                               )
                             }
-                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-slate-900 dark:text-slate-100 text-sm font-mono transition-colors"
+                            className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 text-sm font-mono transition-colors"
                           />
                         </div>
                       </div>
@@ -552,7 +552,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                       <div className="grid grid-cols-2 gap-5 mb-5">
                         {/* Filtered */}
                         <div>
-                          <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 leading-tight">
+                          <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 leading-tight">
                             Filtered
                           </label>
                           <div className="flex items-center gap-6 px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg transition-colors">
@@ -564,9 +564,9 @@ export default function AddCOCModal({ onAdd, onClose }) {
                                 onChange={() =>
                                   updateSample(sample.id, "filtered", true)
                                 }
-                                className="w-4 h-4 text-blue-600 border-slate-300 focus:ring-blue-500"
+                                className="w-4 h-4 text-blue-500 border-slate-300 focus:ring-blue-500"
                               />
-                              <span className="text-sm font-medium text-slate-900 dark:text-slate-100 group-hover:text-blue-600 transition-colors">
+                              <span className="text-sm font-medium text-gray-900 dark:text-gray-200 group-hover:text-blue-500 transition-colors">
                                 Yes
                               </span>
                             </label>
@@ -578,9 +578,9 @@ export default function AddCOCModal({ onAdd, onClose }) {
                                 onChange={() =>
                                   updateSample(sample.id, "filtered", false)
                                 }
-                                className="w-4 h-4 text-blue-600 border-slate-300 focus:ring-blue-500"
+                                className="w-4 h-4 text-blue-500 border-slate-300 focus:ring-blue-500"
                               />
-                              <span className="text-sm font-medium text-slate-900 dark:text-slate-100 group-hover:text-blue-600 transition-colors">
+                              <span className="text-sm font-medium text-gray-900 dark:text-gray-200 group-hover:text-blue-500 transition-colors">
                                 No
                               </span>
                             </label>
@@ -589,7 +589,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
 
                         {/* Preserved */}
                         <div>
-                          <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 leading-tight">
+                          <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 leading-tight">
                             Preserved
                           </label>
                           <div className="flex items-center gap-6 px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg transition-colors">
@@ -601,9 +601,9 @@ export default function AddCOCModal({ onAdd, onClose }) {
                                 onChange={() =>
                                   updateSample(sample.id, "preserved", true)
                                 }
-                                className="w-4 h-4 text-blue-600 border-slate-300 focus:ring-blue-500"
+                                className="w-4 h-4 text-blue-500 border-slate-300 focus:ring-blue-500"
                               />
-                              <span className="text-sm font-medium text-slate-900 dark:text-slate-100 group-hover:text-blue-600 transition-colors">
+                              <span className="text-sm font-medium text-gray-900 dark:text-gray-200 group-hover:text-blue-500 transition-colors">
                                 Yes
                               </span>
                             </label>
@@ -615,9 +615,9 @@ export default function AddCOCModal({ onAdd, onClose }) {
                                 onChange={() =>
                                   updateSample(sample.id, "preserved", false)
                                 }
-                                className="w-4 h-4 text-blue-600 border-slate-300 focus:ring-blue-500"
+                                className="w-4 h-4 text-blue-500 border-slate-300 focus:ring-blue-500"
                               />
-                              <span className="text-sm font-medium text-slate-900 dark:text-slate-100 group-hover:text-blue-600 transition-colors">
+                              <span className="text-sm font-medium text-gray-900 dark:text-gray-200 group-hover:text-blue-500 transition-colors">
                                 No
                               </span>
                             </label>
@@ -627,13 +627,13 @@ export default function AddCOCModal({ onAdd, onClose }) {
 
                       {/* Test Assignment */}
                       <div>
-                        <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 leading-tight">
+                        <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 leading-tight">
                           Assign Tests (Optional){" "}
-                          <span className="text-slate-500 dark:text-slate-400 font-medium ml-1">
+                          <span className="text-gray-500 dark:text-gray-200 font-medium ml-1">
                             ({sample.selectedTests.length} selected)
                           </span>
                         </label>
-                        <p className="text-xs text-slate-500 dark:text-slate-400 mb-3 leading-tight">
+                        <p className="text-xs text-gray-500 dark:text-gray-200 mb-3 leading-tight">
                           Tests can be added later from the sample details page
                         </p>
                         <div className="flex flex-wrap gap-2">
@@ -647,7 +647,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                               className={`px-3 py-1.5 rounded-lg border transition-all text-sm font-medium leading-tight ${
                                 sample.selectedTests.includes(test.testTypeId)
                                   ? "bg-blue-600 border-blue-600 text-white shadow-sm"
-                                  : "bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-300 hover:border-blue-400 dark:hover:border-blue-500 hover:text-blue-600 dark:hover:text-blue-400"
+                                  : "bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-600 text-gray-900 dark:text-gray-200 hover:border-blue-400 dark:hover:border-blue-500 hover:text-blue-500 dark:hover:text-blue-500"
                               }`}
                             >
                               {test.typeName}
@@ -664,7 +664,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
 
           {/* Section 3: Action Footer */}
           <div className="sticky bottom-0 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md border-t border-slate-200 dark:border-slate-700 p-6 flex items-center justify-between z-10">
-            <div className="text-sm font-medium text-slate-600 dark:text-slate-400 leading-tight">
+            <div className="text-sm font-medium text-gray-500 dark:text-gray-200 leading-tight">
               {samples.length > 0 ? (
                 <span>
                   {samples.length} sample{samples.length !== 1 ? "s" : ""} •{" "}
@@ -685,14 +685,14 @@ export default function AddCOCModal({ onAdd, onClose }) {
               <button
                 type="button"
                 onClick={onClose}
-                className="px-5 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-600 text-slate-700 dark:text-slate-300 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors text-sm font-semibold leading-tight shadow-sm"
+                className="px-5 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-600 text-gray-900 dark:text-gray-200 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors text-sm font-semibold leading-tight shadow-sm"
               >
                 Cancel
               </button>
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="px-5 py-2.5 bg-slate-800 dark:bg-slate-200 text-white dark:text-slate-900 rounded-lg hover:bg-yellow-500 hover:text-slate-900 dark:hover:bg-yellow-500 dark:hover:text-slate-900 transition-colors text-sm font-bold leading-tight disabled:opacity-50 disabled:cursor-not-allowed shadow-sm border border-transparent"
+                className="px-5 py-2.5 bg-slate-800 dark:bg-slate-200 text-white dark:text-gray-900 rounded-lg hover:bg-yellow-500 hover:text-gray-900 dark:hover:bg-yellow-500 dark:hover:text-gray-900 transition-colors text-sm font-bold leading-tight disabled:opacity-50 disabled:cursor-not-allowed shadow-sm border border-transparent"
               >
                 Create COC & Samples
               </button>

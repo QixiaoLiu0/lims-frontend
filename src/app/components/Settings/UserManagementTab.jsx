@@ -39,7 +39,7 @@ export default function UserManagementTab({ inputCls }) {
   }, [fetchUsers]);
 
   // create user
-  const handleUserSubmit = async e => {
+  const handleUserSubmit = async (e) => {
     e.preventDefault();
     if (!isSuperAdmin) return;
 
@@ -81,10 +81,10 @@ export default function UserManagementTab({ inputCls }) {
   };
 
   // role & icon mapping
-  const getRoleInfo = roleStr => {
+  const getRoleInfo = (roleStr) => {
     const role = roleStr?.toUpperCase() || "STAFF";
     const defaultColor =
-      "bg-slate-100 text-slate-700 dark:bg-slate-700 dark:text-slate-300";
+      "bg-gray-500 text-gray-900 dark:bg-gray-900 dark:text-gray-200";
 
     switch (role) {
       case "STAFF":
@@ -101,7 +101,7 @@ export default function UserManagementTab({ inputCls }) {
 
   if (!isSuperAdmin) {
     return (
-      <div className="p-6 text-red-600 dark:text-red-400 font-medium text-sm">
+      <div className="p-6 text-red-500 dark:text-red-500 font-medium text-sm">
         Unauthorized Access.
       </div>
     );
@@ -109,7 +109,7 @@ export default function UserManagementTab({ inputCls }) {
 
   if (loading) {
     return (
-      <div className="p-6 text-slate-500 dark:text-slate-400 text-sm font-medium">
+      <div className="p-6 text-gray-500 dark:text-gray-200 text-sm font-medium">
         Loading user records...
       </div>
     );
@@ -121,10 +121,10 @@ export default function UserManagementTab({ inputCls }) {
       {!isAddingUser && (
         <button
           onClick={() => setIsAddingUser(true)}
-          className="w-full flex items-center justify-center gap-2 p-4 border-2 border-dashed border-slate-300 dark:border-slate-600 rounded-xl hover:border-blue-400 dark:hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-500/10 transition-colors"
+          className="w-full flex items-center justify-center gap-2 p-4 border-2 border-dashed border-gray-300 dark:border-gray-600 rounded-xl hover:border-blue-400 dark:hover:border-blue-500 hover:bg-blue-50 dark:hover:bg-blue-500/10 transition-colors"
         >
-          <UserPlus className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-          <span className="font-semibold text-sm text-blue-600 dark:text-blue-400 leading-tight">
+          <UserPlus className="w-5 h-5 text-blue-500 dark:text-blue-500" />
+          <span className="font-semibold text-sm text-blue-500 dark:text-blue-500 leading-tight">
             Add New User
           </span>
         </button>
@@ -132,20 +132,20 @@ export default function UserManagementTab({ inputCls }) {
 
       {/* New User form*/}
       {isAddingUser && (
-        <div className="bg-white dark:bg-slate-800 rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm">
-          <h3 className="font-semibold text-slate-900 dark:text-slate-100 mb-5 text-lg leading-tight">
+        <div className="bg-white dark:bg-gray-800 rounded-xl p-6 border border-gray-200 dark:border-gray-700 shadow-sm">
+          <h3 className="font-semibold text-gray-900 dark:text-gray-200 mb-5 text-lg leading-tight">
             Create New User
           </h3>
           <form onSubmit={handleUserSubmit} className="space-y-5">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div>
-                <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 leading-tight">
+                <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 leading-tight">
                   Full Name
                 </label>
                 <input
                   type="text"
                   value={formData.fullName}
-                  onChange={e =>
+                  onChange={(e) =>
                     setFormData({ ...formData, fullName: e.target.value })
                   }
                   required
@@ -154,13 +154,13 @@ export default function UserManagementTab({ inputCls }) {
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 leading-tight">
+                <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 leading-tight">
                   Email Address
                 </label>
                 <input
                   type="email"
                   value={formData.email}
-                  onChange={e =>
+                  onChange={(e) =>
                     setFormData({ ...formData, email: e.target.value })
                   }
                   required
@@ -169,12 +169,12 @@ export default function UserManagementTab({ inputCls }) {
                 />
               </div>
               <div>
-                <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 leading-tight">
+                <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 leading-tight">
                   Role
                 </label>
                 <select
                   value={formData.role}
-                  onChange={e =>
+                  onChange={(e) =>
                     setFormData({ ...formData, role: e.target.value })
                   }
                   className={inputCls}
@@ -185,13 +185,13 @@ export default function UserManagementTab({ inputCls }) {
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-2 leading-tight">
+                <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 leading-tight">
                   Initial Password
                 </label>
                 <input
                   type="password"
                   value={formData.password}
-                  onChange={e =>
+                  onChange={(e) =>
                     setFormData({ ...formData, password: e.target.value })
                   }
                   required
@@ -203,7 +203,7 @@ export default function UserManagementTab({ inputCls }) {
             <div className="flex gap-3 pt-2">
               <button
                 type="submit"
-                className="flex-1 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 text-sm font-medium py-2.5 rounded-lg hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-colors shadow-sm border border-slate-200 dark:border-transparent leading-tight"
+                className="flex-1 bg-gray-100 dark:bg-gray-700 text-gray-900 dark:text-gray-200 text-sm font-medium py-2.5 rounded-lg hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-colors shadow-sm border border-gray-200 dark:border-transparent leading-tight"
               >
                 Create User
               </button>
@@ -218,7 +218,7 @@ export default function UserManagementTab({ inputCls }) {
                     password: "",
                   });
                 }}
-                className="flex-1 bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-sm font-medium py-2.5 rounded-lg border border-slate-200 dark:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors leading-tight"
+                className="flex-1 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-200 text-sm font-medium py-2.5 rounded-lg border border-gray-200 dark:border-gray-600 hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors leading-tight"
               >
                 Cancel
               </button>
@@ -229,11 +229,11 @@ export default function UserManagementTab({ inputCls }) {
 
       {/* existing users */}
       <div>
-        <h3 className="font-semibold text-slate-900 dark:text-slate-100 mb-4 text-lg leading-tight">
+        <h3 className="font-semibold text-gray-900 dark:text-gray-200 mb-4 text-lg leading-tight">
           Existing Users ({users.length})
         </h3>
         <div className="space-y-3">
-          {users.map(u => {
+          {users.map((u) => {
             const roleInfo = getRoleInfo(u.role);
             const RoleIcon = roleInfo.icon;
 
@@ -243,19 +243,19 @@ export default function UserManagementTab({ inputCls }) {
             return (
               <div
                 key={u.userId}
-                className="flex items-center justify-between p-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl hover:shadow-sm transition-all"
+                className="flex items-center justify-between p-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl hover:shadow-sm transition-all"
               >
                 <div className="flex items-center gap-4">
                   <div
-                    className={`${roleInfo.color} p-2.5 rounded-lg shadow-sm border border-slate-200 dark:border-slate-600/50`}
+                    className={`${roleInfo.color} p-2.5 rounded-lg shadow-sm border border-gray-200 dark:border-gray-600/50`}
                   >
                     <RoleIcon className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="font-semibold text-sm text-slate-900 dark:text-slate-100 leading-tight mb-0.5">
+                    <p className="font-semibold text-sm text-gray-900 dark:text-gray-200 leading-tight mb-0.5">
                       {`${u.firstName} ${u.lastName}`}
                     </p>
-                    <p className="text-sm font-medium text-slate-500 dark:text-slate-400 leading-tight">
+                    <p className="text-sm font-medium text-gray-500 dark:text-gray-200 leading-tight">
                       {u.email}
                     </p>
                   </div>
@@ -264,15 +264,17 @@ export default function UserManagementTab({ inputCls }) {
                 <div className="flex items-center gap-3">
                   {isSelf ? (
                     <span
-                      className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold leading-tight ${roleInfo.color} border border-slate-200 dark:border-slate-600`}
+                      className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold leading-tight ${roleInfo.color} border border-gray-200 dark:border-gray-600`}
                     >
                       {roleInfo.label} (You)
                     </span>
                   ) : (
                     <select
                       value={u.role.toUpperCase()}
-                      onChange={e => handleUpdateRole(u.userId, e.target.value)}
-                      className={`px-3 py-1.5 rounded-full text-xs font-semibold leading-tight ${roleInfo.color} border border-slate-200 dark:border-slate-600 hover:border-slate-300 dark:hover:border-slate-500 transition-colors cursor-pointer outline-none focus:ring-2 focus:ring-blue-500`}
+                      onChange={(e) =>
+                        handleUpdateRole(u.userId, e.target.value)
+                      }
+                      className={`px-3 py-1.5 rounded-full text-xs font-semibold leading-tight ${roleInfo.color} border border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500 transition-colors cursor-pointer outline-none focus:ring-2 focus:ring-blue-500`}
                     >
                       <option value="STAFF">Staff</option>
                       <option value="ADMIN">Admin</option>

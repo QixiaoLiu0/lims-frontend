@@ -17,12 +17,12 @@ export default function SampleReportModal({
 }) {
   if (!isOpen) return null;
 
-  const passCount = testResults.filter(t => t.status === "Pass").length;
-  const failCount = testResults.filter(t => t.status === "Fail").length;
-  const warningCount = testResults.filter(t => t.status === "Warning").length;
+  const passCount = testResults.filter((t) => t.status === "Pass").length;
+  const failCount = testResults.filter((t) => t.status === "Fail").length;
+  const warningCount = testResults.filter((t) => t.status === "Warning").length;
 
   const handleExportToExcel = () => {
-    const excelData = testResults.map(test => ({
+    const excelData = testResults.map((test) => ({
       "Test ID": test.id,
       "Test Name":
         test.testName +
@@ -79,7 +79,7 @@ export default function SampleReportModal({
     window.print();
   };
 
-  const getStatusIcon = status => {
+  const getStatusIcon = (status) => {
     switch (status) {
       case "Pass":
         return <CheckCircle className="w-5 h-5 text-green-600" />;
@@ -92,7 +92,7 @@ export default function SampleReportModal({
     }
   };
 
-  const getStatusBadgeClass = status => {
+  const getStatusBadgeClass = (status) => {
     switch (status) {
       case "Pass":
         return "bg-green-100 text-green-700";
@@ -129,7 +129,7 @@ export default function SampleReportModal({
             </button>
             <button
               onClick={handleExportToExcel}
-              className="flex items-center gap-2 px-4 py-2 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-medium rounded-lg hover:bg-green-600 hover:text-white dark:hover:bg-green-600 dark:hover:text-white transition shadow-lg"
+              className="flex items-center gap-2 px-4 py-2 bg-slate-200 dark:bg-slate-700 text-gray-900 dark:text-gray-200 font-medium rounded-lg hover:bg-green-600 hover:text-white dark:hover:bg-green-600 dark:hover:text-white transition shadow-lg"
             >
               <Download className="w-4 h-4" />
               Export to Excel
@@ -148,10 +148,10 @@ export default function SampleReportModal({
           <div className="max-w-5xl mx-auto">
             {/* Report Header */}
             <div className="text-center mb-4 print:mb-3">
-              <h1 className="text-3xl font-bold text-slate-900 mb-2">
+              <h1 className="text-3xl font-bold text-gray-900 mb-2">
                 Water Quality Test Report
               </h1>
-              <p className="text-slate-700">
+              <p className="text-gray-900">
                 Generated on{" "}
                 {new Date().toLocaleDateString("en-US", {
                   year: "numeric",
@@ -165,34 +165,34 @@ export default function SampleReportModal({
 
             {/* Sample Information */}
             <div className="bg-[#C0D0DF] border border-slate-300 rounded-lg p-6 mb-4 print:mb-3">
-              <h2 className="text-xl font-bold text-slate-900 mb-4">
+              <h2 className="text-xl font-bold text-gray-900 mb-4">
                 Sample Information
               </h2>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <p className="text-base text-slate-600 mb-1">Sample ID</p>
-                  <p className="font-semibold text-slate-900">{sample.id}</p>
+                  <p className="text-base text-gray-900 mb-1">Sample ID</p>
+                  <p className="font-semibold text-gray-900">{sample.id}</p>
                 </div>
                 <div>
-                  <p className="text-base text-slate-600 mb-1">Sample Letter</p>
-                  <p className="font-semibold text-slate-900">
+                  <p className="text-base text-gray-500 mb-1">Sample Letter</p>
+                  <p className="font-semibold text-gray-900">
                     {sample.sampleLetter}
                   </p>
                 </div>
                 <div>
-                  <p className="text-base text-slate-600 mb-1">Type</p>
-                  <p className="font-semibold text-slate-900">{sample.type}</p>
+                  <p className="text-base text-gray-500 mb-1">Type</p>
+                  <p className="font-semibold text-gray-900">{sample.type}</p>
                 </div>
                 <div>
-                  <p className="text-base text-slate-600 mb-1">
+                  <p className="text-base text-gray-500 mb-1">
                     Collection Time
                   </p>
-                  <p className="font-semibold text-slate-900">
+                  <p className="font-semibold text-gray-900">
                     {sample.collectionTime}
                   </p>
                 </div>
                 <div>
-                  <p className="text-base text-slate-600 mb-1">Status</p>
+                  <p className="text-base text-gray-500 mb-1">Status</p>
                   <span
                     className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-base font-medium ${getStatusBadgeClass(sample.status)}`}
                   >
@@ -201,8 +201,8 @@ export default function SampleReportModal({
                   </span>
                 </div>
                 <div>
-                  <p className="text-base text-slate-600 mb-1">COC Number</p>
-                  <p className="font-semibold text-slate-900">
+                  <p className="text-base text-gray-500 mb-1">COC Number</p>
+                  <p className="font-semibold text-gray-900">
                     {sample.cocNumber}
                   </p>
                 </div>
@@ -212,8 +212,8 @@ export default function SampleReportModal({
             {/* Test Summary */}
             <div className="grid grid-cols-4 gap-4 mb-4 print:mb-3">
               <div className="bg-white border-2 border-slate-300 rounded-lg p-4 text-center">
-                <p className="text-base text-slate-600 mb-1">Total Tests</p>
-                <p className="text-3xl font-bold text-slate-900">
+                <p className="text-base text-gray-500 mb-1">Total Tests</p>
+                <p className="text-3xl font-bold text-gray-900">
                   {testResults.length}
                 </p>
               </div>
@@ -235,29 +235,29 @@ export default function SampleReportModal({
 
             {/* Test Results Table */}
             <div className="mb-4 print:mb-3">
-              <h2 className="text-xl font-bold text-slate-900 mb-4">
+              <h2 className="text-xl font-bold text-gray-900 mb-4">
                 Detailed Test Results
               </h2>
               <div className="border border-slate-300 rounded-lg overflow-hidden bg-white">
                 <table className="w-full">
                   <thead className="bg-slate-200">
                     <tr>
-                      <th className="px-4 py-3 text-left text-base font-semibold text-slate-900">
+                      <th className="px-4 py-3 text-left text-base font-semibold text-gray-900">
                         Test Name
                       </th>
-                      <th className="px-4 py-3 text-left text-base font-semibold text-slate-900">
+                      <th className="px-4 py-3 text-left text-base font-semibold text-gray-900">
                         Result
                       </th>
-                      <th className="px-4 py-3 text-left text-base font-semibold text-slate-900">
+                      <th className="px-4 py-3 text-left text-base font-semibold text-gray-900">
                         Unit
                       </th>
-                      <th className="px-4 py-3 text-left text-base font-semibold text-slate-900">
+                      <th className="px-4 py-3 text-left text-base font-semibold text-gray-900">
                         Limit
                       </th>
-                      <th className="px-4 py-3 text-left text-base font-semibold text-slate-900">
+                      <th className="px-4 py-3 text-left text-base font-semibold text-gray-900">
                         Status
                       </th>
-                      <th className="px-4 py-3 text-left text-base font-semibold text-slate-900">
+                      <th className="px-4 py-3 text-left text-base font-semibold text-gray-900">
                         Method
                       </th>
                     </tr>
@@ -268,7 +268,7 @@ export default function SampleReportModal({
                         key={test.id}
                         className={index % 2 === 0 ? "bg-white" : "bg-slate-50"}
                       >
-                        <td className="px-4 py-3 text-base text-slate-700">
+                        <td className="px-4 py-3 text-base text-gray-900">
                           {test.testName}
                           {test.retestNumber && (
                             <span className="ml-2 text-sm text-blue-600 font-medium">
@@ -276,13 +276,13 @@ export default function SampleReportModal({
                             </span>
                           )}
                         </td>
-                        <td className="px-4 py-3 text-base font-medium text-slate-900">
+                        <td className="px-4 py-3 text-base font-medium text-gray-900">
                           {test.result}
                         </td>
-                        <td className="px-4 py-3 text-base text-slate-600">
+                        <td className="px-4 py-3 text-base text-gray-500">
                           {test.unit}
                         </td>
-                        <td className="px-4 py-3 text-base text-slate-600">
+                        <td className="px-4 py-3 text-base text-gray-500">
                           {test.limit}
                         </td>
                         <td className="px-4 py-3">
@@ -293,7 +293,7 @@ export default function SampleReportModal({
                             {test.status}
                           </span>
                         </td>
-                        <td className="px-4 py-3 text-base text-slate-600">
+                        <td className="px-4 py-3 text-base text-gray-500">
                           {test.method || "-"}
                         </td>
                       </tr>

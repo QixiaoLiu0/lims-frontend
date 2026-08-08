@@ -57,7 +57,7 @@ export default function COCDetailPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-grid-pattern flex items-center justify-center text-slate-600 dark:text-slate-300 font-medium text-base">
+      <div className="min-h-screen bg-grid-pattern flex items-center justify-center text-gray-500 dark:text-gray-200 font-medium text-base">
         Loading COC details...
       </div>
     );
@@ -67,12 +67,12 @@ export default function COCDetailPage() {
     return (
       <div className="min-h-screen bg-grid-pattern flex items-center justify-center">
         <div className="text-center bg-white dark:bg-slate-800 rounded-2xl p-8 shadow-xl border border-slate-200 dark:border-slate-700">
-          <p className="text-slate-900 dark:text-slate-100 text-lg font-medium leading-normal mb-4">
+          <p className="text-gray-900 dark:text-gray-300 text-lg font-medium leading-normal mb-4">
             COC not found
           </p>
           <button
             onClick={() => router.push("/dashboard")}
-            className="text-blue-600 dark:text-yellow-400 hover:text-blue-700 dark:hover:text-yellow-300 font-medium transition-colors text-sm"
+            className="text-blue-500 dark:text-yellow-400 hover:text-gray-900 dark:hover:text-yellow-300 font-medium transition-colors text-sm"
           >
             Return to Dashboard
           </button>
@@ -98,7 +98,7 @@ export default function COCDetailPage() {
         {/* COC Information */}
         <div className="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm mb-6 border border-slate-200 dark:border-slate-700">
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-lg font-semibold leading-tight text-slate-900 dark:text-slate-100">
+            <h2 className="text-lg font-semibold leading-tight text-gray-900 dark:text-gray-300">
               COC Information
             </h2>
 
@@ -106,7 +106,7 @@ export default function COCDetailPage() {
               {!isEditingCOC ? (
                 <button
                   onClick={handleEditCOC}
-                  className="flex items-center gap-2 px-4 py-2 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 rounded-lg hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white transition-colors text-sm font-medium leading-tight"
+                  className="flex items-center gap-2 px-4 py-2 bg-slate-100 dark:bg-slate-700 text-gray-900 dark:text-gray-300 rounded-lg hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white transition-colors text-sm font-medium leading-tight"
                 >
                   <Edit2 className="w-4 h-4" />
                   Edit COC
@@ -135,7 +135,7 @@ export default function COCDetailPage() {
           {/* First Row */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div>
-              <div className="flex items-center gap-2 text-sm font-medium text-slate-500 dark:text-slate-400 mb-1.5">
+              <div className="flex items-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-300 mb-1.5">
                 <FileText className="w-4 h-4" />
                 <span>Project Name</span>
               </div>
@@ -143,22 +143,22 @@ export default function COCDetailPage() {
                 <input
                   type="text"
                   value={editedCOCData?.projectName || ""}
-                  onChange={e =>
+                  onChange={(e) =>
                     setEditedCOCData({
                       ...editedCOCData,
                       projectName: e.target.value,
                     })
                   }
-                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors text-sm"
+                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 text-gray-900 dark:text-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors text-sm"
                 />
               ) : (
-                <p className="text-base font-semibold leading-normal text-slate-900 dark:text-slate-100">
+                <p className="text-base font-semibold leading-normal text-gray-900 dark:text-gray-300">
                   {cocData.projectName}
                 </p>
               )}
             </div>
             <div>
-              <div className="flex items-center gap-2 text-sm font-medium text-slate-500 dark:text-slate-400 mb-1.5">
+              <div className="flex items-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-300 mb-1.5">
                 <User className="w-4 h-4" />
                 <span>Report To</span>
               </div>
@@ -166,22 +166,22 @@ export default function COCDetailPage() {
                 <input
                   type="text"
                   value={editedCOCData?.reportToName1 || ""}
-                  onChange={e =>
+                  onChange={(e) =>
                     setEditedCOCData({
                       ...editedCOCData,
                       reportToName1: e.target.value,
                     })
                   }
-                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors text-sm"
+                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 text-gray-900 dark:text-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors text-sm"
                 />
               ) : (
-                <p className="text-base font-semibold leading-normal text-slate-900 dark:text-slate-100">
+                <p className="text-base font-semibold leading-normal text-gray-900 dark:text-gray-300">
                   {cocData.reportToName1}
                 </p>
               )}
             </div>
             <div>
-              <div className="flex items-center gap-2 text-sm font-medium text-slate-500 dark:text-slate-400 mb-1.5">
+              <div className="flex items-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-300 mb-1.5">
                 <Clock className="w-4 h-4" />
                 <span>Received Time</span>
               </div>
@@ -189,35 +189,35 @@ export default function COCDetailPage() {
                 <input
                   type="datetime-local"
                   value={editedCOCData?.receivedTime?.replace(" ", "T") || ""}
-                  onChange={e =>
+                  onChange={(e) =>
                     setEditedCOCData({
                       ...editedCOCData,
                       receivedTime: e.target.value.replace("T", " "),
                     })
                   }
-                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors text-sm"
+                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 text-gray-900 dark:text-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors text-sm"
                 />
               ) : (
-                <p className="text-base font-semibold leading-normal text-slate-900 dark:text-slate-100">
+                <p className="text-base font-semibold leading-normal text-gray-900 dark:text-gray-300">
                   {cocData.receivedTime}
                 </p>
               )}
             </div>
             <div>
-              <div className="flex items-center gap-2 text-sm font-medium text-slate-500 dark:text-slate-400 mb-1.5">
+              <div className="flex items-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-300 mb-1.5">
                 <Droplet className="w-4 h-4" />
                 <span>Status</span>
               </div>
               {isEditingCOC ? (
                 <select
                   value={editedCOCData?.status || ""}
-                  onChange={e =>
+                  onChange={(e) =>
                     setEditedCOCData({
                       ...editedCOCData,
                       status: e.target.value,
                     })
                   }
-                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors text-sm"
+                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 text-gray-900 dark:text-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors text-sm"
                 >
                   <option value="In-Progress">In-Progress</option>
                   <option value="Completed">Completed</option>
@@ -235,7 +235,7 @@ export default function COCDetailPage() {
           {/* Second Row */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6 pt-6 border-t border-slate-200 dark:border-slate-700">
             <div>
-              <div className="flex items-center gap-2 text-sm font-medium text-slate-500 dark:text-slate-400 mb-1.5">
+              <div className="flex items-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-300 mb-1.5">
                 <User className="w-4 h-4" />
                 <span>Received By</span>
               </div>
@@ -243,22 +243,22 @@ export default function COCDetailPage() {
                 <input
                   type="text"
                   value={editedCOCData?.receivedBy || ""}
-                  onChange={e =>
+                  onChange={(e) =>
                     setEditedCOCData({
                       ...editedCOCData,
                       receivedBy: e.target.value,
                     })
                   }
-                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors text-sm"
+                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 text-gray-900 dark:text-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors text-sm"
                 />
               ) : (
-                <p className="text-base font-semibold leading-normal text-slate-900 dark:text-slate-100">
+                <p className="text-base font-semibold leading-normal text-gray-900 dark:text-gray-300">
                   {cocData.receivedBy}
                 </p>
               )}
             </div>
             <div>
-              <div className="flex items-center gap-2 text-sm font-medium text-slate-500 dark:text-slate-400 mb-1.5">
+              <div className="flex items-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-300 mb-1.5">
                 <User className="w-4 h-4" />
                 <span>Relinquished By</span>
               </div>
@@ -266,22 +266,22 @@ export default function COCDetailPage() {
                 <input
                   type="text"
                   value={editedCOCData?.relinquishedBy || ""}
-                  onChange={e =>
+                  onChange={(e) =>
                     setEditedCOCData({
                       ...editedCOCData,
                       relinquishedBy: e.target.value,
                     })
                   }
-                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors text-sm"
+                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 text-gray-900 dark:text-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors text-sm"
                 />
               ) : (
-                <p className="text-base font-semibold leading-normal text-slate-900 dark:text-slate-100">
+                <p className="text-base font-semibold leading-normal text-gray-900 dark:text-gray-300">
                   {cocData.relinquishedBy}
                 </p>
               )}
             </div>
             <div>
-              <div className="flex items-center gap-2 text-sm font-medium text-slate-500 dark:text-slate-400 mb-1.5">
+              <div className="flex items-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-300 mb-1.5">
                 <Clock className="w-4 h-4" />
                 <span>Relinquished Time</span>
               </div>
@@ -291,22 +291,22 @@ export default function COCDetailPage() {
                   value={
                     editedCOCData?.relinquishedTime?.replace(" ", "T") || ""
                   }
-                  onChange={e =>
+                  onChange={(e) =>
                     setEditedCOCData({
                       ...editedCOCData,
                       relinquishedTime: e.target.value.replace("T", " "),
                     })
                   }
-                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors text-sm"
+                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-gray-900 text-gray-900 dark:text-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors text-sm"
                 />
               ) : (
-                <p className="text-base font-semibold leading-normal text-slate-900 dark:text-slate-100">
+                <p className="text-base font-semibold leading-normal text-gray-900 dark:text-gray-300">
                   {cocData.relinquishedTime}
                 </p>
               )}
             </div>
             <div>
-              <div className="flex items-center gap-2 text-sm font-medium text-slate-500 dark:text-slate-400 mb-1.5">
+              <div className="flex items-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-300 mb-1.5">
                 <Calendar className="w-4 h-4" />
                 <span>Date Required</span>
               </div>
@@ -314,16 +314,16 @@ export default function COCDetailPage() {
                 <input
                   type="datetime-local"
                   value={editedCOCData?.dateRequired?.replace(" ", "T") || ""}
-                  onChange={e =>
+                  onChange={(e) =>
                     setEditedCOCData({
                       ...editedCOCData,
                       dateRequired: e.target.value.replace("T", " "),
                     })
                   }
-                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors text-sm"
+                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 text-gray-900 dark:text-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors text-sm"
                 />
               ) : (
-                <p className="text-base font-semibold leading-normal text-slate-900 dark:text-slate-100">
+                <p className="text-base font-semibold leading-normal text-gray-900 dark:text-gray-300">
                   {cocData.dateRequired}
                 </p>
               )}
@@ -333,7 +333,7 @@ export default function COCDetailPage() {
           {/* Third Row - Containers & Instructions */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6 pt-6 border-t border-slate-200 dark:border-slate-700">
             <div>
-              <div className="flex items-center gap-2 text-sm font-medium text-slate-500 dark:text-slate-400 mb-1.5">
+              <div className="flex items-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-300 mb-1.5">
                 <Box className="w-4 h-4" />
                 <span>Containers</span>
               </div>
@@ -341,22 +341,22 @@ export default function COCDetailPage() {
                 <input
                   type="number"
                   value={editedCOCData?.numberOfContainers || 0}
-                  onChange={e =>
+                  onChange={(e) =>
                     setEditedCOCData({
                       ...editedCOCData,
                       numberOfContainers: parseInt(e.target.value),
                     })
                   }
-                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors text-sm"
+                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 text-gray-900 dark:text-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors text-sm"
                 />
               ) : (
-                <p className="text-base font-semibold leading-normal text-slate-900 dark:text-slate-100">
+                <p className="text-base font-semibold leading-normal text-gray-900 dark:text-gray-300">
                   {cocData.numberOfContainers}
                 </p>
               )}
             </div>
             <div className="col-span-1 md:col-span-2 lg:col-span-3">
-              <div className="flex items-center gap-2 text-sm font-medium text-slate-500 dark:text-slate-400 mb-1.5">
+              <div className="flex items-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-300 mb-1.5">
                 <AlertCircle className="w-4 h-4" />
                 <span>Special Instructions</span>
               </div>
@@ -364,17 +364,17 @@ export default function COCDetailPage() {
                 <input
                   type="text"
                   value={editedCOCData?.specialInstructions || ""}
-                  onChange={e =>
+                  onChange={(e) =>
                     setEditedCOCData({
                       ...editedCOCData,
                       specialInstructions: e.target.value,
                     })
                   }
-                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 text-slate-900 dark:text-slate-100 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors text-sm"
+                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 text-gray-900 dark:text-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors text-sm"
                 />
               ) : (
                 <p
-                  className="text-base font-semibold leading-normal text-slate-900 dark:text-slate-100 truncate"
+                  className="text-base font-semibold leading-normal text-gray-900 dark:text-gray-300 truncate"
                   title={cocData.specialInstructions}
                 >
                   {cocData.specialInstructions || "None"}
@@ -388,16 +388,16 @@ export default function COCDetailPage() {
             <div className="mt-6 pt-6 border-t border-slate-200 dark:border-slate-700">
               <div className="flex items-center gap-4">
                 <div className="bg-red-50 dark:bg-red-500/10 px-4 py-2 rounded-lg border border-red-200 dark:border-red-500/30">
-                  <span className="text-red-700 dark:text-red-400 font-bold text-sm leading-tight tracking-wide">
+                  <span className="text-red-500 dark:text-red-500 font-bold text-sm leading-tight tracking-wide">
                     🚨 RUSH ORDER
                   </span>
                 </div>
                 {cocData.dateForRush && (
                   <div className="flex items-center gap-2">
-                    <span className="text-sm font-medium text-slate-500 dark:text-slate-400">
+                    <span className="text-sm font-medium text-gray-500 dark:text-gray-300">
                       Rush Date:
                     </span>
-                    <span className="text-sm font-semibold leading-normal text-slate-900 dark:text-slate-100">
+                    <span className="text-sm font-semibold leading-normal text-gray-900 dark:text-gray-300">
                       {cocData.dateForRush}
                     </span>
                   </div>
@@ -410,23 +410,16 @@ export default function COCDetailPage() {
         {/* Samples Section */}
         <div>
           <div className="flex items-center justify-between mb-6">
-            <h2 className="text-2xl font-bold leading-tight text-slate-900 dark:text-slate-100">
+            <h2 className="text-2xl font-bold leading-tight text-gray-900 dark:text-gray-300">
               Samples ({samples.length})
             </h2>
             <div className="flex gap-3">
               <button
                 onClick={() => setShowAddSampleModal(true)}
-                className="flex items-center gap-2 px-4 py-2.5 bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 rounded-lg hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-colors shadow-sm text-sm font-medium leading-tight border border-slate-200 dark:border-transparent"
+                className="flex items-center gap-2 px-4 py-2.5 bg-slate-100 dark:bg-slate-700 text-gray-900 dark:text-gray-300 rounded-lg hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-colors shadow-sm text-sm font-medium leading-tight border border-slate-200 dark:border-transparent"
               >
                 <Plus className="w-4 h-4" />
                 Add Sample
-              </button>
-              <button
-                onClick={handleExportAllResults}
-                className="flex items-center gap-2 px-4 py-2.5 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors shadow-sm text-sm font-medium leading-tight"
-              >
-                <Download className="w-4 h-4" />
-                Export All Results
               </button>
             </div>
           </div>
