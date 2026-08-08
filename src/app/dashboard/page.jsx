@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { Search, Plus, Droplet, Calendar, ChevronDown } from "lucide-react";
 import { useDashboard } from "@/app/hooks/useDashboard";
 import SettingsModal from "@/app/components/SettingsModal";
@@ -8,7 +8,7 @@ import AnimatedButton from "@/app/components/AnimatedButton";
 import Breadcrumbs from "@/app/components/Breadcrumbs";
 import Header from "@/app/components/Header";
 import COCCard from "@/app/components/COCCard";
-
+import ConfirmDeleteModal from "@/app/components/ConfirmDeleteModal";
 
 export default function Dashboard() {
   const {
@@ -39,6 +39,7 @@ export default function Dashboard() {
     handleDeleteCOC,
   } = useDashboard();
 
+const [cocToDelete, setCocToDelete] = useState(null);
 const dropdownRef = useRef(null);
 
   useEffect(() => {
@@ -224,8 +225,9 @@ const dropdownRef = useRef(null);
               }
               onMenuAction={(action, id) => {
                 if (action === "delete") {
-                  //  trigger delete and close the menu
-                  handleDeleteCOC(id);
+                  // Intercept the delete action, set the COC in state to trigger the modal, and close the dropdown
+                  const selectedCoc = filteredCOCs.find(c => c.cocId === id);
+                  setCocToDelete(selectedCoc);
                   setActiveMenuCOC(null);
                 }
               }}
@@ -250,6 +252,19 @@ const dropdownRef = useRef(null);
         <AddCOCModal
           onClose={() => setShowAddCOCModal(false)}
           onAdd={handleAddCOC}
+        />
+      )}
+      {/* Delete COC Confirmation Modal */}
+      {cocToDelete && (
+        <ConfirmDeleteModal
+          title="Delete COC"
+          message="Are you sure you want to delete this Chain of Custody? All associated samples and tests will be permanently lost."
+          itemName={`COC Number: ${cocToDelete.cocNumber}`}
+          onConfirm={() => {
+            handleDeleteCOC(cocToDelete.cocId);
+            setCocToDelete(null); // Close modal on confirm
+          }}
+          onCancel={() => setCocToDelete(null)} // Close modal on cancel
         />
       )}
     </div>
