@@ -421,13 +421,6 @@ export default function COCDetailPage() {
                 <Plus className="w-4 h-4" />
                 Add Sample
               </button>
-              <button
-                onClick={handleExportAllResults}
-                className="flex items-center gap-2 px-4 py-2.5 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition-colors shadow-sm text-sm font-medium leading-tight"
-              >
-                <Download className="w-4 h-4" />
-                Export All Results
-              </button>
             </div>
           </div>
 
