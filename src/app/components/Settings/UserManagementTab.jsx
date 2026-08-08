@@ -84,7 +84,7 @@ export default function UserManagementTab({ inputCls }) {
   const getRoleInfo = (roleStr) => {
     const role = roleStr?.toUpperCase() || "STAFF";
     const defaultColor =
-      "bg-gray-500 text-gray-900 dark:bg-gray-900 dark:text-gray-200";
+      "bg-gray-200 text-gray-900 dark:bg-gray-900 dark:text-gray-200";
 
     switch (role) {
       case "STAFF":

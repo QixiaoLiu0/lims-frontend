@@ -46,9 +46,9 @@ export default function AddCOCModal({ onAdd, onClose }) {
     <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 z-50">
       <div className="bg-white dark:bg-slate-800 rounded-2xl max-w-6xl w-full max-h-[95vh] overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-700">
         {/* Header */}
-        <div className="sticky top-0 bg-slate-900 dark:bg-slate-800 backdrop-blur-sm border-b border-slate-800 p-6 flex items-center justify-between z-10">
+        <div className="sticky top-0 bg-white dark:bg-slate-800 backdrop-blur-sm border-b border-slate-800 p-6 flex items-center justify-between z-10">
           <div>
-            <h2 className="text-xl font-bold text-white tracking-tight leading-tight">
+            <h2 className="text-xl font-bold text-black dark:text-white tracking-tight leading-tight">
               Create New COC
             </h2>
             <p className="text-sm text-gray-500 font-medium mt-1 leading-tight">
@@ -86,6 +86,8 @@ export default function AddCOCModal({ onAdd, onClose }) {
                   </label>
                   <input
                     type="text"
+                    inputMode="numeric"
+                    pattern="[0-9]*"
                     value={cocNumberInput}
                     onChange={(e) => setCocNumberInput(e.target.value)}
                     className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 placeholder-slate-400 dark:placeholder-slate-500 font-mono text-sm transition-colors"
