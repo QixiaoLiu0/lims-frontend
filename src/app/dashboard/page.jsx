@@ -94,6 +94,7 @@ export default function Dashboard() {
                   <input
                     type="date"
                     value={startDate}
+                    max={endDate}
                     onChange={(e) => setStartDate(e.target.value)}
                     className="px-3 py-2 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-base text-gray-900 dark:text-gray-200 [color-scheme:light] dark:[color-scheme:dark]"
                   />
@@ -105,6 +106,7 @@ export default function Dashboard() {
                   <input
                     type="date"
                     value={endDate}
+                    min={startDate}
                     onChange={(e) => setEndDate(e.target.value)}
                     className="px-3 py-2 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-base text-gray-900 dark:text-gray-200 [color-scheme:light] dark:[color-scheme:dark]"
                   />
