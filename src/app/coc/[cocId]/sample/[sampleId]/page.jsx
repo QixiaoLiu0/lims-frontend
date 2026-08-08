@@ -7,6 +7,7 @@ import Breadcrumbs from "@/app/components/Breadcrumbs";
 import Header from "@/app/components/Header";
 import TestListSection from "@/app/components/Sample/TestListSection";
 import { useSampleDetail } from "@/app/hooks/useSampleDetail";
+import AnimatedButton from "@/app/components/AnimatedButton";
 
 export default function SampleDetailPage() {
   const {
@@ -264,13 +265,14 @@ export default function SampleDetailPage() {
             </h2>
             <div className="flex gap-3">
               <div className="relative">
-                <button
+                <AnimatedButton
                   onClick={() => setShowAddTestDropdown(!showAddTestDropdown)}
-                  className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-yellow-500 to-yellow-600 text-gray-900 font-bold rounded-lg hover:from-yellow-400 hover:to-yellow-500 transition-all shadow-md hover:shadow-lg text-sm leading-tight"
+                  className="inline-flex items-center gap-2 px-5 py-2.5  bg-yellow-400 hover:bg-yellow-500 text-gray-900
+                       font-semibold rounded-xl shadow-md hover:shadow-lg border border-yellow-500 transition-all duration-200"
                 >
                   <Plus className="w-4 h-4" />
                   Add Test to Report
-                </button>
+                </AnimatedButton>
 
                 {showAddTestDropdown && (
                   <>

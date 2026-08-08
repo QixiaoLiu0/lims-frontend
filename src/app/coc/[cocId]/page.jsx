@@ -19,6 +19,7 @@ import AddSampleModal from "@/app/components/AddSampleModal";
 import Breadcrumbs from "@/app/components/Breadcrumbs";
 import Header from "@/app/components/Header";
 import SampleListSection from "@/app/components/COC/SampleListSection";
+import AnimatedButton from "@/app/components/AnimatedButton";
 
 import { useCOCDetail } from "@/app/hooks/useCOCDetail";
 
@@ -416,13 +417,14 @@ export default function COCDetailPage() {
               Samples ({samples.length})
             </h2>
             <div className="flex gap-3">
-              <button
+              <AnimatedButton
                 onClick={() => setShowAddSampleModal(true)}
-                className="flex items-center gap-2 px-4 py-2.5 bg-slate-100 dark:bg-slate-700 text-gray-900 dark:text-gray-300 rounded-lg hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 transition-colors shadow-sm text-sm font-medium leading-tight border border-slate-200 dark:border-transparent"
+                className="flex items-center gap-2 px-4 py-2.5 bg-yellow-400 hover:bg-yellow-500 text-gray-900
+                       font-semibold rounded-xl shadow-md hover:shadow-lg border border-yellow-500 transition-all duration-200"
               >
                 <Plus className="w-4 h-4" />
                 Add Sample
-              </button>
+              </AnimatedButton>
             </div>
           </div>
 

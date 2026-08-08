@@ -298,7 +298,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                 <div>
                   <label className="text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 flex items-center gap-1.5 leading-tight">
                     <FileText className="w-3.5 h-3.5" />
-                    Total # of Containers
+                    Total no. of Containers (not editable, auto-calculated)
                   </label>
                   <input
                     type="number"
@@ -310,7 +310,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                       )
                     }
                     className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 placeholder-slate-400 dark:placeholder-slate-500 text-sm transition-colors"
-                    placeholder="Enter total number of containers"
+                    placeholder="not editable, auto-calculated"
                   />
                 </div>
               </div>
