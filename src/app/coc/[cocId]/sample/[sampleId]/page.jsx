@@ -85,8 +85,11 @@ export default function SampleDetailPage() {
         {/* Breadcrumbs */}
         <Breadcrumbs
           items={[
-            { label: cocNumber || cocId, path: `/coc/${cocId}` },
-            { label: sample.sampleClientId || "", path: undefined },
+            { label: "COC: " + cocNumber || cocId, path: `/coc/${cocId}` },
+            {
+              label: "Sample: " + sample.sampleClientId || "",
+              path: undefined,
+            },
           ]}
         />
 
