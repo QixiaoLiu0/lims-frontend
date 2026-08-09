@@ -1,6 +1,8 @@
+import { useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Droplet, MoreVertical, Trash2 } from "lucide-react";
 import { BottleIcon } from "@/app/components/BottleIcon";
+import StatusBadge from "../StatusBadge";
 
 export default function SampleListSection({
   title,
@@ -21,6 +23,22 @@ export default function SampleListSection({
   const router = useRouter();
 
   if (!samples || samples.length === 0) return null;
+
+  const menuRefs = useRef({});
+
+  useEffect(() => {
+    if (!activeSampleMenu) return;
+
+    const handleClickOutside = (e) => {
+      const currentMenuEl = menuRefs.current[activeSampleMenu];
+      if (currentMenuEl && !currentMenuEl.contains(e.target)) {
+        setActiveSampleMenu(null);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [activeSampleMenu, setActiveSampleMenu]);
 
   return (
     <div className="mb-6">
@@ -53,13 +71,12 @@ export default function SampleListSection({
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span
-                    className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold leading-tight ${getStatusColor(sample.status)}`}
-                  >
-                    {sample.status}
-                  </span>
+                  <StatusBadge status={sample.status} />
 
-                  <div className="relative">
+                  <div
+                    className="relative"
+                    ref={(el) => (menuRefs.current[sample.sampleId] = el)}
+                  >
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
@@ -89,7 +106,7 @@ export default function SampleListSection({
                               handleDeleteSample(sample.sampleId);
                             }
                           }}
-                          className="w-full px-4 py-2.5 text-left text-sm font-medium leading-tight hover:bg-red-50 dark:hover:bg-red-500/10 transition-colors flex items-center gap-2 text-gray-900 dark:text-red-500"
+                          className="w-full px-4 py-2 text-left text-sm font-medium hover:bg-red-50 dark:hover:bg-red-500/10 transition-colors flex items-center gap-2 text-red-500 dark:text-red-500 leading-tight"
                         >
                           <Trash2 className="w-4 h-4" />
                           Delete Sample

@@ -22,6 +22,7 @@ import SampleListSection from "@/app/components/COC/SampleListSection";
 import AnimatedButton from "@/app/components/AnimatedButton";
 
 import { useCOCDetail } from "@/app/hooks/useCOCDetail";
+import StatusBadge from "@/app/components/StatusBadge";
 
 export default function COCDetailPage() {
   const {
@@ -226,11 +227,7 @@ export default function COCDetailPage() {
                   <option value="Completed">Completed</option>
                 </select>
               ) : (
-                <span
-                  className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold leading-tight ${getStatusColor(cocData.status)}`}
-                >
-                  {cocData.status}
-                </span>
+                <StatusBadge status={cocData.status} />
               )}
             </div>
           </div>

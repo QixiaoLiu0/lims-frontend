@@ -8,6 +8,7 @@ import Header from "@/app/components/Header";
 import TestListSection from "@/app/components/Sample/TestListSection";
 import { useSampleDetail } from "@/app/hooks/useSampleDetail";
 import AnimatedButton from "@/app/components/AnimatedButton";
+import StatusBadge from "@/app/components/StatusBadge";
 
 export default function SampleDetailPage() {
   const {
@@ -237,17 +238,7 @@ export default function SampleDetailPage() {
                   <option value="Completed">Completed</option>
                 </select>
               ) : (
-                <span
-                  className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold leading-tight ${
-                    sample?.status === "Completed"
-                      ? "bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400"
-                      : sample?.status === "Testing"
-                        ? "bg-blue-50 text-blue-500 dark:bg-blue-500/10 dark:text-blue-500"
-                        : "bg-slate-100 text-gray-900 dark:bg-slate-700 dark:text-gray-200"
-                  }`}
-                >
-                  {sample?.status || "Pending"}
-                </span>
+                <StatusBadge status={sample.status} />
               )}
             </div>
           </div>

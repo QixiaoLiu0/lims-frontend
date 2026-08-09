@@ -1,4 +1,4 @@
-import { memo, useMemo, useRef } from "react";
+import { memo, useMemo, useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import {
   FileText,
@@ -64,6 +64,22 @@ const COCCard = memo(
       );
     };
 
+    const menuRef = useRef(null);
+
+    useEffect(() => {
+      if (activeMenuCOC !== coc.cocId) return;
+
+      const handleClickOutside = (e) => {
+        if (menuRef.current && !menuRef.current.contains(e.target)) {
+          onMenuClick(coc.cocId); // toggles it closed, since it's currently open
+        }
+      };
+
+      document.addEventListener("mousedown", handleClickOutside);
+      return () =>
+        document.removeEventListener("mousedown", handleClickOutside);
+    }, [activeMenuCOC, coc.cocId, onMenuClick]);
+
     return (
       <div
         className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700 hover:shadow-md transition-all shadow-sm cursor-pointer"
@@ -80,7 +96,7 @@ const COCCard = memo(
           </div>
           <div className="flex items-center gap-2">
             <StatusBadge status={coc.status} />
-            <div className="relative">
+            <div className="relative" ref={menuRef}>
               <button
                 onClick={(e) => {
                   e.stopPropagation();
@@ -92,7 +108,7 @@ const COCCard = memo(
               </button>
 
               {activeMenuCOC === coc.cocId && (
-                <div className="absolute right-0 top-full mt-1.5 bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-slate-200 dark:border-slate-700 py-1.5 z-10 w-36 overflow-hidden">
+                <div className="absolute right-0 top-full mt-1.5 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 py-1.5 min-w-[180px] z-50 overflow-hidden">
                   {canDelete && (
                     <button
                       onClick={(e) => {

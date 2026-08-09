@@ -131,7 +131,7 @@ export default function Dashboard() {
                 {(startDate || endDate || searchQuery) && (
                   <button
                     onClick={handleClearFilters}
-                    className="text-base text-blue-500 hover:text-blue-500 font-medium"
+                    className="text-base text-red-500 hover:text-red-700 font-medium"
                   >
                     Clear Filters
                   </button>

@@ -5,16 +5,16 @@ const getStatusColor = (status) => {
     case "Completed":
       return "bg-green-100 text-green-900";
     case "In-Progress":
-      return "bg-blue-100 text-blue-900";
+      return "bg-blue-100 text-blue-700";
     default:
-      return "bg-blue-100 text-blue-900";
+      return "bg-blue-100 text-blue-700";
   }
 };
 
 const StatusBadge = ({ status }) => {
   return (
     <span
-      className={`px-2 py-1 rounded-full text-sm font-medium ${getStatusColor(status)}`}
+      className={`px-2 py-0.5 rounded-full text-sm font-medium ${getStatusColor(status)}`}
     >
       {status}
     </span>

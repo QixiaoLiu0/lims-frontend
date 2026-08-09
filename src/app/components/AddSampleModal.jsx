@@ -314,21 +314,25 @@ export default function AddSampleModal({ onClose, onAdd }) {
         </div>
 
         {/* Actions (Footer) */}
-        <div className="p-6 border-t border-slate-200 dark:border-slate-700 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md shrink-0 flex gap-4 z-10">
-          <button
-            type="button"
-            onClick={onClose}
-            className="px-5 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-600 text-gray-900 dark:text-gray-200 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors text-sm font-semibold leading-tight shadow-sm"
-          >
-            Cancel
-          </button>
-          <button
-            type="submit"
-            form="add-sample-form"
-            className="px-5 py-2.5 bg-slate-800 dark:bg-slate-200 text-white dark:text-gray-900 rounded-lg hover:bg-yellow-500 hover:text-gray-900 dark:hover:bg-yellow-500 dark:hover:text-gray-900 transition-colors text-sm font-bold leading-tight disabled:opacity-50 disabled:cursor-not-allowed shadow-sm border border-transparent"
-          >
-            Add Sample
-          </button>
+        <div className="flex justify-between p-6 border-t border-slate-200 dark:border-slate-700 bg-white/90 dark:bg-slate-800/90 backdrop-blur-md shrink-0 flex gap-4 z-10">
+          <span>Fill all the Required (*) fields to continue</span>
+
+          <div className="flex gap-3">
+            <button
+              type="button"
+              onClick={onClose}
+              className="px-5 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-600 text-gray-900 dark:text-gray-200 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors text-sm font-semibold leading-tight shadow-sm"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              form="add-sample-form"
+              className="px-5 py-2.5 bg-slate-800 dark:bg-slate-200 text-white dark:text-gray-900 rounded-lg hover:bg-yellow-500 hover:text-gray-900 dark:hover:bg-yellow-500 dark:hover:text-gray-900 transition-colors text-sm font-bold leading-tight disabled:opacity-50 disabled:cursor-not-allowed shadow-sm border border-transparent"
+            >
+              Add Sample
+            </button>
+          </div>
         </div>
       </div>
     </div>
