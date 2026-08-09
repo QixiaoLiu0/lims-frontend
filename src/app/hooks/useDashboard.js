@@ -132,6 +132,7 @@ export function useDashboard() {
   const handleClearFilters = useCallback(() => {
     setStartDate("");
     setEndDate("");
+    setSearchQuery("");
     setSelectedStatuses([]);
   }, []);
 

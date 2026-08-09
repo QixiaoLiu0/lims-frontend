@@ -39,8 +39,8 @@ export default function Dashboard() {
     handleDeleteCOC,
   } = useDashboard();
 
-const [cocToDelete, setCocToDelete] = useState(null);
-const dropdownRef = useRef(null);
+  const [cocToDelete, setCocToDelete] = useState(null);
+  const dropdownRef = useRef(null);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -81,7 +81,7 @@ const dropdownRef = useRef(null);
         <Breadcrumbs items={[]} />
 
         {/* Search and Filters */}
-        <div className="mb-4">
+        <div className="mb-4 bg-white dark:bg-slate-800 rounded-xl p-4 shadow-lg border-2 border-slate-300 dark:border-slate-600">
           {/* Search — full width */}
           <div className="relative mb-4">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 sm:w-5 sm:h-5 text-blue-500" />
@@ -95,7 +95,7 @@ const dropdownRef = useRef(null);
           </div>
 
           {/* Filter bar — date left, status right */}
-          <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-5 bg-white dark:bg-slate-800 rounded-xl p-4 shadow-lg border-2 border-slate-300 dark:border-slate-600">
+          <div className="flex flex-col xl:flex-row xl:items-center xl:justify-between gap-5">
             {/* Date filters */}
             <div className="flex flex-col lg:flex-row lg:items-center gap-4 w-full">
               <div className="flex items-center gap-2 text-base text-gray-900 dark:text-gray-200">
@@ -128,7 +128,7 @@ const dropdownRef = useRef(null);
                     className="px-3 py-2 bg-white dark:bg-slate-700 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none text-base text-gray-900 dark:text-gray-200 [color-scheme:light] dark:[color-scheme:dark]"
                   />
                 </div>
-                {(startDate || endDate) && (
+                {(startDate || endDate || searchQuery) && (
                   <button
                     onClick={handleClearFilters}
                     className="text-base text-blue-500 hover:text-blue-500 font-medium"
@@ -226,7 +226,7 @@ const dropdownRef = useRef(null);
               onMenuAction={(action, id) => {
                 if (action === "delete") {
                   // Intercept the delete action, set the COC in state to trigger the modal, and close the dropdown
-                  const selectedCoc = filteredCOCs.find(c => c.cocId === id);
+                  const selectedCoc = filteredCOCs.find((c) => c.cocId === id);
                   setCocToDelete(selectedCoc);
                   setActiveMenuCOC(null);
                 }
