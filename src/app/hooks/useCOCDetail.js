@@ -66,12 +66,12 @@ export function useCOCDetail() {
   const getStatusColor = (status) => {
     switch (status) {
       case "Completed":
-        return "bg-green-100 text-green-700";
+        return "bg-green-100 text-green-900";
       case "In-Progress":
       case "In-Progress":
-        return "bg-blue-100 text-blue-700";
+        return "bg-blue-100 text-blue-900";
       default:
-        return "bg-gray-100 text-gray-700";
+        return "bg-gray-100 text-gray-900";
     }
   };
 
