@@ -318,14 +318,14 @@ export default function AddSampleModal({ onClose, onAdd }) {
           <button
             type="button"
             onClick={onClose}
-            className="flex-1 px-5 py-2.5 border border-slate-200 dark:border-slate-600 text-gray-900 dark:text-gray-200 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors text-sm font-semibold leading-tight shadow-sm bg-white dark:bg-slate-800"
+            className="px-5 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-600 text-gray-900 dark:text-gray-200 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors text-sm font-semibold leading-tight shadow-sm"
           >
             Cancel
           </button>
           <button
             type="submit"
             form="add-sample-form"
-            className="flex-1 px-5 py-2.5 bg-slate-800 dark:bg-slate-200 text-white dark:text-gray-900 rounded-lg hover:bg-blue-600 dark:hover:bg-blue-500 hover:text-white transition-colors text-sm font-bold leading-tight shadow-sm border border-transparent"
+            className="px-5 py-2.5 bg-slate-800 dark:bg-slate-200 text-white dark:text-gray-900 rounded-lg hover:bg-yellow-500 hover:text-gray-900 dark:hover:bg-yellow-500 dark:hover:text-gray-900 transition-colors text-sm font-bold leading-tight disabled:opacity-50 disabled:cursor-not-allowed shadow-sm border border-transparent"
           >
             Add Sample
           </button>

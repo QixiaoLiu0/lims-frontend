@@ -42,6 +42,46 @@ export default function AddCOCModal({ onAdd, onClose }) {
 
   let currentDate = new Date().toISOString().slice(0, 16);
 
+  const handleVolumeKeyDown = (e) => {
+    // Let navigation/editing keys through untouched
+    const allowedKeys = [
+      "Backspace",
+      "Delete",
+      "ArrowLeft",
+      "ArrowRight",
+      "Tab",
+      "Home",
+      "End",
+    ];
+    if (allowedKeys.includes(e.key) || e.ctrlKey || e.metaKey) return;
+
+    // Block anything that isn't a digit (also stops "e", "+", "-", "." which
+    // type="number" oddly still lets you type in some browsers)
+    if (!/^[0-9]$/.test(e.key)) {
+      e.preventDefault();
+      return;
+    }
+
+    // Figure out what the value WOULD become after this keystroke,
+    // accounting for cursor position and any selected/highlighted text
+    const input = e.target;
+    const nextValue =
+      input.value.slice(0, input.selectionStart) +
+      e.key +
+      input.value.slice(input.selectionEnd);
+
+    // Reject a leading zero followed by more digits ("0" alone is fine, "05" isn't)
+    if (nextValue.length > 1 && nextValue[0] === "0") {
+      e.preventDefault();
+      return;
+    }
+
+    // Cap at 3 digits — UNLESS the result is exactly "1000"
+    if (nextValue.length > 3 && nextValue !== "1000") {
+      e.preventDefault();
+    }
+  };
+
   return (
     <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 z-50">
       <div className="bg-white dark:bg-slate-800 rounded-2xl max-w-6xl w-full max-h-[95vh] overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-700">
@@ -153,7 +193,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                 <div>
                   <label className="text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 flex items-center gap-1.5 leading-tight">
                     <Clock className="w-3.5 h-3.5" />
-                    Received Time * {currentDate}
+                    Received Time *
                   </label>
                   <input
                     type="datetime-local"
@@ -322,23 +362,25 @@ export default function AddCOCModal({ onAdd, onClose }) {
             <div className="bg-slate-50 dark:bg-slate-800/80 rounded-xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm">
               <div className="flex items-center justify-between mb-5">
                 <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-200 flex items-center gap-2 leading-tight">
-                  <Plus className="w-5 h-5 text-gray-500 dark:text-gray-200" />
                   Samples & Test Assignment
                 </h3>
-                <button
-                  type="button"
-                  onClick={addSample}
-                  className="px-4 py-2 bg-slate-800 dark:bg-slate-700 hover:bg-yellow-500 hover:text-black dark:hover:bg-blue-600 dark:hover:text-white text-white dark:text-gray-200 rounded-lg transition-colors flex items-center gap-2 text-sm font-medium shadow-sm border border-slate-300 dark:border-slate-600 hover:border-transparent"
-                >
-                  <Plus className="w-4 h-4" />
-                  Add Sample
-                </button>
               </div>
 
               {samples.length === 0 ? (
-                <div className="text-center py-12 border-2 border-dashed border-slate-300 dark:border-slate-600 rounded-xl bg-white dark:bg-slate-800/50">
-                  <p className="text-sm font-medium text-gray-500 dark:text-gray-200">
-                    No samples added yet
+                <div className="flex items-center flex-col py-12 border-2 border-dashed border-slate-300 dark:border-slate-600 rounded-xl bg-white dark:bg-slate-800/50">
+                  <p className="text-sm font-medium text-gray-500 dark:text-gray-200 pb-2">
+                    No samples added yet.
+                  </p>
+                  <button
+                    type="button"
+                    onClick={addSample}
+                    className="px-4 py-2 bg-slate-800 dark:bg-slate-700 hover:bg-yellow-500 hover:text-black dark:hover:bg-blue-600 dark:hover:text-white text-white dark:text-gray-200 rounded-lg transition-colors flex items-center gap-2 text-sm font-medium shadow-sm border border-slate-300 dark:border-slate-600 hover:border-transparent"
+                  >
+                    <Plus className="w-4 h-4" />
+                    Add Sample
+                  </button>
+                  <p className="text-sm font-medium text-gray-500 dark:text-gray-200 pt-2">
+                    Samples can be added at later time.
                   </p>
                 </div>
               ) : (
@@ -373,6 +415,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                           <input
                             type="text"
                             value={sample.sampleClientId}
+                            required
                             onChange={(e) =>
                               updateSample(
                                 sample.id,
@@ -380,7 +423,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                                 e.target.value,
                               )
                             }
-                            placeholder="Optional custom ID"
+                            placeholder="Enter custom ID"
                             className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 text-sm font-mono placeholder-slate-400 dark:placeholder-slate-500 transition-colors"
                           />
                         </div>
@@ -515,6 +558,9 @@ export default function AddCOCModal({ onAdd, onClose }) {
                           <input
                             type="number"
                             value={sample.initialVolume}
+                            required
+                            max={1000}
+                            min={0}
                             onChange={(e) =>
                               updateSample(
                                 sample.id,
@@ -522,6 +568,12 @@ export default function AddCOCModal({ onAdd, onClose }) {
                                 e.target.value,
                               )
                             }
+                            onBlur={(e) => {
+                              let val = Number(e.target.value);
+                              if (isNaN(val)) val = 0;
+                              val = Math.min(1000, Math.max(0, val));
+                              updateSample(sample.id, "initialVolume", val);
+                            }}
                             placeholder="unit: ml"
                             className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 text-sm font-mono placeholder-slate-400 dark:placeholder-slate-500 transition-colors"
                           />
@@ -530,7 +582,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                         {/* Number of Containers */}
                         <div>
                           <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 leading-tight">
-                            # of Containers
+                            Number of Containers
                           </label>
                           <input
                             type="number"
@@ -657,6 +709,19 @@ export default function AddCOCModal({ onAdd, onClose }) {
                     </div>
                   ))}
                 </div>
+              )}
+
+              {samples.length === 0 ? (
+                <></>
+              ) : (
+                <button
+                  type="button"
+                  onClick={addSample}
+                  className="ml-auto mt-3 px-4 py-2 bg-slate-800 dark:bg-slate-700 hover:bg-yellow-500 hover:text-black dark:hover:bg-blue-600 dark:hover:text-white text-white dark:text-gray-200 rounded-lg transition-colors flex items-center gap-2 text-sm font-medium shadow-sm border border-slate-300 dark:border-slate-600 hover:border-transparent"
+                >
+                  <Plus className="w-4 h-4" />
+                  Add Another Sample
+                </button>
               )}
             </div>
           </div>
