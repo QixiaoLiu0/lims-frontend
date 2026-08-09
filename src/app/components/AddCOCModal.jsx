@@ -1,8 +1,6 @@
 import { X, Plus, Trash2, Calendar, User, FileText, Clock } from "lucide-react";
 import { useAddCOCForm, matrixs } from "@/app/hooks/useAddCOCForm";
 
-const sampleLetters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
-
 export default function AddCOCModal({ onAdd, onClose }) {
   const {
     testTypesForCocCreation, // [new]
@@ -41,6 +39,8 @@ export default function AddCOCModal({ onAdd, onClose }) {
     toggleTest,
     handleSubmit,
   } = useAddCOCForm(onAdd, onClose);
+
+  let currentDate = new Date().toISOString().slice(0, 16);
 
   return (
     <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 z-50">
@@ -89,7 +89,9 @@ export default function AddCOCModal({ onAdd, onClose }) {
                     inputMode="numeric"
                     pattern="[0-9]*"
                     value={cocNumberInput}
-                    onChange={(e) => setCocNumberInput(e.target.value.replace(/\D/g, ""))}
+                    onChange={(e) =>
+                      setCocNumberInput(e.target.value.replace(/\D/g, ""))
+                    }
                     className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 placeholder-slate-400 dark:placeholder-slate-500 font-mono text-sm transition-colors"
                     placeholder="Enter numbers only (e.g. 01234)"
                     required
@@ -105,7 +107,9 @@ export default function AddCOCModal({ onAdd, onClose }) {
                   <input
                     type="text"
                     value={clientName}
-                    onChange={(e) => setClientName(e.target.value.replace(/[^a-zA-Z\s]/g, ""))}
+                    onChange={(e) =>
+                      setClientName(e.target.value.replace(/[^a-zA-Z\s]/g, ""))
+                    }
                     className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 placeholder-slate-400 dark:placeholder-slate-500 text-sm transition-colors"
                     placeholder="Enter client name"
                     required
@@ -136,7 +140,9 @@ export default function AddCOCModal({ onAdd, onClose }) {
                   <input
                     type="text"
                     value={receiver}
-                    onChange={(e) => setReceiver(e.target.value.replace(/[^a-zA-Z\s]/g, ""))}
+                    onChange={(e) =>
+                      setReceiver(e.target.value.replace(/[^a-zA-Z\s]/g, ""))
+                    }
                     className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 placeholder-slate-400 dark:placeholder-slate-500 text-sm transition-colors"
                     required
                     placeholder="Enter receiver name"
@@ -147,11 +153,12 @@ export default function AddCOCModal({ onAdd, onClose }) {
                 <div>
                   <label className="text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 flex items-center gap-1.5 leading-tight">
                     <Clock className="w-3.5 h-3.5" />
-                    Received Time *
+                    Received Time * {currentDate}
                   </label>
                   <input
                     type="datetime-local"
                     value={receivedTime}
+                    max={currentDate}
                     onChange={(e) => setReceivedTime(e.target.value)}
                     required
                     className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 text-sm transition-colors"
@@ -287,7 +294,11 @@ export default function AddCOCModal({ onAdd, onClose }) {
                   <input
                     type="text"
                     value={relinquisher}
-                    onChange={(e) => setRelinquisher(e.target.value.replace(/[^a-zA-Z\s]/g, ""))}
+                    onChange={(e) =>
+                      setRelinquisher(
+                        e.target.value.replace(/[^a-zA-Z\s]/g, ""),
+                      )
+                    }
                     className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 text-sm transition-colors placeholder-slate-400 dark:placeholder-slate-500"
                     required
                     placeholder="Enter relinquisher name"
@@ -298,20 +309,11 @@ export default function AddCOCModal({ onAdd, onClose }) {
                 <div>
                   <label className="text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 flex items-center gap-1.5 leading-tight">
                     <FileText className="w-3.5 h-3.5" />
-                    Total no. of Containers (not editable, auto-calculated)
+                    Total # of Containers (auto-calculated)
                   </label>
-                  <input
-                    type="number"
-                    min={0}
-                    value={totalContainers}
-                    onChange={(e) =>
-                      setTotalBottles(
-                        e.target.value === "" ? "" : Number(e.target.value),
-                      )
-                    }
-                    className="w-full px-3 py-2.5 bg-white dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 placeholder-slate-400 dark:placeholder-slate-500 text-sm transition-colors"
-                    placeholder="not editable, auto-calculated"
-                  />
+                  <div className="bg-gray-100 h-10 border border-gray-300 rounded-lg flex items-center pl-3">
+                    {totalContainers}
+                  </div>
                 </div>
               </div>
             </div>
@@ -326,7 +328,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                 <button
                   type="button"
                   onClick={addSample}
-                  className="px-4 py-2 bg-slate-200 dark:bg-slate-700 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white text-gray-900 dark:text-gray-200 rounded-lg transition-colors flex items-center gap-2 text-sm font-medium shadow-sm border border-slate-300 dark:border-slate-600 hover:border-transparent"
+                  className="px-4 py-2 bg-slate-800 dark:bg-slate-700 hover:bg-yellow-500 hover:text-black dark:hover:bg-blue-600 dark:hover:text-white text-white dark:text-gray-200 rounded-lg transition-colors flex items-center gap-2 text-sm font-medium shadow-sm border border-slate-300 dark:border-slate-600 hover:border-transparent"
                 >
                   <Plus className="w-4 h-4" />
                   Add Sample
@@ -335,25 +337,19 @@ export default function AddCOCModal({ onAdd, onClose }) {
 
               {samples.length === 0 ? (
                 <div className="text-center py-12 border-2 border-dashed border-slate-300 dark:border-slate-600 rounded-xl bg-white dark:bg-slate-800/50">
-                  <div className="w-12 h-12 bg-slate-100 dark:bg-slate-700 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <Plus className="w-6 h-6 text-gray-500 dark:text-gray-200" />
-                  </div>
                   <p className="text-sm font-medium text-gray-500 dark:text-gray-200">
                     No samples added yet
                   </p>
                 </div>
               ) : (
-                <div className="space-y-4">
+                <div className="space-y-4 ">
                   {samples.map((sample, index) => (
                     <div
                       key={sample.id}
                       className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700 hover:border-blue-400 dark:hover:border-blue-500 transition-colors shadow-sm"
                     >
                       <div className="flex items-center justify-between mb-5 border-b border-slate-100 dark:border-slate-700 pb-4">
-                        <div className="flex items-center gap-3">
-                          <div className="w-8 h-8 bg-blue-50 text-blue-500 dark:bg-blue-500/10 dark:text-blue-500 rounded-lg flex items-center justify-center font-bold text-sm border border-blue-200 dark:border-blue-500/30">
-                            {sampleLetters[index % 26]}
-                          </div>
+                        <div className="flex items-center gap-3 ">
                           <h4 className="font-semibold text-base text-gray-900 dark:text-gray-200 leading-tight">
                             Sample {index + 1}
                           </h4>
@@ -368,7 +364,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                         </button>
                       </div>
 
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-5">
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-5 ">
                         {/* Sample Client ID — manual entry */}
                         <div>
                           <label className="block text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 leading-tight">
@@ -681,14 +677,14 @@ export default function AddCOCModal({ onAdd, onClose }) {
                     : ""}
                 </span>
               ) : (
-                <span>Fill all (Required*) fields to  continue</span>
+                <span>Fill all the Required (*) fields to continue</span>
               )}
             </div>
             <div className="flex gap-3">
               <button
                 type="button"
                 onClick={onClose}
-                className="px-5 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-600 text-gray-900 dark:text-gray-200 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors text-sm font-semibold leading-tight shadow-sm"
+                className="px-5 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-600 text-gray-900 dark:text-gray-200 rounded-lg hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors text-sm font-semibold leading-tight shadow-sm"
               >
                 Cancel
               </button>
