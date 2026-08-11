@@ -35,11 +35,11 @@ export default function GeneralSettingsTab({
           >
             {isDark ? (
               <>
-                <Moon className="w-4 h-4 text-blue-500" /> Dark Mode
+                <Sun className="w-4 h-4 text-yellow-500" /> Light Mode
               </>
             ) : (
               <>
-                <Sun className="w-4 h-4 text-yellow-500" /> Light Mode
+                <Moon className="w-4 h-4 text-blue-500" /> Dark Mode
               </>
             )}
           </button>

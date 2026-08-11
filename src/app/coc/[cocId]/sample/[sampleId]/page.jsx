@@ -102,17 +102,6 @@ export default function SampleDetailPage() {
               <h2 className="text-lg font-semibold leading-tight text-gray-900 dark:text-gray-200">
                 Sample Information
               </h2>
-              <span
-                className={`inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold leading-tight ${
-                  sample?.status === "Completed"
-                    ? "bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400"
-                    : sample?.status === "Testing"
-                      ? "bg-blue-50 text-blue-700 dark:bg-blue-500/10 dark:text-blue-400"
-                      : "bg-slate-100 text-gray-900 dark:bg-slate-700 dark:text-gray-200"
-                }`}
-              >
-                {sample?.status || "Pending"}
-              </span>
             </div>
 
             {isEditingSample ? (

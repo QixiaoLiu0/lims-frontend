@@ -5,9 +5,9 @@ const getStatusColor = (status) => {
     case "Completed":
       return "bg-green-100 text-green-900";
     case "In-Progress":
-      return "bg-blue-100 text-blue-700";
+      return "bg-blue-100 text-blue-900";
     default:
-      return "bg-blue-100 text-blue-700";
+      return "bg-blue-100 text-blue-900";
   }
 };
 

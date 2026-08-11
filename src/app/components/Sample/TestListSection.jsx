@@ -35,9 +35,6 @@ export default function TestListSection({
   if (testCardData.length === 0) {
     return (
       <div className="bg-white dark:bg-slate-800 rounded-xl p-8 shadow-sm border border-slate-200 dark:border-slate-700 text-center">
-        <div className="w-12 h-12 bg-slate-100 dark:bg-slate-700 rounded-full flex items-center justify-center mx-auto mb-4">
-          <Plus className="w-6 h-6 text-gray-500 dark:text-gray-200" />
-        </div>
         <h3 className="text-xl font-bold leading-tight text-gray-900 dark:text-gray-200 mb-2">
           No Tests Added Yet
         </h3>
@@ -45,13 +42,6 @@ export default function TestListSection({
           This sample has no tests assigned. Click "Add Test to Report" to start
           adding tests for this sample.
         </p>
-        <button
-          onClick={() => setShowAddTestDropdown(true)}
-          className="inline-flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-yellow-500 to-yellow-600 text-gray-900 font-bold rounded-lg hover:from-yellow-400 hover:to-yellow-500 transition-all shadow-md hover:shadow-lg text-sm leading-tight"
-        >
-          <Plus className="w-4 h-4" />
-          Add Your First Test
-        </button>
       </div>
     );
   }
@@ -142,7 +132,7 @@ export default function TestListSection({
                 className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold leading-tight ${
                   test.status === "Completed"
                     ? "bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400"
-                    : "bg-blue-50 text-blue-900 dark:bg-blue-100 dark:text-blue-900"
+                    : "bg-blue-100 rounded-2xl text-blue-900 dark:bg-blue-100 dark:text-blue-900"
                 }`}
               >
                 {test.status === "Completed" ? "Completed" : "In-Progress"}
