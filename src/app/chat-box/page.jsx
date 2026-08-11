@@ -91,38 +91,39 @@ export default function ChatBox() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#f3f7fe] to-white relative flex flex-col items-center pt-32 px-4 font-sans">
+    <div className="min-h-screen bg-gradient-to-b from-[#f3f7fe] to-white dark:from-gray-900 dark:to-gray-800 relative flex flex-col items-center pt-32 px-4 font-sans">
       {/* 1. return Dashboard btn */}
       <button
         onClick={() => router.push("/dashboard")}
-        className="absolute top-6 left-6 flex items-center gap-2 text-gray-500 hover:text-gray-800 transition-colors bg-white/50 px-4 py-2 rounded-lg shadow-sm hover:shadow"
+        className="absolute top-6 left-6 flex items-center gap-2 text-gray-800 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-500 transition-colors bg-white/50 dark:bg-gray-800/50 px-4 py-2 rounded-lg shadow-sm hover:shadow"
       >
         <ArrowLeft className="h-5 w-5" />
         Back to Dashboard
       </button>
 
       {/* 2. random title */}
-      <h1 className="text-4xl md:text-2xl text-gray-800 mb-10 transition-opacity duration-500">
+      <h1 className="text-4xl md:text-2xl text-gray-800 dark:text-gray-200 mb-10 transition-opacity duration-500">
         {title || "..."}
       </h1>
 
       {/* 3. input box */}
       <form onSubmit={handleSend} className="w-full max-w-3xl relative group">
-        <div className="flex items-center bg-white rounded-full px-6 py-4 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-gray-100 transition-all duration-300 group-focus-within:shadow-[0_8px_30px_rgb(0,0,0,0.12)] group-focus-within:border-blue-200 group-focus-within:-translate-y-1">
+        <div className="flex items-center bg-white dark:bg-gray-800 rounded-full px-6 py-4 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] border border-gray-100 dark:border-gray-600 transition-all duration-300 group-focus-within:shadow-[0_8px_30px_rgb(0,0,0,0.12)] group-focus-within:border-blue-200group-focus-within:-translate-y-1">
           <input
             type="text"
             value={prompt}
             onChange={e => setPrompt(e.target.value)}
             disabled={isLoading}
             placeholder="Ask AI..."
-            className="flex-1 bg-transparent outline-none text-gray-700 text-lg placeholder:text-gray-400 disabled:bg-transparent"
+            className="flex-1 bg-transparent outline-none text-gray-700 dark:text-white text-lg placeholder:text-gray-400 disabled:bg-transparent"
           />
 
           {/* send btn & loading animate */}
           <button
             type="submit"
             disabled={isLoading || !prompt.trim()}
-            className="text-gray-400 hover:text-blue-500 enabled:cursor-pointer disabled:cursor-not-allowed disabled:opacity-50 disabled:hover:text-gray-400 transition-colors ml-4"
+            className="text-gray-100 bg-blue-600 rounded-4xl px-4 py-2 dark:bg-blue-600 dark:text-white hover:bg-blue-500 dark:hover:bg-blue-500 enabled:cursor-pointer disabled:cursor-not-allowed dark:disabled:opacity-60 
+            disabled:hover:text-gray-300 transition-colors ml-4"
           >
             {isLoading ? (
               <Loader2 className="animate-spin h-6 w-6" />
@@ -135,7 +136,7 @@ export default function ChatBox() {
 
       {/* 4. Return value display area (typewriter effect output) */}
       {displayedText && (
-        <div className="w-full max-w-3xl mt-12 p-8 bg-white/60 backdrop-blur-sm rounded-2xl shadow-sm border border-white/50 text-gray-700 text-lg leading-relaxed text-left">
+        <div className="w-full max-w-3xl mt-12 p-8 bg-white/60 dark:bg-gray-700/60 backdrop-blur-sm rounded-2xl shadow-sm border border-white/50 dark:border-gray-600 text-gray-700 dark:text-gray-300 text-lg leading-relaxed text-left">
           <pre className="font-sans whitespace-pre-wrap">
             {displayedText}
             {/* The blinking cursor of a simulated typewriter */}
@@ -144,7 +145,7 @@ export default function ChatBox() {
                 (chatData.results
                   ? JSON.stringify(chatData.results, null, 2).length
                   : 0) && (
-              <span className="inline-block w-2 h-5 bg-blue-400 ml-1 animate-pulse align-middle"></span>
+              <span className="inline-block w-2 h-5 bg-blue-500 dark:bg-blue-500 ml-1 animate-pulse align-middle"></span>
             )}
           </pre>
         </div>

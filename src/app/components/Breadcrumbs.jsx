@@ -29,7 +29,7 @@ export default function Breadcrumbs({ items }) {
       {items.length > 0 && (
         <button
           onClick={() => router.push(getBackPath())}
-          className="flex items-center justify-center w-8 h-8 text-gray-600 dark:text-gray-200 hover:text-blue-600 hover:bg-blue-200 rounded-lg transition"
+          className="flex items-center justify-center w-8 h-8 text-gray-600 dark:text-gray-200 hover:text-blue-600 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-blue-500 rounded-lg transition"
           title="Go back"
         >
           <ArrowLeft className="w-5 h-5" />
@@ -39,7 +39,7 @@ export default function Breadcrumbs({ items }) {
       {/* Home Icon */}
       <button
         onClick={() => router.push("/dashboard")}
-        className="flex items-center gap-1 text-gray-600 dark:text-gray-200 hover:text-blue-600 transition"
+        className="flex items-center gap-1 text-gray-600 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-500 transition"
         title="Home"
       >
         <Home className="w-4 h-4" />
@@ -53,7 +53,7 @@ export default function Breadcrumbs({ items }) {
           {item.path ? (
             <button
               onClick={() => router.push(item.path)}
-              className="text-gray-600 dark:text-gray-200 hover:text-blue-600 transition font-medium"
+              className="text-gray-600 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-500 transition font-medium"
             >
               {item.label}
             </button>
