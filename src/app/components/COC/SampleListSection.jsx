@@ -119,7 +119,7 @@ export default function SampleListSection({
 
               {/* card body */}
               <div
-                className="cursor-pointer mb-5"
+                className=" cursor-pointer mb-5"
                 onClick={() =>
                   router.push(
                     `/coc/${cocId}/sample/${sample.sampleId}?cocNumber=${cocNumber}`,
@@ -155,10 +155,10 @@ export default function SampleListSection({
                 </div>
               </div>
 
-              {/* Bottle Icon with Remaining Volume */}
+              {/* Bottle Icon with Remaining V\olume */}
               <div
                 onClick={(e) => e.stopPropagation()}
-                className="pt-2 border-t border-black/5 dark:border-white/5"
+                className=" pt-2 border-t border-black/5 dark:border-white/5"
               >
                 <BottleIcon
                   remainingVolume={sample.remainingVolume ?? 1000}

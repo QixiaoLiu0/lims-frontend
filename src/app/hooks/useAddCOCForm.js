@@ -31,7 +31,7 @@ export function useAddCOCForm(onAdd, onClose) {
   const [rushRequest, setRushRequest] = useState(false); //isRush
   const [rushRequestDate, setRushRequestDate] = useState(""); //dateForRush
   const [receiver, setReceiver] = useState(""); //receivedBy
-  const [receivedTime, setReceivedTime] = useState("");
+  const [receivedTime, setReceivedTime] = useState(""); //receivedTime
   const [relinquisher, setRelinquisher] = useState(""); //relinquishedBy
   const [relinquishedTime, setRelinquishedTime] = useState("");
   const [totalBottles, setTotalBottles] = useState(""); //numberOfContainers
@@ -41,7 +41,7 @@ export function useAddCOCForm(onAdd, onClose) {
   // [new] this is a function to assembly the payload(filed mapping, filtering) of Api4: Create COC
   const assemblyPayload = () => {
     // helper: format to `YYYY-MM-DD HH:mm:ss`
-    const formatDateTime = val => {
+    const formatDateTime = (val) => {
       if (!val) return "";
       return dayjs(val).isValid()
         ? dayjs(val).format("YYYY-MM-DD HH:mm:ss")
@@ -69,7 +69,7 @@ export function useAddCOCForm(onAdd, onClose) {
       specialInstructions: "",
 
       // Samples fields cleaning & mapping
-      samples: samples.map(sample => {
+      samples: samples.map((sample) => {
         // concat collectionDate and collectionTime to form sampledTime
         let formattedSampledTime = "";
         if (sample.collectionDate && sample.collectionTime) {
@@ -142,24 +142,26 @@ export function useAddCOCForm(onAdd, onClose) {
     setSamples([...samples, newSample]);
   };
 
-  const removeSample = id => {
-    setSamples(samples.filter(s => s.id !== id));
+  const removeSample = (id) => {
+    setSamples(samples.filter((s) => s.id !== id));
   };
 
   const updateSample = (id, field, value) => {
-    setSamples(samples.map(s => (s.id === id ? { ...s, [field]: value } : s)));
+    setSamples(
+      samples.map((s) => (s.id === id ? { ...s, [field]: value } : s)),
+    );
   };
 
   // [modified] use id instead of sampleId (sampleId might be repeated from user input)
   const toggleTest = (id, testId) => {
-    setSamples(prevSamples =>
-      prevSamples.map(s => {
+    setSamples((prevSamples) =>
+      prevSamples.map((s) => {
         if (s.id === id) {
           const currentSelected = s.selectedTests || [];
           const exists = currentSelected.includes(testId);
 
           const updatedSelected = exists
-            ? currentSelected.filter(t => t !== testId)
+            ? currentSelected.filter((t) => t !== testId)
             : [...currentSelected, testId];
 
           return {
@@ -172,7 +174,7 @@ export function useAddCOCForm(onAdd, onClose) {
     );
   };
 
-  const handleSubmit = async e => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 

@@ -41,7 +41,7 @@ export default function Login() {
       } else {
         setIsLoading(false);
         setError(
-          "Invalid email or password. Please check the demo credentials below.",
+          "Invalid email or password. Please check the credentials below.",
         );
       }
     }

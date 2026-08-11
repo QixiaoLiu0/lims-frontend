@@ -77,7 +77,7 @@ export default function TestResultDetailPage() {
             <div className="flex items-center gap-3">
               <button
                 onClick={handleExport}
-                className="flex items-center gap-2 px-4 py-2.5 bg-slate-200 dark:bg-slate-700 text-gray-900 dark:text-gray-200 font-medium rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition shadow-sm"
+                className=" hidden items-center gap-2 px-4 py-2.5 bg-slate-200 dark:bg-slate-700 text-gray-900 dark:text-gray-200 font-medium rounded-lg hover:bg-slate-300 dark:hover:bg-slate-600 transition shadow-sm"
               >
                 <Download className="w-4 h-4" />
                 Export

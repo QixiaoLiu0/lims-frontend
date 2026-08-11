@@ -142,7 +142,7 @@ export default function TestListSection({
                 className={`inline-flex items-center px-2 py-0.5 rounded text-xs font-semibold leading-tight ${
                   test.status === "Completed"
                     ? "bg-emerald-50 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400"
-                    : "bg-blue-50 text-blue-900 dark:bg-blue-500/10 dark:text-blue-900"
+                    : "bg-blue-50 text-blue-900 dark:bg-blue-100 dark:text-blue-900"
                 }`}
               >
                 {test.status === "Completed" ? "Completed" : "In-Progress"}

@@ -42,6 +42,8 @@ export default function AddCOCModal({ onAdd, onClose }) {
 
   let currentDate = new Date().toISOString().slice(0, 16);
 
+  
+
   const handleVolumeKeyDown = (e) => {
     // Let navigation/editing keys through untouched
     const allowedKeys = [
@@ -175,7 +177,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                 <div>
                   <label className="flex text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 items-center gap-1.5 leading-tight">
                     <User className="w-3.5 h-3.5" />
-                    Receiver *
+                    COC Receiver (Researcher)*
                   </label>
                   <input
                     type="text"
@@ -193,7 +195,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                 <div>
                   <label className="text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 flex items-center gap-1.5 leading-tight">
                     <Clock className="w-3.5 h-3.5" />
-                    Received Time *
+                    COC Received Time *
                   </label>
                   <input
                     type="datetime-local"
@@ -209,7 +211,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                 <div>
                   <label className="text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 flex items-center gap-1.5 leading-tight">
                     <User className="w-3.5 h-3.5" />
-                    Report Name
+                    Report Recipient (Client)
                   </label>
                   <input
                     type="text"
@@ -224,7 +226,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                 <div>
                   <label className="text-sm font-semibold text-gray-900 dark:text-gray-200 mb-2 flex items-center gap-1.5 leading-tight">
                     <FileText className="w-3.5 h-3.5" />
-                    Report Email
+                    Report Recipient's Email
                   </label>
                   <input
                     type="email"
@@ -351,7 +353,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
                     <FileText className="w-3.5 h-3.5" />
                     Total # of Containers (auto-calculated)
                   </label>
-                  <div className="bg-gray-100 h-10 border border-gray-300 rounded-lg flex items-center pl-3">
+                  <div className="bg-gray-100 dark:bg-slate-900 dark:border-slate-600 dark:text-white h-10 border border-gray-300 rounded-lg flex items-center pl-3">
                     {totalContainers}
                   </div>
                 </div>

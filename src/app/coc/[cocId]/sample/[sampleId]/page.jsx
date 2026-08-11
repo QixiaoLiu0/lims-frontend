@@ -123,7 +123,7 @@ export default function SampleDetailPage() {
                   setEditedSample({ ...sample });
                   setIsEditingSample(true);
                 }}
-                className="flex items-center gap-2 px-3 py-1.5 bg-slate-100 dark:bg-slate-700 text-gray-900 dark:text-gray-200 rounded-lg hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white transition-colors text-sm font-medium leading-tight"
+                className="hidden items-center gap-2 px-3 py-1.5 bg-slate-100 dark:bg-slate-700 text-gray-900 dark:text-gray-200 rounded-lg hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 dark:hover:text-white transition-colors text-sm font-medium leading-tight"
               >
                 <Edit2 className="w-4 h-4" />
                 Edit
