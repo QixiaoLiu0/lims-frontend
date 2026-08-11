@@ -1,5 +1,7 @@
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Edit2, MoreVertical, Trash2, Plus } from "lucide-react";
+import ConfirmDeleteModal from "@/app/components/ConfirmDeleteModal";
 
 export default function TestListSection({
   testCardData,
@@ -13,7 +15,7 @@ export default function TestListSection({
   setShowAddTestDropdown,
 }) {
   const router = useRouter();
-
+  const [testToDelete, setTestToDelete] = useState(null);
   // helper
   const goToTestDetail = (testId) => {
     const query = new URLSearchParams();
@@ -47,6 +49,7 @@ export default function TestListSection({
   }
 
   return (
+    <>
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {testCardData.map((test) => {
         return (
@@ -80,16 +83,10 @@ export default function TestListSection({
                   <div className="absolute right-0 top-full mt-1.5 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 py-1.5 min-w-[180px] z-50 overflow-hidden">
                     <button
                       onClick={(e) => {
-                        e.stopPropagation();
-                        if (
-                          confirm(
-                            "Are you sure you want to delete this test? All associated results will be lost.",
-                          )
-                        ) {
-                          deleteTest(test.testId);
+                          e.stopPropagation();
+                          setTestToDelete(test);
                           setActiveTestMenu(null);
-                        }
-                      }}
+                        }}
                       className="w-full px-4 py-2.5 text-left text-sm font-medium leading-tight hover:bg-red-50 dark:hover:bg-red-500/10 transition-colors flex items-center gap-2 text-red-500 dark:text-red-500"
                     >
                       <Trash2 className="w-4 h-4" />
@@ -153,5 +150,19 @@ export default function TestListSection({
         );
       })}
     </div>
+    {/* Delete Test Confirmation Modal */}
+      {testToDelete && (
+        <ConfirmDeleteModal
+          title="Delete Test"
+          message="Are you sure you want to delete this test? All associated results will be permanently lost."
+          itemName={`Test: ${testToDelete.typeName}`}
+          onConfirm={() => {
+            deleteTest(testToDelete.testId);
+            setTestToDelete(null); // Close modal on confirm
+          }}
+          onCancel={() => setTestToDelete(null)} // Close modal on cancel
+        />
+      )}
+    </>
   );
 }

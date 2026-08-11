@@ -89,8 +89,8 @@ export function useManageTestTypes(canEdit) {
       setEditForm({});
       await fetchTestTypes(); //refresh data
     } catch (error) {
-      console.error("Save failed:", error);
-      alert("Failed to save changes.");
+      console.error(error);
+      alert(error.message || "Failed to save changes.");
     }
   };
 

@@ -1,8 +1,9 @@
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { Droplet, MoreVertical, Trash2 } from "lucide-react";
 import { BottleIcon } from "@/app/components/BottleIcon";
 import StatusBadge from "../StatusBadge";
+import ConfirmDeleteModal from "@/app/components/ConfirmDeleteModal";
 
 export default function SampleListSection({
   title,
@@ -21,6 +22,7 @@ export default function SampleListSection({
   handleDeleteSample,
 }) {
   const router = useRouter();
+  const [sampleToDelete, setSampleToDelete] = useState(null);
 
   if (!samples || samples.length === 0) return null;
 
@@ -41,6 +43,7 @@ export default function SampleListSection({
   }, [activeSampleMenu, setActiveSampleMenu]);
 
   return (
+    <>
     <div className="mb-6">
       <h3 className="text-lg font-semibold leading-tight text-gray-900 dark:text-gray-200 mb-4 flex items-center gap-2 drop-shadow-sm">
         <div className={`w-2 h-2 ${colorClass} rounded-full`}></div>
@@ -97,15 +100,10 @@ export default function SampleListSection({
                       <div className="absolute right-0 top-full mt-1.5 bg-white dark:bg-slate-800 rounded-xl shadow-xl border border-slate-200 dark:border-slate-700 py-1.5 min-w-[180px] z-50 overflow-hidden">
                         <button
                           onClick={(e) => {
-                            e.stopPropagation();
-                            if (
-                              confirm(
-                                "Are you sure you want to delete this sample? All associated tests will be lost.",
-                              )
-                            ) {
-                              handleDeleteSample(sample.sampleId);
-                            }
-                          }}
+                              e.stopPropagation();
+                              setSampleToDelete(sample);
+                              setActiveSampleMenu(null);
+                            }}
                           className="w-full px-4 py-2 text-left text-sm font-medium hover:bg-red-50 dark:hover:bg-red-500/10 transition-colors flex items-center gap-2 text-red-500 dark:text-red-500 leading-tight"
                         >
                           <Trash2 className="w-4 h-4" />
@@ -174,5 +172,18 @@ export default function SampleListSection({
         })}
       </div>
     </div>
+    {sampleToDelete && (
+        <ConfirmDeleteModal
+          title="Delete Sample"
+          message="Are you sure you want to delete this sample? All associated tests will be permanently lost."
+          itemName={`Sample: ${sampleToDelete.sampleClientId}`}
+          onConfirm={() => {
+            handleDeleteSample(sampleToDelete.sampleId);
+            setSampleToDelete(null); // Close modal on confirm
+          }}
+          onCancel={() => setSampleToDelete(null)} // Close modal on cancel
+        />
+      )}
+    </>  
   );
 }
