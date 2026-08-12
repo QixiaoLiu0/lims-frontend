@@ -243,28 +243,29 @@ export default function UserManagementTab({ inputCls }) {
             return (
               <div
                 key={u.userId}
-                className="flex items-center justify-between p-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl hover:shadow-sm transition-all"
-              >
-                <div className="flex items-center gap-4">
+                className="flex items-center justify-between gap-3 p-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl hover:shadow-sm transition-all"
+                >
+                <div className="flex items-center gap-3 md:gap-4 flex-1 min-w-0">
                   <div
-                    className={`${roleInfo.color} p-2.5 rounded-lg shadow-sm border border-gray-200 dark:border-gray-600/50`}
+                    className={`shrink-0 ${roleInfo.color} p-2.5 rounded-lg shadow-sm border border-gray-200 dark:border-gray-600/50`}
                   >
                     <RoleIcon className="w-5 h-5" />
                   </div>
-                  <div>
-                    <p className="font-semibold text-sm text-gray-900 dark:text-gray-200 leading-tight mb-0.5">
+                  
+                  <div className="flex-1 min-w-0">
+                    <p className="font-semibold text-sm text-gray-900 dark:text-gray-200 leading-tight mb-0.5 truncate">
                       {`${u.firstName} ${u.lastName}`}
                     </p>
-                    <p className="text-sm font-medium text-gray-500 dark:text-gray-200 leading-tight">
+                    <p className="text-sm font-medium text-gray-500 dark:text-gray-200 leading-tight truncate">
                       {u.email}
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3">
+                <div className="shrink-0 w-32 sm:w-36">
                   {isSelf ? (
                     <span
-                      className={`inline-flex items-center px-2.5 py-1 rounded-full text-xs font-semibold leading-tight ${roleInfo.color} border border-gray-200 dark:border-gray-600`}
+                      className={`flex items-center justify-center w-full px-2 py-1.5 rounded-full text-[11px] sm:text-xs font-semibold leading-tight ${roleInfo.color} border border-gray-200 dark:border-gray-600 truncate`}
                     >
                       {roleInfo.label} (You)
                     </span>
@@ -274,7 +275,7 @@ export default function UserManagementTab({ inputCls }) {
                       onChange={(e) =>
                         handleUpdateRole(u.userId, e.target.value)
                       }
-                      className={`px-3 py-1.5 rounded-full text-xs font-semibold leading-tight ${roleInfo.color} border border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500 transition-colors cursor-pointer outline-none focus:ring-2 focus:ring-blue-500`}
+                      className={`w-full px-2 py-1.5 rounded-full text-xs font-semibold leading-tight ${roleInfo.color} border border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500 transition-colors cursor-pointer outline-none focus:ring-2 focus:ring-blue-500 truncate`}
                     >
                       <option value="STAFF">Staff</option>
                       <option value="ADMIN">Admin</option>

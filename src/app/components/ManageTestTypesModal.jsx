@@ -263,10 +263,11 @@ export default function ManageTestTypesModal({ canEdit }) {
                 ) : (
                   // View Mode
                   <div>
-                    <div className="flex items-start justify-between">
-                      <div className="flex items-center gap-4">
-                        <div>
-                          <div className="flex items-center gap-3 mb-1.5">
+                    <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+                      <div className="flex items-start gap-4 flex-1 min-w-0">
+                        <div className="flex-1 min-w-0">
+                          {/* Added flex-wrap to prevent the title/badge from squishing */}
+                          <div className="flex flex-wrap items-center gap-3 mb-1.5">
                             <h3 className="text-lg font-bold text-gray-900 dark:text-gray-200 leading-tight">
                               {testType.typeName}
                             </h3>
@@ -283,11 +284,13 @@ export default function ManageTestTypesModal({ canEdit }) {
                           <p className="text-sm font-medium text-gray-500 dark:text-gray-200 leading-normal mb-3">
                             {testType.description}
                           </p>
-                          <div className="flex items-center gap-3 text-xs font-medium text-gray-500 dark:text-gray-200 mb-4">
+                          
+                          {/* Added flex-wrap for ID and Volume */}
+                          <div className="flex flex-wrap items-center gap-3 text-xs font-medium text-gray-500 dark:text-gray-200 mb-4">
                             <span className="bg-slate-100 dark:bg-slate-700 px-2 py-0.5 rounded">
                               ID: {testType.testTypeId}
                             </span>
-                            <span>•</span>
+                            <span className="hidden sm:inline">•</span>
                             <span>
                               Required Volume: {testType.requiredVolume || "—"}
                             </span>
@@ -316,7 +319,7 @@ export default function ManageTestTypesModal({ canEdit }) {
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-2">
+                      <div className="flex items-center gap-2 shrink-0 w-full sm:w-auto justify-end pt-3 sm:pt-0 border-t sm:border-0 border-slate-100 dark:border-slate-700 mt-2 sm:mt-0">
                         {canEdit && (
                           <>
                             <button
