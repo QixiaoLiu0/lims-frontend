@@ -43,7 +43,7 @@ export function useDashboard() {
 
   // Memoize filtered COCs logic
   const filteredCOCs = useMemo(() => {
-    // 0. 防御机制：确保 cocs 是一个有效数组
+
     if (!cocs || !Array.isArray(cocs)) return [];
 
     return cocs.filter((coc) => {
@@ -86,7 +86,7 @@ export function useDashboard() {
         selectedStatuses.length === 0 ||
         selectedStatuses.includes(coc.status);
 
-      // 4. 综合判断
+
       return (
         matchesSearch && matchesStartDate && matchesEndDate && matchesStatus
       );

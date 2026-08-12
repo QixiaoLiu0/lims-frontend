@@ -57,8 +57,7 @@ export default function AddCOCModal({ onAdd, onClose }) {
     ];
     if (allowedKeys.includes(e.key) || e.ctrlKey || e.metaKey) return;
 
-    // Block anything that isn't a digit (also stops "e", "+", "-", "." which
-    // type="number" oddly still lets you type in some browsers)
+    // Block anything that isn't a digit (also stops "e", "+", "-", "."
     if (!/^[0-9]$/.test(e.key)) {
       e.preventDefault();
       return;
@@ -563,14 +562,30 @@ export default function AddCOCModal({ onAdd, onClose }) {
                             required
                             max={1000}
                             min={0}
-                            onChange={(e) =>
-                              updateSample(
-                                sample.id,
-                                "initialVolume",
-                                e.target.value,
-                              )
-                            }
+                            onKeyDown={(e) => {
+                              // Prevent typing the minus sign or 'e' (scientific notation)
+                              if (e.key === '-' || e.key === 'e') {
+                                e.preventDefault();
+                              }
+                            }}
+                            onChange={(e) => {
+                              const value = e.target.value;
+                              
+                              // Allow empty string so the user can clear the input to type a new number
+                              if (value === "") {
+                                updateSample(sample.id, "initialVolume", "");
+                                return;
+                              }
+
+                              const numValue = Number(value);
+                              
+                              // Only update state if the number is between 0 and 1000
+                              if (numValue >= 0 && numValue <= 1000) {
+                                updateSample(sample.id, "initialVolume", value);
+                              }
+                            }}
                             onBlur={(e) => {
+                              // If left empty, it will default to 0.
                               let val = Number(e.target.value);
                               if (isNaN(val)) val = 0;
                               val = Math.min(1000, Math.max(0, val));
@@ -588,14 +603,25 @@ export default function AddCOCModal({ onAdd, onClose }) {
                           </label>
                           <input
                             type="number"
+                            min="0"
+                            max="1000"
                             value={sample.numberOfContainers}
-                            onChange={(e) =>
-                              updateSample(
-                                sample.id,
-                                "numberOfContainers",
-                                e.target.value,
-                              )
-                            }
+                            onKeyDown={(e) => {
+                              // Prevent typing the minus sign or 'e' 
+                              if (e.key === '-' || e.key === 'e') {
+                                e.preventDefault();
+                              }
+                            }}
+                            onChange={(e) => {
+                              const value = e.target.value;
+
+                              const numValue = Number(value);
+                              
+                              // Only update state if the number is between 0 and 1000
+                              if (numValue >= 0 && numValue <= 10000) {
+                                updateSample(sample.id, "numberOfContainers", value);
+                              }
+                            }}
                             className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 dark:text-gray-200 text-sm font-mono transition-colors"
                           />
                         </div>

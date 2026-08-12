@@ -56,7 +56,6 @@ export default function Dashboard() {
 
   return (
     <div className="min-h-screen bg-grid-pattern">
-      {/* 🚀 新增：全局 Loading 遮罩层，防止用户在删除/刷新期间误触 */}
       {loading && (
         <div className="fixed inset-0 z-[9999] bg-slate-900/40 backdrop-blur-sm flex items-center justify-center transition-opacity">
           <div className="bg-white dark:bg-slate-800 px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-4 border border-slate-200 dark:border-slate-700">
