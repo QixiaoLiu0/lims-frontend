@@ -137,6 +137,30 @@ export default function COCDetailPage() {
           </div>
 
           {/* First Row */}
+          {/* 1. COC Number */}
+          <div>
+            <div className="flex items-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-300 mb-1.5 ">
+              <FileText className="w-4 h-4" />
+              <span>COC Number</span>
+            </div>
+            {isEditingCOC ? (
+              <input
+                type="text"
+                value={editedCOCData?.cocNumber || ""}
+                onChange={(e) =>
+                  setEditedCOCData({
+                    ...editedCOCData,
+                    cocNumber: e.target.value.replace(/\D/g, ""), // Keep numbers-only validation
+                  })
+                }
+                className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 text-gray-900 dark:text-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors text-sm font-mono"
+              />
+            ) : (
+              <p className="text-base font-semibold leading-normal text-gray-900 dark:text-gray-300 font-mono mb-6">
+                {cocData.cocNumber || "—"}
+              </p>
+            )}
+          </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div>
               <div className="flex items-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-300 mb-1.5">
@@ -163,6 +187,29 @@ export default function COCDetailPage() {
             </div>
             <div>
               <div className="flex items-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-300 mb-1.5">
+                <Droplet className="w-4 h-4" />
+                <span>Status</span>
+              </div>
+              {isEditingCOC ? (
+                <select
+                  value={editedCOCData?.status || ""}
+                  onChange={(e) =>
+                    setEditedCOCData({
+                      ...editedCOCData,
+                      status: e.target.value,
+                    })
+                  }
+                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 text-gray-900 dark:text-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors text-sm"
+                >
+                  <option value="In-Progress">In-Progress</option>
+                  <option value="Completed">Completed</option>
+                </select>
+              ) : (
+                <StatusBadge status={cocData.status} />
+              )}
+            </div>
+            <div>
+              <div className="flex items-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-300 mb-1.5">
                 <User className="w-4 h-4" />
                 <span>Report To</span>
               </div>
@@ -184,50 +231,28 @@ export default function COCDetailPage() {
                 </p>
               )}
             </div>
+
             <div>
               <div className="flex items-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-300 mb-1.5">
-                <Clock className="w-4 h-4" />
-                <span>Received Time</span>
+                <Calendar className="w-4 h-4" />
+                <span>Date Required</span>
               </div>
               {isEditingCOC ? (
                 <input
                   type="datetime-local"
-                  value={editedCOCData?.receivedTime?.replace(" ", "T") || ""}
+                  value={editedCOCData?.dateRequired?.replace(" ", "T") || ""}
                   onChange={(e) =>
                     setEditedCOCData({
                       ...editedCOCData,
-                      receivedTime: e.target.value.replace("T", " "),
+                      dateRequired: e.target.value.replace("T", " "),
                     })
                   }
                   className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 text-gray-900 dark:text-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors text-sm"
                 />
               ) : (
                 <p className="text-base font-semibold leading-normal text-gray-900 dark:text-gray-300">
-                  {cocData.receivedTime}
+                  {cocData.dateRequired}
                 </p>
-              )}
-            </div>
-            <div>
-              <div className="flex items-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-300 mb-1.5">
-                <Droplet className="w-4 h-4" />
-                <span>Status</span>
-              </div>
-              {isEditingCOC ? (
-                <select
-                  value={editedCOCData?.status || ""}
-                  onChange={(e) =>
-                    setEditedCOCData({
-                      ...editedCOCData,
-                      status: e.target.value,
-                    })
-                  }
-                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 text-gray-900 dark:text-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors text-sm"
-                >
-                  <option value="In-Progress">In-Progress</option>
-                  <option value="Completed">Completed</option>
-                </select>
-              ) : (
-                <StatusBadge status={cocData.status} />
               )}
             </div>
           </div>
@@ -283,6 +308,29 @@ export default function COCDetailPage() {
             <div>
               <div className="flex items-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-300 mb-1.5">
                 <Clock className="w-4 h-4" />
+                <span>Received Time</span>
+              </div>
+              {isEditingCOC ? (
+                <input
+                  type="datetime-local"
+                  value={editedCOCData?.receivedTime?.replace(" ", "T") || ""}
+                  onChange={(e) =>
+                    setEditedCOCData({
+                      ...editedCOCData,
+                      receivedTime: e.target.value.replace("T", " "),
+                    })
+                  }
+                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 text-gray-900 dark:text-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors text-sm"
+                />
+              ) : (
+                <p className="text-base font-semibold leading-normal text-gray-900 dark:text-gray-300">
+                  {cocData.receivedTime}
+                </p>
+              )}
+            </div>
+            <div>
+              <div className="flex items-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-300 mb-1.5">
+                <Clock className="w-4 h-4" />
                 <span>Relinquished Time</span>
               </div>
               {isEditingCOC ? (
@@ -302,82 +350,6 @@ export default function COCDetailPage() {
               ) : (
                 <p className="text-base font-semibold leading-normal text-gray-900 dark:text-gray-300">
                   {cocData.relinquishedTime}
-                </p>
-              )}
-            </div>
-            <div>
-              <div className="flex items-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-300 mb-1.5">
-                <Calendar className="w-4 h-4" />
-                <span>Date Required</span>
-              </div>
-              {isEditingCOC ? (
-                <input
-                  type="datetime-local"
-                  value={editedCOCData?.dateRequired?.replace(" ", "T") || ""}
-                  onChange={(e) =>
-                    setEditedCOCData({
-                      ...editedCOCData,
-                      dateRequired: e.target.value.replace("T", " "),
-                    })
-                  }
-                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 text-gray-900 dark:text-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors text-sm"
-                />
-              ) : (
-                <p className="text-base font-semibold leading-normal text-gray-900 dark:text-gray-300">
-                  {cocData.dateRequired}
-                </p>
-              )}
-            </div>
-          </div>
-
-          {/* Third Row - Containers & Instructions */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-6 pt-6 border-t border-slate-200 dark:border-slate-700">
-            <div>
-              <div className="flex items-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-300 mb-1.5">
-                <Box className="w-4 h-4" />
-                <span>Containers</span>
-              </div>
-              {isEditingCOC ? (
-                <input
-                  type="number"
-                  value={editedCOCData?.numberOfContainers || 0}
-                  onChange={(e) =>
-                    setEditedCOCData({
-                      ...editedCOCData,
-                      numberOfContainers: parseInt(e.target.value),
-                    })
-                  }
-                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 text-gray-900 dark:text-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors text-sm"
-                />
-              ) : (
-                <p className="text-base font-semibold leading-normal text-gray-900 dark:text-gray-300">
-                  {cocData.numberOfContainers}
-                </p>
-              )}
-            </div>
-            <div className="col-span-1 md:col-span-2 lg:col-span-3">
-              <div className="flex items-center gap-2 text-sm font-medium text-gray-500 dark:text-gray-300 mb-1.5">
-                <AlertCircle className="w-4 h-4" />
-                <span>Special Instructions</span>
-              </div>
-              {isEditingCOC ? (
-                <input
-                  type="text"
-                  value={editedCOCData?.specialInstructions || ""}
-                  onChange={(e) =>
-                    setEditedCOCData({
-                      ...editedCOCData,
-                      specialInstructions: e.target.value,
-                    })
-                  }
-                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-300 dark:border-slate-600 text-gray-900 dark:text-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors text-sm"
-                />
-              ) : (
-                <p
-                  className="text-base font-semibold leading-normal text-gray-900 dark:text-gray-300 truncate"
-                  title={cocData.specialInstructions}
-                >
-                  {cocData.specialInstructions || "None"}
                 </p>
               )}
             </div>

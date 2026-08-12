@@ -38,7 +38,6 @@ export function useCOCDetail() {
 
       console.log("realDetailData", realDetailData);
 
-      // 真正执行赋值，唤醒 UI！
       setCocData(realDetailData);
       setCocNumber(realDetailData.cocNumber);
     } catch (error) {
