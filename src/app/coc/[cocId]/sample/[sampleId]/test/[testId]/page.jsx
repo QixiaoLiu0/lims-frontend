@@ -117,7 +117,7 @@ export default function TestResultDetailPage() {
               results={results}
               editedValues={editedValues}
               handleValueChange={handleValueChange}
-              canEdit={canEdit}
+              canEdit={true}
             />
           </div>
         </div>
